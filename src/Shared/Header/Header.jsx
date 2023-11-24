@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import MenuDropdown from "./MenuDropdown";
+import logo from "../../../public/assets/Logo/fitness.png";
 
 const Header = () => {
   return (
@@ -8,10 +9,11 @@ const Header = () => {
         <div className="py-4 border-b-[1px]">
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             <div className="flex gap-56 items-center justify-between">
-              <div>
+              <div className="flex items-center">
                 <Link to="/">
-                  <h1 className="text-4xl font-bold">Fitnex-Fitness </h1>
+                  <img className="w-20 rounded-full" src={logo} alt="" />
                 </Link>
+                <h1 className="text-3xl font-bold">Fitnex</h1>
               </div>
               <div className="">
                 <ul className="flex items-center gap-4 font-bold">
