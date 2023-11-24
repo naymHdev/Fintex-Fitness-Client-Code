@@ -1,9 +1,16 @@
+// import Banner from "./Banner/Banner";
 
+import About from "./About";
+import Featured from "./Featured/Featured";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
     return (
         <div>
-            <h2>Home Page</h2>
+            {/* <Banner /> */}
+            <Featured />
+            <About />
+            <Testimonials />
         </div>
     );
 };

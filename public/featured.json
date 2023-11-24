@@ -1,0 +1,30 @@
+[
+  {
+    "user_ratings": 5,
+    "user_feedback": "I love the personalized workout plans! They've made a significant impact on my fitness journey.",
+    "user_image": "https://imagizer.imageshack.com/img923/9528/wKuMsv.jpg",
+    "user_name": "Jon Sina",
+    "status": "Verified"
+  },
+  {
+    "user_ratings": 4,
+    "user_feedback": "The sleep analysis feature is fantastic! It helped me improve my sleep patterns and overall well-being.",
+    "user_image": "https://imagizer.imageshack.com/img923/2679/PVMLAd.jpg",
+    "user_name": "Bill Gates",
+    "status": "Verified"
+  },
+  {
+    "user_ratings": 5,
+    "user_feedback": "The real-time feedback during workouts keeps me motivated. Great app for staying on track!",
+    "user_image": "https://imagizer.imageshack.com/img923/1207/PCNdZj.jpg",
+    "user_name": "Mr. Mark",
+    "status": "Verified"
+  },
+  {
+    "user_ratings": 4.5,
+    "user_feedback": "User-friendly interface and seamless syncing with my devices make fitness tracking a breeze.",
+    "user_image": "https://imagizer.imageshack.com/img924/217/F8Zvbz.jpg",
+    "user_name": "Mr. X Man",
+    "status": "Verified"
+  }
+]
