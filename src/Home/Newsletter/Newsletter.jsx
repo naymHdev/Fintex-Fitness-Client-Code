@@ -73,7 +73,7 @@ const Newsletter = () => {
       {/* Image */}
       <div className="rounded-r-xl">
         <img
-          className="w-full h-full rounded-r-xl"
+          className="w-full h-full  rounded-r-xl"
           src="https://imagizer.imageshack.com/img922/21/GTCHgg.jpg"
           alt=""
         />
