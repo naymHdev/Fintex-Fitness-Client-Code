@@ -13,7 +13,6 @@ const Featured = () => {
       setFeatured(data)
     })
   }, [])
-  console.log(featured);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
