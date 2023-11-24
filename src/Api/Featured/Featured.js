@@ -10,3 +10,10 @@ export const testimonials = async () => {
   const { data } = await axiosSecure.get("/testimonials");
   return data;
 };
+
+// Newsletters get users
+
+export const newsLetters = async (name) => {
+  const { data } = await axiosSecure.post("/newsletters", name);
+  return data;
+};
