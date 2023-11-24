@@ -5,8 +5,8 @@ import logo from "../../../public/assets/Logo/fitness.png";
 const Header = () => {
   return (
     <div>
-      <div className=" w-11/12 mx-auto text-white shadow-sm">
-        <div className="py-4 border-b-[1px]">
+      <div className=" w-11/12 mx-auto text-white fixed z-10 bg-green-400 bg-opacity-70 shadow-sm">
+        <div className="py- border-b-[1px]">
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             <div className="flex gap-56 items-center justify-between">
               <div className="flex items-center">

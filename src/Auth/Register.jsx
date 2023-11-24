@@ -89,11 +89,6 @@ const Register = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
-            <div className="flex justify-end text-xs dark:text-gray-400">
-              <a rel="noopener noreferrer" href="#">
-                Forgot Password?
-              </a>
-            </div>
           </div>
           <button
             type="submit"
@@ -119,10 +114,10 @@ const Register = () => {
           </button>
         </div>
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
-          Don't have an account?
+          Already have an account?
           <Link to="/login">
-            <span rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">
-              Login
+            <span rel="noopener noreferrer" href="#" className="underline text-red-500">
+              Login Now
             </span>
           </Link>
         </p>

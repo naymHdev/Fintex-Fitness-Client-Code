@@ -39,7 +39,7 @@ const Login = () => {
   return (
     <div>
       <div className="w-5/12 mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
-        <h1 className="text-2xl font-bold text-center">Create Your Own Account</h1>
+        <h1 className="text-2xl font-bold text-center">Login Now</h1>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label className="block dark:text-gray-400">Email</label>
@@ -70,12 +70,12 @@ const Login = () => {
             type="submit"
             className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400"
           >
-            {loading ? <ImSpinner10 className="animate-spin m-auto" /> : "Register"}
+            {loading ? <ImSpinner10 className="animate-spin m-auto" /> : "Login"}
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">Register with social accounts</p>
+          <p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center text-3xl space-x-4">
@@ -95,9 +95,9 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
           Don't have an account?
-          <Link to="/login">
-            <span rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">
-              Login
+          <Link to="/register">
+            <span rel="noopener noreferrer" href="#" className="underline text-red-600">
+              Register Now
             </span>
           </Link>
         </p>

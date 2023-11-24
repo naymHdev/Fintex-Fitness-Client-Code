@@ -1,24 +1,19 @@
-import { Carousel } from 'react-responsive-carousel';
-
-import image1 from '../../../public/assets/banner/slider1.webp'
-import image2 from '../../../public/assets/banner/slider2.webp'
-import image3 from '../../../public/assets/banner/sli3.jpg'
-
+/* eslint-disable react/jsx-key */
+import Slide from "./Slide";
 
 const Banner = () => {
+
+  const items =  [
+    <img className="rounded-md bg-cover" src="https://imagizer.imageshack.com/img922/2025/eKqHNN.jpg" alt="" />,
+    <img className="rounded-md bg-cover" src="https://imagizer.imageshack.com/img922/4679/qCDNsc.jpg" alt="" />,
+    <img className="rounded-md bg-cover" src="https://imagizer.imageshack.com/img923/6483/2kEIHS.jpg" alt="" />,
+  ];
+
   return (
     <div>
-      <Carousel>
-        <div>
-          <img src={image1} />
-        </div>
-        <div>
-          <img src={image2} />
-        </div>
-        <div>
-          <img src={image3} />
-        </div>
-      </Carousel>
+      <div className="w-full flex items-center justify-center overflow-hidden">
+        <Slide  items={items} />
+      </div>
     </div>
   );
 };
