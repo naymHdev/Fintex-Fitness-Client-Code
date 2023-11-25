@@ -3,10 +3,10 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
+import { CiTimer } from "react-icons/ci";
 
 const TrainerCart = ({ info }) => {
-  const { trainer_name, trainer_image, trainer_experience, _id, trainer_short_details } =
-    info || {};
+  const { trainer_name, trainer_image, trainer_experience, _id, week, day } = info || {};
 
   return (
     <div>
@@ -23,7 +23,17 @@ const TrainerCart = ({ info }) => {
               <h4>
                 Experience <span className="text-green-500">{trainer_experience}+</span> Years
               </h4>
-              <p className="text-sm">{trainer_short_details}</p>
+              <h2 className="font-bold flex items-center gap-2">
+                Available Time <CiTimer className="text-xl text-green-400" />
+              </h2>
+              <div className="flex items-center gap-2">
+                <p className="text-sm border-r-2 pr-2">
+                  Weekly <span className="text-green-400 font-bold">{week}</span> Hour
+                </p>
+                <p className="text-sm">
+                  Daily <span className="text-green-400 font-bold">{day}</span> Hour
+                </p>
+              </div>
             </div>
             <div className=" space-y-3 hover:cursor-pointer">
               <FaFacebook className="text-[#1877F2]" />
@@ -36,7 +46,7 @@ const TrainerCart = ({ info }) => {
 
           <div className="flex items-center justify-between mt-5">
             <div>
-              <Link to={'/pricing'}>
+              <Link to={"/pricing"}>
                 <Button label={"Available Slots"} />
               </Link>
             </div>

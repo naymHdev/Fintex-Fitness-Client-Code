@@ -12,6 +12,7 @@ import Classes from "../Pages/Classes/Classes";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
 import Pricing from "../Pages/Trainer/Pricing";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/beTrainer",
-        element: <BeTrainer />,
+        element: <PrivateRoute><BeTrainer /></PrivateRoute>
       },
       {
         path: "/pricing",

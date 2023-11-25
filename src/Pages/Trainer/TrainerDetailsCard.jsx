@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { MdVerified } from "react-icons/md";
-import { SiVerizon } from "react-icons/si";
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 
@@ -33,7 +32,7 @@ const TrainerDetailsCard = ({ detail }) => {
               to achieve your fitness goals. Join us today!
             </p>
             <div className="flex justify-center">
-              <Link to={'/beTrainer'}>
+              <Link to={"/beTrainer"}>
                 <Button label={" Become a Trainer"} />
               </Link>
             </div>
@@ -41,29 +40,6 @@ const TrainerDetailsCard = ({ detail }) => {
         </div>
         <hr />
       </div>
-      {/* Table Time Section */}
-      <section className="mt-16">
-        <div className="overflow-x-auto">
-          <table className="table">
-            <thead>
-              <tr className="text-2xl font-bold text-white">
-                <th>Weekly Available Day</th>
-                <th>Day Time Slots</th>
-              </tr>
-            </thead>
-            <tbody>
-              {detail?.available_time_slots?.map((item) => (
-                <tr key={item}>
-                  <td className="text-green-500 font-bold flex items-center gap-2">
-                    {item?.day} <SiVerizon />
-                  </td>
-                  <td>{item?.slots}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
     </div>
   );
 };

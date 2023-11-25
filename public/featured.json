@@ -1,104 +1,29 @@
 [
-    {
-      "trainer_name": "John Doe",
-      "trainer_image": "https://example.com/john_doe_image.jpg",
-      "trainer_experience": 10,
-      "trainer_short_details": "Passionate about helping clients achieve their fitness goals through personalized training.",
-      "available_time_slots": [
-        {
-          "day": "Monday",
-          "slots": ["09:00 AM - 10:00 AM", "02:00 PM - 03:00 PM", "06:00 PM - 07:00 PM"]
-        },
-        {
-          "day": "Wednesday",
-          "slots": ["10:00 AM - 11:00 AM", "03:00 PM - 04:00 PM", "07:00 PM - 08:00 PM"]
-        },
-        {
-          "day": "Friday",
-          "slots": ["08:00 AM - 09:00 AM", "01:00 PM - 02:00 PM", "05:00 PM - 06:00 PM"]
-        }
-      ],
-      "trainer_pricing": {
-        "silver": {
-          "price": "$50",
-          "features": ["Personalized Workout Plan", "Weekly Check-ins"]
-        },
-        "golden": {
-          "price": "$75",
-          "features": ["Personalized Workout Plan", "Weekly Check-ins", "Nutritional Guidance"]
-        },
-        "diamond": {
-          "price": "$100",
-          "features": ["Personalized Workout Plan", "Weekly Check-ins", "Nutritional Guidance", "24/7 Email Support"]
-        }
-      }
-    },
-    {
-      "trainer_name": "Jane Smith",
-      "trainer_image": "https://example.com/jane_smith_image.jpg",
-      "trainer_experience": 7,
-      "trainer_short_details": "Energetic and dedicated to helping clients achieve their fitness goals with high-intensity workouts.",
-      "available_time_slots": [
-        {
-          "day": "Tuesday",
-          "slots": ["10:00 AM - 11:00 AM", "04:00 PM - 05:00 PM", "08:00 PM - 09:00 PM"]
-        },
-        {
-          "day": "Thursday",
-          "slots": ["09:00 AM - 10:00 AM", "02:00 PM - 03:00 PM", "06:00 PM - 07:00 PM"]
-        },
-        {
-          "day": "Saturday",
-          "slots": ["08:00 AM - 09:00 AM", "01:00 PM - 02:00 PM", "05:00 PM - 06:00 PM"]
-        }
-      ],
-      "trainer_pricing": {
-        "silver": {
-          "price": "$45",
-          "features": ["Customized HIIT Workouts", "Weekly Check-ins"]
-        },
-        "golden": {
-          "price": "$70",
-          "features": ["Customized HIIT Workouts", "Weekly Check-ins", "Nutritional Guidance"]
-        },
-        "diamond": {
-          "price": "$95",
-          "features": ["Customized HIIT Workouts", "Weekly Check-ins", "Nutritional Guidance", "24/7 Email Support"]
-        }
-      }
-    },
-    {
-      "trainer_name": "Alex Johnson",
-      "trainer_image": "https://example.com/alex_johnson_image.jpg",
-      "trainer_experience": 9,
-      "trainer_short_details": "Committed to helping clients find balance and inner peace through yoga and meditation.",
-      "available_time_slots": [
-        {
-          "day": "Monday",
-          "slots": ["07:00 AM - 08:00 AM", "12:00 PM - 01:00 PM", "05:00 PM - 06:00 PM"]
-        },
-        {
-          "day": "Wednesday",
-          "slots": ["08:00 AM - 09:00 AM", "01:00 PM - 02:00 PM", "06:00 PM - 07:00 PM"]
-        },
-        {
-          "day": "Friday",
-          "slots": ["09:00 AM - 10:00 AM", "03:00 PM - 04:00 PM", "07:00 PM - 08:00 PM"]
-        }
-      ],
-      "trainer_pricing": {
-        "silver": {
-          "price": "$55",
-          "features": ["Guided Yoga Sessions", "Mindfulness Practices"]
-        },
-        "golden": {
-          "price": "$80",
-          "features": ["Guided Yoga Sessions", "Mindfulness Practices", "Personalized Meditation"]
-        },
-        "diamond": {
-          "price": "$110",
-          "features": ["Guided Yoga Sessions", "Mindfulness Practices", "Personalized Meditation", "Weekly Check-ins"]
-        }
-      }
-    }
-  ]
+  {
+    "_id": "6561964fae234f475963cfca",
+    "trainer_name": "Jane Smith",
+    "trainer_image": "https://imagizer.imageshack.com/img922/2128/huhsBR.jpg",
+    "trainer_experience": 7,
+    "trainer_short_details": "Energetic and dedicated to helping clients achieve their fitness goals with high-intensity workouts.",
+    "week":36,
+    "day": 6
+  },
+  {
+    "_id": "6561964fae234f475963cfc9",
+    "trainer_name": "John Doe",
+    "trainer_image": "https://imagizer.imageshack.com/img924/4627/WAIuPx.jpg\n",
+    "trainer_experience": 10,
+    "trainer_short_details": "Passionate about helping clients achieve their fitness goals through personalized training.",
+    "week":26,
+    "day": 3
+  },
+  {
+    "_id": "6561964fae234f475963cfcb",
+    "trainer_name": "Alex Johnson",
+    "trainer_image": "https://imagizer.imageshack.com/img923/772/YhlJn4.jpg",
+    "trainer_experience": 9,
+    "trainer_short_details": "Committed to helping clients find balance and inner peace through yoga and meditation.",
+    "week":16,
+    "day": 4
+  }
+]

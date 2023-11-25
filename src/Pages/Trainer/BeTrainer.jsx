@@ -19,27 +19,30 @@ const BeTrainer = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    const getImage = { image: data.image[0] };
+    const getImage = { trainer_image: data.image[0] };
     const res = await publicAxios.post(imageHostingApi, getImage, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
+    /* 
+     trainer_name, trainer_image, trainer_experience, _id, trainer_short_details 
+    */
     if (res.data.success) {
       const dataInfo = {
-        name: data.name,
+        trainer_name: data.trainer_name,
         email: user?.email,
         age: parseFloat(data.age),
         day: data.day,
         week: data.week,
-        image: res.data.data.display_url,
+        trainer_image: res.data.data.display_url,
       };
       const addUser = await isAxios.post("/trainers", dataInfo);
       if (addUser.data.insertedId) {
-        toast.success(`${data.name} Successfully Added`);
+        toast.success(`${data.trainer_name} Successfully Added`);
         reset();
       }
-      toast.error(`${data.name} Not Added!`);
+      toast.error(`${data.trainer_name} Not Added!`);
     }
   };
 
@@ -79,7 +82,7 @@ const BeTrainer = () => {
             <div className="w-full">
               <label className="text-white font-bold label">Name</label>
               <input
-                {...register("name", { required: true })}
+                {...register("trainer_name", { required: true })}
                 type="text"
                 name="name"
                 placeholder="Type here your name"
