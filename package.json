@@ -11,21 +11,25 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.8.4",
+    "add": "^2.0.6",
     "axios": "^1.6.2",
     "firebase": "^10.6.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
+    "react-multi-select-component": "^4.3.4",
     "react-parallax-component": "^1.0.6",
     "react-rating": "^2.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.20.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.1",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

@@ -9,6 +9,8 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import Activity from "../Dashboard/Members/Activity";
 import Gallery from "../Pages/Gallery/Gallery";
 import Classes from "../Pages/Classes/Classes";
+import TrainerDetails from "../Pages/Trainer/TrainerDetails";
+import BeTrainer from "../Pages/Trainer/BeTrainer";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ export const router = createBrowserRouter([
       {
         path: "/trainer",
         element: <Trainer />,
+      },
+      {
+        path: "/trainerDetails/:id",
+        element: <TrainerDetails />,
+      },
+      {
+        path: "/beTrainer",
+        element: <BeTrainer />,
       },
       {
         path: "/gallery",

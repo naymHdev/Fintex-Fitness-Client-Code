@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
+import LockAxios from "../../Hooks/LockAxios";
+import { useQuery } from "@tanstack/react-query";
+import TrainerCart from "./TrainerCart";
 
 const Trainer = () => {
+  const isAxios = LockAxios();
+
+  const { data: trainer = [] } = useQuery({
+    queryKey: ["trainers"],
+    queryFn: async () => {
+      const res = await isAxios.get("/trainers");
+      // console.log(res.data);
+      return res.data;
+    },
+  });
+  // console.log(trainer);
+
   return (
     <div>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/8956/f2SlIF.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
@@ -28,6 +43,12 @@ const Trainer = () => {
           <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
+        {trainer.map((info) => (
+          <TrainerCart key={info._id} info={info} />
+        ))}
+      </div>
     </div>
   );
 };
