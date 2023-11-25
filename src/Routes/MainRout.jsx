@@ -11,6 +11,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import Classes from "../Pages/Classes/Classes";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
+import Pricing from "../Pages/Trainer/Pricing";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/beTrainer",
         element: <BeTrainer />,
+      },
+      {
+        path: "/pricing",
+        element: <Pricing />,
       },
       {
         path: "/gallery",

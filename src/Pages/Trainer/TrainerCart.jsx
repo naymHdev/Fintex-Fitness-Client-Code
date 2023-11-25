@@ -36,8 +36,8 @@ const TrainerCart = ({ info }) => {
 
           <div className="flex items-center justify-between mt-5">
             <div>
-              <Link to={`${_id}`}>
-                <Button label={"Available Time"} />
+              <Link to={'/pricing'}>
+                <Button label={"Available Slots"} />
               </Link>
             </div>
             <div>
