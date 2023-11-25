@@ -8,6 +8,7 @@ import Trainer from "../Pages/Trainer/Trainer";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Activity from "../Dashboard/Members/Activity";
 import Gallery from "../Pages/Gallery/Gallery";
+import Classes from "../Pages/Classes/Classes";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/classes",
+        element: <Classes />,
       },
     ],
   },
