@@ -4,6 +4,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
+import { clearCookie } from "../../Api/Auth/Auth";
 
 const MenuDropdown = () => {
   const { user, logOut } = useAuth();
@@ -11,10 +12,11 @@ const MenuDropdown = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleLogout = () => {
+  const handleLogout =  () => {
     logOut()
       .then(() => {
         toast.success("Logout Success");
+         clearCookie();
         navigate("/");
       })
       .catch((err) => console.log(err));

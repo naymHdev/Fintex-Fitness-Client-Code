@@ -16,7 +16,13 @@ import ManageSlots from "../Dashboard/Trainer/ManageSlots";
 import ManageMember from "../Dashboard/Trainer/ManageMember";
 import AddNewForum from "../Dashboard/Trainer/AddNewForum";
 import AddNewClasses from "../Dashboard/Trainer/AddNewClasses";
-import Profile from "../Dashboard/Components/Profile/Profile";
+import ActivityLog from "../Dashboard/Members/ActivityLog";
+import RecommendedClasses from "../Dashboard/Members/RecommendedClasses";
+import ProfileSetting from "../Dashboard/Members/ProfileSetting";
+import AllSubscriber from "../Dashboard/Admin/AllSubscriber";
+import AllTrainers from "../Dashboard/Admin/AllTrainers";
+import { AppliedTrainer } from "../Dashboard/Admin/AppliedTrainer";
+import Balance from "../Dashboard/Admin/Balance";
 
 export const router = createBrowserRouter([
   {
@@ -64,11 +70,8 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
-      {
-        path: 'profile',
-        element: <Profile />
-      },
-      /////// Trainer Section \\\\\
+      
+      /////// Trainer Routes \\\\\
       {
         path: "manageSlots",
         element: <ManageSlots />,
@@ -84,6 +87,36 @@ export const router = createBrowserRouter([
       {
         path: "addNewClasses",
         element: <AddNewClasses />,
+      },
+      /// Member Routes
+      {
+        path: 'activityLog',
+        element: <ActivityLog />
+      },
+      {
+        path: 'recommendedClasses',
+        element: <RecommendedClasses />
+      },
+      {
+        path: 'profileSetting',
+        element: <ProfileSetting />
+      },
+      ///// Admin Routes \\\\
+      {
+        path: 'allSubscriber',
+        element: <AllSubscriber />
+      },
+      {
+        path: 'allTrainers',
+        element: <AllTrainers />
+      },
+      {
+        path: 'appliedTrainer',
+        element: <AppliedTrainer />
+      },
+      {
+        path: 'balance',
+        element: <Balance />
       },
     ],
   },

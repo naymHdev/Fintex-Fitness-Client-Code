@@ -22,7 +22,7 @@ export const addClasses = async (info) => {
   const { data } = await axiosSecure.post("/classes", info);
   return data;
 };
-export const trainerClasses = async (info) => {
-  const { data } = await axiosSecure.get("/classes", info);
+export const trainerClasses = async () => {
+  const { data } = await axiosSecure.get("/classes");
   return data;
 };

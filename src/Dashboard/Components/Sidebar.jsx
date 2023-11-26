@@ -5,18 +5,23 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
 import LogoImg from "./logoImg";
 import MenuItem from "./MenuItem";
-import ToggleBtn from "./ToggleBtn";
-// Trainer menus Icon
-import { MdForum, MdManageAccounts, MdManageHistory, MdOutlineAddchart } from "react-icons/md";
+// import ToggleBtn from "./ToggleBtn";
+import UseRole from "../../Hooks/Roles/UseRole";
+import TrainerMenus from "../Trainer/TrainerMenus";
+import MemberMenus from "../Members/MemberMenus";
+import AdminMenus from "../Admin/AdminMenus";
 
 const Sidebar = () => {
-  const [toggle, setToggle] = useState(false);
+  // const [ setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
 
+  const role = UseRole();
+  console.log(role);
+
   //   For guest/host menu item toggle button
-  const toggleHandler = (event) => {
-    setToggle(event.target.checked);
-  };
+  // const toggleHandler = (event) => {
+  //   setToggle(event.target.checked);
+  // };
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
@@ -24,7 +29,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
+      <div className="bg-green-300 text-gray-800 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <LogoImg />
@@ -40,41 +45,38 @@ const Sidebar = () => {
       </div>
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-green-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
           <div>
-            <div className="w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto">
+            <div className="w-full hidden md:flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
               <LogoImg />
+            </div>
+            <div className=" bg-red-100 shadow-xl px-1 py-1 rounded-t-full">
+            <h2 className="font-bold text-xl text-center text-green-500">Fitnex - Fitness</h2>
             </div>
           </div>
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             {/* If a user is Trainer */}
-            <ToggleBtn toggleHandler={toggleHandler} />
-            <nav>
-              <MenuItem
-                icon={MdManageHistory}
-                label="Manage Slots"
-                address="/dashboard/manageSlots"
-              />
-              <MenuItem
-                icon={MdManageAccounts}
-                label="Manage member"
-                address="/dashboard/manageMember"
-              />
-              <MenuItem icon={MdForum} label="Add new Forum" address="/dashboard/addNewForum" />
-              <MenuItem
-                icon={MdOutlineAddchart}
-                label="Add new Classes"
-                address="/dashboard/addNewClasses"
-              />
+            {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
 
-              {/* Menu Items */}
+            {/* Member Menus */}
+            <nav>
+              { role === 'member' && <MemberMenus /> }
             </nav>
+            {/* Trainer Menus */}
+            <nav>
+              { role === 'trainer' && <TrainerMenus /> }
+            </nav>
+            {/* Admin Menus */}
+            <nav>
+              { role === 'admin' && <AdminMenus />}
+            </nav>
+
           </div>
         </div>
 
