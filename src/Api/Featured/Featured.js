@@ -11,13 +11,18 @@ export const testimonials = async () => {
   return data;
 };
 
-// Newsletters get users
+// Newsletters get & post all subscribers under home pages users
+export const subscribers = async () => {
+  const { data } = await axiosSecure.get("/newsletters");
+  return data;
+};
+
 export const newsLetters = async (name) => {
   const { data } = await axiosSecure.post("/newsletters", name);
   return data;
 };
 
-// Add Classes get users
+// Add Classes && get classes
 export const addClasses = async (info) => {
   const { data } = await axiosSecure.post("/classes", info);
   return data;
