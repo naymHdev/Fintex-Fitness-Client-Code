@@ -22,7 +22,7 @@ const TrainerDetailsCard = ({ detail }) => {
           </div>
         </div>
       </section>
-      <div className="space-y-3">
+      <div className="space-y-5">
         <hr />
         <div className="flex justify-center">
           <div className="space-y-3">

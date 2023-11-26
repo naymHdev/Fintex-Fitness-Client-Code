@@ -1,48 +1,52 @@
 import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
-import { useForm } from "react-hook-form";
-// import axiosSecure from "../../Hooks/localAxios";
+import useAuth from "../../Hooks/useAuth";
+import PublickAxios from "../../Hooks/PublickAxios";
 import LockAxios from "../../Hooks/LockAxios";
 import toast from "react-hot-toast";
-import useAuth from "../../Hooks/useAuth";
-// import { MultiSelect } from "react-multi-select-component";
 
 const imageHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+// console.log(object);
 
 const BeTrainer = () => {
-  const publicAxios = LockAxios();
-  const isAxios = LockAxios();
   const { user } = useAuth();
+  const publicAxios = PublickAxios();
+  const secureAxios = LockAxios();
 
-  const { register, handleSubmit, reset } = useForm();
+  //const { trainer_name, trainer_image, trainer_experience, trainer_short_details, _id, week, day }
 
-  const onSubmit = async (data) => {
-    const getImage = { trainer_image: data.image[0] };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const trainer_name = form.trainer_name.value;
+    const email = user.email;
+    const age = form.age.value;
+    const day = form.day.value;
+    const week = form.week.value;
+    const trainer_experience = form.trainer_experience.value;
+    const trainer_short_details = form.trainer_short_details.value;
+    const trainer_image = imageHostingApi
+
+    console.table(trainer_name, email, age, day, trainer_short_details, week, trainer_experience, trainer_image);
+
+    const getImage = { trainer_image: e.image[0] };
     const res = await publicAxios.post(imageHostingApi, getImage, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    /* 
-     trainer_name, trainer_image, trainer_experience, _id, trainer_short_details 
-    */
+
+    console.log(res);
     if (res.data.success) {
-      const dataInfo = {
-        trainer_name: data.trainer_name,
-        email: user?.email,
-        age: parseFloat(data.age),
-        day: data.day,
-        week: data.week,
-        trainer_image: res.data.data.display_url,
-      };
-      const addUser = await isAxios.post("/trainers", dataInfo);
-      if (addUser.data.insertedId) {
-        toast.success(`${data.trainer_name} Successfully Added`);
-        reset();
+      const info = (trainer_name, email, age, day, trainer_short_details, week, trainer_experience);
+      const userInfo = await secureAxios.post("/trainers", info);
+      console.log(userInfo);
+      if (userInfo.data.insertedId > 0) {
+        toast.success(`${user.name} Successfully Added`);
       }
-      toast.error(`${data.trainer_name} Not Added!`);
+      toast.error(`${user.name} Not Added!`);
     }
   };
 
@@ -77,14 +81,14 @@ const BeTrainer = () => {
           thrive together!
         </h2>
         <hr className="mt-5 mb-3" />
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex items-center gap-5">
             <div className="w-full">
               <label className="text-white font-bold label">Name</label>
               <input
-                {...register("trainer_name", { required: true })}
                 type="text"
-                name="name"
+                name="trainer_name"
+                required
                 placeholder="Type here your name"
                 className="input input-bordered w-full"
               />
@@ -92,9 +96,9 @@ const BeTrainer = () => {
             <div className="w-full">
               <label className="text-white font-bold label">Age</label>
               <input
-                {...register("age", { required: true })}
                 type="number"
                 name="age"
+                required
                 placeholder="Type here your age"
                 className="input input-bordered w-full"
               />
@@ -103,52 +107,45 @@ const BeTrainer = () => {
           <div>
             <label className="text-white font-bold label">Email</label>
             <input
-            //   {...register("email", { required: true })}
               type="email"
               name="email"
-              placeholder={user ? user.email : ''}
+              placeholder={user ? user.email : ""}
               className="input border input-bordered w-full"
             />
           </div>
+          <div className="w-full">
+            <label className="text-white font-bold label">
+              Available time in a Weekly.(Hourly)
+            </label>
+            <input
+              type="number"
+              name="week"
+              required
+              placeholder="Type here your time"
+              className="input input-bordered w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label className="text-white font-bold label">Available time in a day.(Hourly)</label>
+            <input
+              type="number"
+              name="day"
+              required
+              placeholder="Type here your time"
+              className="input input-bordered w-full"
+            />
+          </div>
+          <div className="w-full">
+            <label className="text-white font-bold label">Years of Experience</label>
+            <input
+              type="number"
+              name="trainer_experience"
+              required
+              placeholder="Type here your expertise years times"
+              className="input input-bordered w-full"
+            />
+          </div>
 
-          {/* Day Time Slot */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className=" font-bold text-white">Available time in a day.</span>
-            </label>
-            <select
-              {...register("day", { required: true })}
-              className="select select-bordered w-full"
-            >
-              <option value="default" disabled selected>
-                Chose your time
-              </option>
-              <option value="14">2 Hour</option>
-              <option value="21">3 Hour</option>
-              <option value="28">5 Hour</option>
-              <option value="35">6 Hour</option>
-              <option value="42">8 Hour</option>
-            </select>
-          </div>
-          {/* weekly Time Slot */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className=" font-bold text-white">Available Time in a week</span>
-            </label>
-            <select
-              {...register("week", { required: true })}
-              className="select select-bordered w-full"
-            >
-              <option value="default" disabled selected>
-                Chose your time
-              </option>
-              <option value="14">14 Hour</option>
-              <option value="21">21 Hour</option>
-              <option value="28">28 Hour</option>
-              <option value="35">35 Hour</option>
-              <option value="42">42 Hour</option>
-            </select>
-          </div>
           {/* skills */}
           {/* <div>
             <label className="text-white font-bold label">Skills</label>
@@ -162,11 +159,22 @@ const BeTrainer = () => {
             <button onClick={handlePostData}>Post to MongoDB</button>
           </div> */}
 
+          <div className="w-full">
+            <label className="text-white font-bold label">Explain why yoy best? for our team!</label>
+            <textarea 
+            className="input input-bordered w-full pt-1"
+            placeholder="Explain now maximum 30 words"
+            required
+            name="trainer_short_details" id="" cols="30" rows="10"></textarea>
+          </div>
+
           <div className="flex justify-between items-center mt-5">
             <div>
+              <label className="text-white font-bold label">Profile Image</label>
               <input
-                {...register("image", { required: true })}
+                name="trainer_image"
                 type="file"
+                required
                 className="file-input-bordered file-input-md w-full max-w-xs mt-3"
               />
             </div>

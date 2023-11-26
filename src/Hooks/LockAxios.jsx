@@ -3,6 +3,7 @@ import clearCookie from "./clearCookie";
 
 const lockAxios = axios.create({
   baseURL: import.meta.env.VITE_API_LOCALHOST,
+  withCredentials: true,
 });
 
 const LockAxios = () => {

@@ -6,13 +6,16 @@ import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import Trainer from "../Pages/Trainer/Trainer";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import Activity from "../Dashboard/Members/Activity";
 import Gallery from "../Pages/Gallery/Gallery";
 import Classes from "../Pages/Classes/Classes";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
 import Pricing from "../Pages/Trainer/Pricing";
 import PrivateRoute from "./PrivateRoute";
+import ManageSlots from "../Dashboard/Trainer/ManageSlots";
+import ManageMember from "../Dashboard/Trainer/ManageMember";
+import AddNewForum from "../Dashboard/Trainer/AddNewForum";
+import AddNewClasses from "../Dashboard/Trainer/AddNewClasses";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +37,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/beTrainer",
-        element: <PrivateRoute><BeTrainer /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <BeTrainer />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/pricing",
@@ -53,13 +60,26 @@ export const router = createBrowserRouter([
   { path: "/register", element: <Register /> },
   { path: "/login", element: <Login /> },
   {
-    path: '/dashboard',
+    path: "/dashboard",
     element: <DashboardLayout />,
     children: [
-        {
-            path: 'activity',
-            element: <Activity />
-        }
-    ]
-  }
+      /////// Trainer Section \\\\\
+      {
+        path: "manageSlots",
+        element: <ManageSlots />,
+      },
+      {
+        path: "manageMember",
+        element: <ManageMember />,
+      },
+      {
+        path: "addNewForum",
+        element: <AddNewForum />,
+      },
+      {
+        path: "addNewClasses",
+        element: <AddNewClasses />,
+      },
+    ],
+  },
 ]);
