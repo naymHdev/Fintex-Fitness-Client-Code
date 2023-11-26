@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
 import LogoImg from "./logoImg";
 import MenuItem from "./MenuItem";
 import ToggleBtn from "./ToggleBtn";
@@ -61,7 +61,11 @@ const Sidebar = () => {
                 label="Manage Slots"
                 address="/dashboard/manageSlots"
               />
-              <MenuItem icon={MdManageAccounts} label="Manage member" address="/dashboard/manageMember" />
+              <MenuItem
+                icon={MdManageAccounts}
+                label="Manage member"
+                address="/dashboard/manageMember"
+              />
               <MenuItem icon={MdForum} label="Add new Forum" address="/dashboard/addNewForum" />
               <MenuItem
                 icon={MdOutlineAddchart}
@@ -77,6 +81,7 @@ const Sidebar = () => {
         <div>
           <hr />
 
+          <MenuItem icon={FaHome} label="Home" address="/" />
           <MenuItem icon={FcSettings} label="Profile" address="/dashboard/profile" />
           <button className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform">
             <GrLogout className="w-5 h-5" />

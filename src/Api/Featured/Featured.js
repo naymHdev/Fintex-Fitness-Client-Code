@@ -12,8 +12,17 @@ export const testimonials = async () => {
 };
 
 // Newsletters get users
-
 export const newsLetters = async (name) => {
   const { data } = await axiosSecure.post("/newsletters", name);
+  return data;
+};
+
+// Add Classes get users
+export const addClasses = async (info) => {
+  const { data } = await axiosSecure.post("/classes", info);
+  return data;
+};
+export const trainerClasses = async (info) => {
+  const { data } = await axiosSecure.get("/classes", info);
   return data;
 };

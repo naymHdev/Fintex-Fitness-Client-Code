@@ -16,6 +16,7 @@ import ManageSlots from "../Dashboard/Trainer/ManageSlots";
 import ManageMember from "../Dashboard/Trainer/ManageMember";
 import AddNewForum from "../Dashboard/Trainer/AddNewForum";
 import AddNewClasses from "../Dashboard/Trainer/AddNewClasses";
+import Profile from "../Dashboard/Components/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
+      {
+        path: 'profile',
+        element: <Profile />
+      },
       /////// Trainer Section \\\\\
       {
         path: "manageSlots",
