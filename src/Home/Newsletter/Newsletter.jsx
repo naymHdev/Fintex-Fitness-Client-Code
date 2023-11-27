@@ -28,7 +28,7 @@ const Newsletter = () => {
         </h1>
         <div className="space-y-3 grid w-7/12 mx-auto mt-8">
           <label className="font-bold text-white flex items-center gap-3">
-            Name <MdOutlineDriveFileRenameOutline className="text-gray-600" />
+            Name <MdOutlineDriveFileRenameOutline className="text-gray-100" />
           </label>
           <input
             className="p-2 bg-green-600 input-success text-white border-none"
@@ -39,7 +39,7 @@ const Newsletter = () => {
           />
           <hr />
           <label className="font-bold flex items-center gap-3 text-white">
-            Submit Email <MdEmail className="text-gray-600" />
+            Submit Email <MdEmail className="text-1ray-600" />
           </label>
           <input
             className="p-2 bg-green-600 input-success text-white border-none"
@@ -51,7 +51,7 @@ const Newsletter = () => {
           />
           <hr />
           <label className="font-bold text-white flex items-center gap-3">
-            Message <MdOutlineMessage className="text-gray-600" />
+            Message <MdOutlineMessage className="text-gray-100" />
           </label>
           <textarea
             className="border-none border-b-2 p-2 bg-green-600"

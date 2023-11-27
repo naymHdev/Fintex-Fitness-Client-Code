@@ -23,9 +23,8 @@ const MenuDropdown = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative font-josefin">
       <div className="flex flex-row items-center gap-3">
-        {/* Become A Host btn */}
         <div className="hidden md:block">
           <button
             className="disabled:cursor-not-allowed cursor-pointe py-3 px-4 text-sm font-semibold 
@@ -34,7 +33,6 @@ const MenuDropdown = () => {
             {user ? user.displayName : "User Name"}
           </button>
         </div>
-        {/* Dropdown btn */}
         <div
           onClick={() => setIsOpen(!isOpen)}
           className="p-4 md:py-1 md:px-2  flex flex-row items-center gap-3 
@@ -69,6 +67,12 @@ const MenuDropdown = () => {
             </Link>
             {user ? (
               <>
+                <Link
+                  to="profile"
+                  className="block p-2 hover:bg-neutral-100 transition font-semibold"
+                >
+                  Profile
+                </Link>
                 <Link
                   to="dashboard"
                   className="block p-2 hover:bg-neutral-100 transition font-semibold"

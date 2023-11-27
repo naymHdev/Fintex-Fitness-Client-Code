@@ -6,6 +6,7 @@ import { imageUpload } from "../../Api/Utils/Utils";
 import { useState } from "react";
 import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const BeTrainer = () => {
   const { user } = useAuth();
@@ -58,7 +59,8 @@ const BeTrainer = () => {
   }
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Be Trainer</title></Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/2298/hESvhl.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />

@@ -1,4 +1,5 @@
 // import { updateUser } from "../../Api/Auth/Auth";
+import { Helmet } from "react-helmet";
 import SectionTitle from "../../Components/SectionTitle";
 import useAuth from "../../Hooks/useAuth";
 
@@ -25,7 +26,8 @@ const ProfileSetting = () => {
   };
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 font-josefin">
+      <Helmet> <title>Fintex-Fitness || Profile Settings</title></Helmet>
       <SectionTitle subHeading={"Do update now your user profile!"} heading={"User Profile"} />
       <form
         onSubmit={handleUpdate}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { subscribers } from "../../Api/Featured/Featured";
 import SectionTitle from "../../Components/SectionTitle";
 import { useEffect, useState } from "react";
@@ -11,7 +12,8 @@ const AllSubscriber = () => {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <div className="w-10/12 mx-auto mt-20 mb-10">
+    <div className="w-10/12 mx-auto mt-20 mb-10 font-josefin">
+      <Helmet> <title>Fintex-Fitness || All Subscribers</title></Helmet>
       <SectionTitle heading={"All Subscribers"} subHeading={"Manage all subscribers"} />
       <section className="mt-16 border-t-2 border-b-2 border-green-400 md:py-8 md:px-12">
         <div className="">

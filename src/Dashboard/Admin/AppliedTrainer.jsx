@@ -3,6 +3,7 @@ import { isTrainers } from "../../Api/Featured/Featured";
 import { FaEye } from "react-icons/fa";
 import StatusModal from "./StatusModal";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 export const AppliedTrainer = () => {
   const [applied, setApplied] = useState([]);
@@ -29,7 +30,8 @@ export const AppliedTrainer = () => {
   });
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Applied Trainer</title></Helmet>
       <section className="mt-16 border-t-2 border-b-2 border-green-400 md:py-8 md:px-12">
         <div className="">
           <table className="table">

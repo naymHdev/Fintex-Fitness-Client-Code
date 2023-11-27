@@ -1,8 +1,10 @@
+import { Helmet } from "react-helmet";
 
 
 const RecommendedClasses = () => {
     return (
-        <div>
+        <div className="font-josefin">
+            <Helmet> <title>Fintex-Fitness || Recommended Classes</title></Helmet>
             
         </div>
     );

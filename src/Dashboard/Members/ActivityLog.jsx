@@ -1,9 +1,10 @@
+import { Helmet } from "react-helmet";
 
 const ActivityLog = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Helmet> <title>Fintex-Fitness || Activity Log</title></Helmet>
+        </>
     );
 };
 

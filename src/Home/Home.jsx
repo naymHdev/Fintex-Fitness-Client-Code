@@ -1,4 +1,5 @@
 // import Banner from "./Banner/Banner";
+import { Helmet } from "react-helmet";
 import About from "./About";
 import Coaches from "./Coaches/Coaches";
 import Featured from "./Featured/Featured";
@@ -8,7 +9,8 @@ import Testimonials from "./Testimonials";
 
 const Home = () => {
     return (
-        <div>
+        <div className="font-josefin">
+            <Helmet> <title>Fintex-Fitness || Home</title></Helmet>
             <Slider />
             {/* <Banner /> */}
             <Featured />

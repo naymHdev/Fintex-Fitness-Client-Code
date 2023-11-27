@@ -1,10 +1,15 @@
+import { Helmet } from "react-helmet";
 
 
 const Balance = () => {
     return (
-        <div>
-            
+        <>
+        <Helmet> <title>Fintex-Fitness || Balance</title></Helmet>
+        <div className="font-josefin">
+
         </div>
+            
+        </>
     );
 };
 

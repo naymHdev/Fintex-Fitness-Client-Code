@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import TrainerDetailsCard from "./TrainerDetailsCard";
+import { Helmet } from "react-helmet";
 
 const TrainerDetails = () => {
   const [details, setDetails] = useState([]);
@@ -25,7 +26,8 @@ const TrainerDetails = () => {
   const detail = details.find((item) => item._id === id);
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Trainer Details</title></Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img922/4702/l3Q0eW.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />

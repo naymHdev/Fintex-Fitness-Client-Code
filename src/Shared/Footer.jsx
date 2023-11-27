@@ -3,11 +3,11 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-20 gap-44 p-12 bg-green-400 opacity-75 text-slate-100">
+    <div className="grid font-josefin grid-cols-1 md:grid-cols-2 mt-20 gap-44 p-12 bg-green-500 opacity-65 text-slate-100">
       <div className="">
         <div className="flex items-center gap-4">
           <img className="w-24 rounded-full" src={logo} alt="" />
-          <h1 className="text-6xl font-bold text-white">Fitnex</h1>
+          <h1 className="text-6xl font-bold text-white font-josefin">Fitnex</h1>
         </div>
         <p className="text-sm">
           Our fitness tracker website showcases expert coaches with diverse skills, offering
@@ -33,11 +33,11 @@ const Footer = () => {
             <p>(+44) 123 456 789</p>
           </div>
           <div className="flex items-center mt-8 gap-5 w-9/12  text-4xl">
-            <FaFacebook />
-            <FaTwitter />
-            <FaLinkedin />
-            <FaYoutube />
-            <FaInstagram />
+            <FaFacebook className="text-sky-500" />
+            <FaTwitter className="text-sky-500" />
+            <FaLinkedin className="text-sky-400" />
+            <FaYoutube className="text-red-600"/>
+            <FaInstagram className="text-orange-300" />
           </div>
         </div>
       </div>

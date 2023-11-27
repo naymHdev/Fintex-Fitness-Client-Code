@@ -4,6 +4,7 @@ import { LuGalleryVertical } from "react-icons/lu";
 import TrainerCart from "./TrainerCart";
 import { useEffect, useState } from "react";
 import { isTrainers } from "../../Api/Featured/Featured";
+import { Helmet } from "react-helmet";
 // import UseRole from "../../Hooks/Roles/UseRole";
 
 const Trainer = () => {
@@ -19,7 +20,8 @@ const Trainer = () => {
   }, []);
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Trainer</title></Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/8956/f2SlIF.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />

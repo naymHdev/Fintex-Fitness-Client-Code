@@ -25,6 +25,8 @@ import { AppliedTrainer } from "../Dashboard/Admin/AppliedTrainer";
 import Balance from "../Dashboard/Admin/Balance";
 import Forum from "../Pages/Forum/Forum";
 import TrainerRoutes from "./TrainerRoutes";
+import ErrorDashboard from "../Dashboard/Components/ErrorDashboard";
+import Profile from "../Dashboard/Components/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +70,10 @@ export const router = createBrowserRouter([
         path: "/forum",
         element: <Forum />,
       },
+      {
+        path: "/profile",
+        element: <PrivateRoute><Profile /></PrivateRoute>
+      },
     ],
   },
   { path: "/register", element: <Register /> },
@@ -79,6 +85,7 @@ export const router = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoute>
     ),
+    errorElement: <ErrorDashboard />,
     children: [
       /////// Trainer Routes \\\\\
       {

@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { jwtSignUp, saveUser } from "../Api/Auth/Auth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { loading, userCreate, googleJoin, updateUser } = useAuth();
@@ -46,7 +47,8 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Registration</title></Helmet>
       <div className="w-5/12 mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
         <h1 className="text-2xl font-bold text-center">Create Your Own Account</h1>
         <form onSubmit={handleRegister} className="space-y-6">

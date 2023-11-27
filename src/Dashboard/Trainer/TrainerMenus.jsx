@@ -4,7 +4,7 @@ import MenuItem from "../Components/MenuItem";
 const TrainerMenus = () => {
   return (
     <>
-      <nav>
+      <nav className="font-josefin">
         <MenuItem icon={MdManageHistory} label="Manage Slots" address="/dashboard/manageSlots" />
         <MenuItem icon={MdManageAccounts} label="Manage member" address="/dashboard/manageMember" />
         <MenuItem icon={MdForum} label="Add new Forum" address="/dashboard/addNewForum" />

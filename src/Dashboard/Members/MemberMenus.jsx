@@ -6,7 +6,7 @@ import { TbActivityHeartbeat } from "react-icons/tb";
 const MemberMenus = () => {
     return (
         <>
-        <nav>
+        <nav className="font-josefin">
           <MenuItem icon={TbActivityHeartbeat} label="Activity Log" address="/dashboard/activityLog" />
           <MenuItem icon={MdRecommend} label="Recommended Classes" address="/dashboard/recommendedClasses" />
           <MenuItem icon={MdOutlineSettings} label="Profile Settings" address="/dashboard/profileSetting" />

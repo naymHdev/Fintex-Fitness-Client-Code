@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
-const Error = () => {
-  return (
-    <div className="font-josefin">
+
+const ErrorDashboard = () => {
+    return (
+        <div className="font-josefin">
       <Helmet> <title>Fintex-Fitness || Error</title></Helmet>
       <section className="flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md">
@@ -27,19 +28,19 @@ const Error = () => {
             ></polygon>
           </svg>
           <p className="text-3xl">Looks like our services are currently offline</p>
-          <Link to="/">
+          <Link to="/dashboard">
             <a
               rel="noopener noreferrer"
               href="#"
               className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
             >
-              Back to homepage
+              Back to Dashboard
             </a>
           </Link>
         </div>
       </section>
     </div>
-  );
+    );
 };
 
-export default Error;
+export default ErrorDashboard;

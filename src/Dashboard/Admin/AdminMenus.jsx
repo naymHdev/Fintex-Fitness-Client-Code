@@ -7,7 +7,7 @@ import { MdForum} from "react-icons/md";
 const AdminMenus = () => {
     return (
         <>
-        <nav>
+        <nav className="font-josefin">
           <MenuItem icon={FaUsers} label="All subscribers" address="/dashboard/allSubscriber" />
           <MenuItem icon={FcBusinessman} label="All Trainers" address="/dashboard/allTrainers" />
           <MenuItem icon={FaUser} label="Applied Trainer" address="/dashboard/appliedTrainer" />

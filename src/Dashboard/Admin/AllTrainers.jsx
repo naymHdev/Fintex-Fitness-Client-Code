@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SectionTitle from "../../Components/SectionTitle";
 import { isTrainers } from "../../Api/Featured/Featured";
 import Button from "../../Components/Button/Button";
+import { Helmet } from "react-helmet";
 
 const AllTrainers = () => {
   const [trainers, serTrainers] = useState([]);
@@ -13,7 +14,8 @@ const AllTrainers = () => {
   }, []);
 
   return (
-    <div className=" mt-20 mb-10">
+    <div className=" mt-20 mb-10 font-josefin">
+      <Helmet> <title>Fintex-Fitness || All Trainers</title></Helmet>
       <div className="md:flex grid items-center justify-between">
       <SectionTitle heading={"Manages All Trainers"} subHeading={"Manage all subscribers"} />
       <Button label={'Pay Now'} />

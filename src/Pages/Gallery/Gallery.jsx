@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -39,7 +40,8 @@ const Gallery = () => {
   }, [page]);
 
   return (
-    <div>
+    <div className="font-josefin">
+      <Helmet> <title>Fintex-Fitness || Gallery</title></Helmet>
       
       <section className=" flex items-center pt-[200px] bg-[url('https://imagizer.imageshack.com/img922/7563/AMPrbh.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
