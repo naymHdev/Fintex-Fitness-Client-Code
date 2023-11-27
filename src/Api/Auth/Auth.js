@@ -14,6 +14,12 @@ export const saveUser = async (user) => {
   return data;
 };
 
+/// Profile Section ////
+export const updateUser = async (email) => {
+  const { data } = await axiosSecure.patch(`/user/${email}`);
+  return data;
+}
+
 //// Save User Login JWT Token In Server\\\\
 export const jwtSignUp = async (email) => {
   const { data } = await axiosSecure.post("/jwt", email);

@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
-import LockAxios from "../../Hooks/LockAxios";
-import { useQuery } from "@tanstack/react-query";
 import TrainerCart from "./TrainerCart";
+import { useEffect, useState } from "react";
+import { isTrainers } from "../../Api/Featured/Featured";
+// import UseRole from "../../Hooks/Roles/UseRole";
 
 const Trainer = () => {
-  const isAxios = LockAxios();
+  const [trainer, setTrainer] = useState([]);
 
-  const { data: trainer = [] } = useQuery({
-    queryKey: ["trainers"],
-    queryFn: async () => {
-      const res = await isAxios.get("/trainers");
-      // console.log(res.data);
-      return res.data;
-    },
-  });
-  // console.log(trainer);
+  // const role = UseRole();
+  // role === "trainer" && 
+
+  useEffect(() => {
+    isTrainers()
+      .then((data) => setTrainer(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div>

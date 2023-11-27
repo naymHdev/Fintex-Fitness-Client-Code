@@ -92,7 +92,7 @@ const Pricing = () => {
           </div>
           <hr />
           <div className="flex justify-center">
-            <Button label={"Join Now"} />
+            <Button label={"Book Now"} />
           </div>
         </div>
         <div className="border text-start p-8 space-y-6 border-green-500 rounded-xl">
@@ -124,7 +124,7 @@ const Pricing = () => {
           </div>
           <hr />
           <div className="flex justify-center">
-            <Button label={"Join Now"} />
+            <Button label={"Book Now"} />
           </div>
         </div>
         <div className="border text-start p-8 space-y-6 border-green-500 rounded-xl">
@@ -156,7 +156,7 @@ const Pricing = () => {
           </div>
           <hr />
           <div className="flex justify-center">
-            <Button label={"Join Now"} />
+            <Button label={"Book Now"} />
           </div>
         </div>
       </section>

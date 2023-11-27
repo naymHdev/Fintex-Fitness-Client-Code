@@ -17,7 +17,7 @@ const Sidebar = () => {
   const [isActive, setActive] = useState(false);
   const { user } = useAuth();
 
-  const role = UseRole();
+  const [role] = UseRole();
 
   //   For guest/host menu item toggle button
   // const toggleHandler = (event) => {

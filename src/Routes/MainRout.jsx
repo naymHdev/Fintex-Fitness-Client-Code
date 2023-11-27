@@ -23,6 +23,8 @@ import AllSubscriber from "../Dashboard/Admin/AllSubscriber";
 import AllTrainers from "../Dashboard/Admin/AllTrainers";
 import { AppliedTrainer } from "../Dashboard/Admin/AppliedTrainer";
 import Balance from "../Dashboard/Admin/Balance";
+import Forum from "../Pages/Forum/Forum";
+import TrainerRoutes from "./TrainerRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -62,61 +64,114 @@ export const router = createBrowserRouter([
         path: "/classes",
         element: <Classes />,
       },
+      {
+        path: "/forum",
+        element: <Forum />,
+      },
     ],
   },
   { path: "/register", element: <Register /> },
   { path: "/login", element: <Login /> },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
-      
       /////// Trainer Routes \\\\\
       {
         path: "manageSlots",
-        element: <ManageSlots />,
+        element: (
+          <PrivateRoute>
+            <ManageSlots />
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageMember",
-        element: <ManageMember />,
+        element: (
+          <PrivateRoute>
+            <ManageMember />
+          </PrivateRoute>
+        ),
       },
       {
         path: "addNewForum",
-        element: <AddNewForum />,
+        element: (
+          <PrivateRoute>
+            <AddNewForum />
+          </PrivateRoute>
+        ),
       },
       {
         path: "addNewClasses",
-        element: <AddNewClasses />,
+        element: (
+          <PrivateRoute>
+            <TrainerRoutes>
+              <AddNewClasses />
+            </TrainerRoutes>
+          </PrivateRoute>
+        ),
       },
       /// Member Routes
       {
-        path: 'activityLog',
-        element: <ActivityLog />
+        path: "activityLog",
+        element: (
+          <PrivateRoute>
+            <ActivityLog />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'recommendedClasses',
-        element: <RecommendedClasses />
+        path: "recommendedClasses",
+        element: (
+          <PrivateRoute>
+            <RecommendedClasses />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'profileSetting',
-        element: <ProfileSetting />
+        path: "profileSetting",
+        element: (
+          <PrivateRoute>
+            <ProfileSetting />
+          </PrivateRoute>
+        ),
       },
       ///// Admin Routes \\\\
       {
-        path: 'allSubscriber',
-        element: <AllSubscriber />
+        path: "allSubscriber",
+        element: (
+          <PrivateRoute>
+            <AllSubscriber />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'allTrainers',
-        element: <AllTrainers />
+        path: "allTrainers",
+        element: (
+          <PrivateRoute>
+            <AllTrainers />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'appliedTrainer',
-        element: <AppliedTrainer />
+        path: "appliedTrainer",
+        element: (
+          <PrivateRoute>
+            <AppliedTrainer />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'balance',
-        element: <Balance />
+        path: "balance",
+        element: (
+          <PrivateRoute>
+            <Balance />
+          </PrivateRoute>
+        ),
       },
     ],
   },

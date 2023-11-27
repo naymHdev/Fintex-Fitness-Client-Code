@@ -15,7 +15,7 @@ const Classes = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(isClass);
+  // console.log(isClass);
 
   return (
     <div>
@@ -51,18 +51,6 @@ const Classes = () => {
           }
         />
       </div>
-      {/* 
- title,
-      description,
-      instructorName,
-      trainingTime,
-      coursePrice,
-      trainerSkills,
-      images,
-      to,
-      from,
-      imag
-*/}
       <section className="mt-20 w-8/12 mx-auto">
         <div className="space-y-5">
           {isClass?.map((item) => (
@@ -88,7 +76,7 @@ const Classes = () => {
                 </h2>
                 <p className="text-sm">{item.description}</p>
                 <div className="flex justify-end">
-                  <Button label={"Book Now"} />
+                  <Link to='/trainer'><Button label={"Join Now"} /></Link>
                 </div>
               </div>
             </div>

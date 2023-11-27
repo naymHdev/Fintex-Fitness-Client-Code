@@ -4,7 +4,7 @@ import { LuGalleryVertical } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 const getImages = async ({ pageParam = 0 }) => {
-  const res = await fetch(`http://localhost:5000/images&offset=${pageParam}`);
+  const res = await fetch(`http://localhost:5000/images?offset=${pageParam}`);
   const data = await res.json();
   return { ...data, prevOffset: pageParam };
 };
@@ -14,19 +14,21 @@ const Gallery = () => {
     queryKey: ["images"],
     queryFn: getImages,
     getNextPageParam: (lastPage) => {
-      if (lastPage.prevOffset + 10 > lastPage.imagesCount) {
+      if (lastPage?.prevOffset + 10 > lastPage?.imagesCount) {
         return false;
       }
-        return lastPage.prevOffset + 10;
+      return lastPage?.prevOffset + 10;
     },
   });
-  console.log(data);
 
+  console.log(data?.pages);
 
-  const images = data?.trainer_image.reduce((acc, page) => {
-    return [...acc, ...page.images];
-  }, [])
+  const images = data?.pages?.reduce((acc, page) => {
+    return [...acc, ...page];
+  }, []);
+  
   console.log(images);
+  
 
   return (
     <div>
@@ -53,7 +55,11 @@ const Gallery = () => {
           <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <section></section>
+      <section>
+        {
+          // data?.pages.map(img => console.log(img))
+        }
+      </section>
     </div>
   );
 };

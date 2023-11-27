@@ -37,6 +37,11 @@ const Header = () => {
                       <h1 className="font-bold">Classes</h1>
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/forum">
+                      <h1 className="font-bold">Forum</h1>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>

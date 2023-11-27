@@ -66,6 +66,10 @@ const AddNewClasses = () => {
     setUpload(image.name);
   };
 
+  if(loading){
+    return <span className="loading loading-ring loading-lg flex h-screen"></span>
+  }
+
   return (
     <div className="w-10/12 mx-auto">
       <form onSubmit={handleCreateClass} className="w-10/12 mx-auto mt-8">

@@ -2,23 +2,19 @@ import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import useAuth from "../../Hooks/useAuth";
-import PublickAxios from "../../Hooks/PublickAxios";
-import LockAxios from "../../Hooks/LockAxios";
+import { imageUpload } from "../../Api/Utils/Utils";
+import { useState } from "react";
+import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
-
-const imageHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
-// console.log(object);
 
 const BeTrainer = () => {
   const { user } = useAuth();
-  const publicAxios = PublickAxios();
-  const secureAxios = LockAxios();
-
-  //const { trainer_name, trainer_image, trainer_experience, trainer_short_details, _id, week, day }
+  const [loading, setLoading] = useState(false);
+  const [upload, setUpload] = useState("Upload Image");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const trainer_name = form.trainer_name.value;
     const email = user.email;
@@ -27,28 +23,39 @@ const BeTrainer = () => {
     const week = form.week.value;
     const trainer_experience = form.trainer_experience.value;
     const trainer_short_details = form.trainer_short_details.value;
-    const trainer_image = imageHostingApi
+    const images = form.image.files[0];
+    const image_url = await imageUpload(images);
+    const trainerInfo = {
+      trainer_name,
+      email,
+      age,
+      day,
+      trainer_short_details,
+      week,
+      trainer_experience,
+      trainer_image: image_url?.data?.display_url,
+    };
+    console.log(trainerInfo);
 
-    console.table(trainer_name, email, age, day, trainer_short_details, week, trainer_experience, trainer_image);
-
-    const getImage = { trainer_image: e.image[0] };
-    const res = await publicAxios.post(imageHostingApi, getImage, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
-
-    console.log(res);
-    if (res.data.success) {
-      const info = (trainer_name, email, age, day, trainer_short_details, week, trainer_experience);
-      const userInfo = await secureAxios.post("/trainers", info);
-      console.log(userInfo);
-      if (userInfo.data.insertedId > 0) {
-        toast.success(`${user.name} Successfully Added`);
-      }
-      toast.error(`${user.name} Not Added!`);
+    try {
+      const data = await beTrainer(trainerInfo);
+      console.log(data);
+      toast.success("Applied Success!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleImage = (image) => {
+    setUpload(image.name);
+  };
+
+  if (loading) {
+    return <span className="loading loading-ring loading-lg flex h-screen"></span>;
+  }
 
   return (
     <div>
@@ -76,7 +83,7 @@ const BeTrainer = () => {
         </div>
       </section>
       <section className="w-8/12 mx-auto mt-20 border border-green-500 p-5 rounded-md">
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-bold w-9/12 text-white">
           Embark on a fulfilling journey with Be a Trainer! Join our community, ignite change, and
           thrive together!
         </h2>
@@ -160,31 +167,47 @@ const BeTrainer = () => {
           </div> */}
 
           <div className="w-full">
-            <label className="text-white font-bold label">Explain why yoy best? for our team!</label>
-            <textarea 
-            className="input input-bordered w-full pt-1"
-            placeholder="Explain now maximum 30 words"
-            required
-            name="trainer_short_details" id="" cols="30" rows="10"></textarea>
+            <label className="text-white font-bold label">
+              Explain why yoy best? for our team!
+            </label>
+            <textarea
+              className="input input-bordered w-full pt-1"
+              placeholder="Explain now maximum 30 words"
+              required
+              name="trainer_short_details"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <label className="text-white font-bold label">Upload Image</label>
+          <div className=" rounded-lg text-start flex justify-start">
+            <div className="file_upload  rounded-lg">
+              <div className=" text-center">
+                <label>
+                  <input
+                    onChange={(e) => handleImage(e.target.files[0])}
+                    className="text-sm cursor-pointer hidden"
+                    type="file"
+                    name="image"
+                    id="image"
+                    accept="image/*"
+                    hidden
+                  />
+                  <div className="bg-green-500 text-white border px-10 py-3 border-gray-300 rounded font-semibold cursor-pointer  hover:bg-rose-500">
+                    {upload}
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
 
-          <div className="flex justify-between items-center mt-5">
-            <div>
-              <label className="text-white font-bold label">Profile Image</label>
-              <input
-                name="trainer_image"
-                type="file"
-                required
-                className="file-input-bordered file-input-md w-full max-w-xs mt-3"
-              />
-            </div>
-            <div>
-              <input
-                className=" bg-green-500 font-bold  rounded-tl-3xl rounded-br-3xl px-8 py-3 text-white"
-                type="submit"
-                value="Do Apply"
-              />
-            </div>
+          <div className="flex justify-center mt-8">
+            <input
+              className=" bg-green-500 font-bold  rounded-tl-3xl rounded-br-3xl px-8 py-3 text-white"
+              type="submit"
+              value="Do Apply"
+            />
           </div>
         </form>
       </section>

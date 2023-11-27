@@ -11,6 +11,12 @@ export const testimonials = async () => {
   return data;
 };
 
+// Our gallery section get images
+export const getImages = async () => {
+  const { data } = await axiosSecure.get("/images");
+  return data;
+};
+
 // Newsletters get & post all subscribers under home pages users
 export const subscribers = async () => {
   const { data } = await axiosSecure.get("/newsletters");
@@ -29,5 +35,23 @@ export const addClasses = async (info) => {
 };
 export const trainerClasses = async () => {
   const { data } = await axiosSecure.get("/classes");
+  return data;
+};
+
+// Add Forum Post && get forums
+
+export const fitnessForums = async () => {
+  const { data } = await axiosSecure.get("/forums");
+  return data;
+};
+
+// Be A Trainer Routes Post && gate
+export const isTrainers = async () => {
+  const { data } = await axiosSecure.get("/trainers");
+  return data;
+};
+
+export const beTrainer = async (dataInfo) => {
+  const { data } = await axiosSecure.post("/trainers", dataInfo);
   return data;
 };
