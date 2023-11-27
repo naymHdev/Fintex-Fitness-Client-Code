@@ -1,37 +1,46 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+
+import { useEffect, useState } from "react";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
-const getImages = async ({ pageParam = 0 }) => {
-  const res = await fetch(`http://localhost:5000/images?offset=${pageParam}`);
-  const data = await res.json();
-  return { ...data, prevOffset: pageParam };
-};
+
+// ... (imports)
 
 const Gallery = () => {
-  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ["images"],
-    queryFn: getImages,
-    getNextPageParam: (lastPage) => {
-      if (lastPage?.prevOffset + 10 > lastPage?.imagesCount) {
-        return false;
-      }
-      return lastPage?.prevOffset + 10;
-    },
-  });
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  console.log(data?.pages);
+  const itemsPerPage = 12;
 
-  const images = data?.pages?.reduce((acc, page) => {
-    return [...acc, ...page];
-  }, []);
-  
-  console.log(images);
-  
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+
+      const response = await fetch(`images.json?page=${page}`);
+      const newData = await response.json();
+
+      setData((prevData) => [...prevData, ...newData.slice(0, itemsPerPage)]);
+      setHasMore(newData.length > itemsPerPage);
+
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [page]);
 
   return (
     <div>
+      
       <section className=" flex items-center pt-[200px] bg-[url('https://imagizer.imageshack.com/img922/7563/AMPrbh.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
@@ -55,10 +64,22 @@ const Gallery = () => {
           <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <section>
-        {
-          // data?.pages.map(img => console.log(img))
-        }
+      <section className="mt-8 rounded-md">
+        <InfiniteScroll
+          dataLength={data.length}
+          next={fetchData} // Use the fetchData function for the next callback
+          hasMore={hasMore}
+          loader={loading && <h4>Loading...</h4>}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 border-green-500 border-r-2 border-l-2">
+            {data.map((item, index) => (
+              <div key={index} className="rounded-md">
+                <img className="w-full rounded-md h-64" src={item.trainer_image} alt="" />
+              </div>
+            ))}
+          </div>
+        </InfiniteScroll>
+        {error && <p className="text-red-500">Error loading data. Please try again.</p>}
       </section>
     </div>
   );

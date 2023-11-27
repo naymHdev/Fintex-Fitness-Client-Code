@@ -11,12 +11,6 @@ export const testimonials = async () => {
   return data;
 };
 
-// Our gallery section get images
-export const getImages = async () => {
-  const { data } = await axiosSecure.get("/images");
-  return data;
-};
-
 // Newsletters get & post all subscribers under home pages users
 export const subscribers = async () => {
   const { data } = await axiosSecure.get("/newsletters");
