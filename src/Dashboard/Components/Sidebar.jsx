@@ -10,13 +10,14 @@ import UseRole from "../../Hooks/Roles/UseRole";
 import TrainerMenus from "../Trainer/TrainerMenus";
 import MemberMenus from "../Members/MemberMenus";
 import AdminMenus from "../Admin/AdminMenus";
+import useAuth from "../../Hooks/useAuth";
 
 const Sidebar = () => {
   // const [ setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
+  const { user } = useAuth();
 
   const role = UseRole();
-  console.log(role);
 
   //   For guest/host menu item toggle button
   // const toggleHandler = (event) => {
@@ -54,8 +55,18 @@ const Sidebar = () => {
             <div className="w-full hidden md:flex px-4 py-2 rounded-lg justify-center items-center mx-auto">
               <LogoImg />
             </div>
-            <div className=" bg-red-100 shadow-xl px-1 py-1 rounded-t-full">
-            <h2 className="font-bold text-xl text-center text-green-500">Fitnex - Fitness</h2>
+            <hr className="py-2" />
+            <div className="flex items-center gap-4">
+              <div className="avatar">
+                <div className="w-10 rounded-full">
+                  <img 
+                  src={user && user.photoURL ? user.photoURL : ""} />
+                </div>
+              </div>
+              <div className="">
+                <h3 className="font-bold text-green-500">{user ? user.displayName : "User Name"}</h3>
+                <p className="text-sm">{role}</p>
+              </div>
             </div>
           </div>
 
@@ -65,18 +76,11 @@ const Sidebar = () => {
             {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
 
             {/* Member Menus */}
-            <nav>
-              { role === 'member' && <MemberMenus /> }
-            </nav>
+            <nav>{role === "member" && <MemberMenus />}</nav>
             {/* Trainer Menus */}
-            <nav>
-              { role === 'trainer' && <TrainerMenus /> }
-            </nav>
+            <nav>{role === "trainer" && <TrainerMenus />}</nav>
             {/* Admin Menus */}
-            <nav>
-              { role === 'admin' && <AdminMenus />}
-            </nav>
-
+            <nav>{role === "admin" && <AdminMenus />}</nav>
           </div>
         </div>
 

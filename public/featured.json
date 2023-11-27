@@ -1,29 +1,68 @@
 [
   {
-    "_id": "6561964fae234f475963cfca",
-    "trainer_name": "Jane Smith",
-    "trainer_image": "https://imagizer.imageshack.com/img922/2128/huhsBR.jpg",
-    "trainer_experience": 7,
-    "trainer_short_details": "Energetic and dedicated to helping clients achieve their fitness goals with high-intensity workouts.",
-    "week":36,
-    "day": 6
+    "title": "Cardio Blast",
+    "description": "High-intensity cardio workout to boost your endurance and burn calories.",
+    "instructorName": "Alex Johnson",
+    "trainingTime": 1,
+    "coursePrice": 20,
+    "trainerSkills": "Cardiovascular Fitness",
+    "imag": "https://imagizer.imageshack.com/img922/9706/Flb1sO.jpg",
+    "from": "2023-01-01",
+    "to": "2023-02-28"
   },
   {
-    "_id": "6561964fae234f475963cfc9",
-    "trainer_name": "John Doe",
-    "trainer_image": "https://imagizer.imageshack.com/img924/4627/WAIuPx.jpg\n",
-    "trainer_experience": 10,
-    "trainer_short_details": "Passionate about helping clients achieve their fitness goals through personalized training.",
-    "week":26,
-    "day": 3
+    "title": "Strength Training 101",
+    "description": "Build muscle and strength with a focus on proper form and technique.",
+    "instructorName": "Emily Rodriguez",
+    "trainingTime": 2,
+    "coursePrice": 25,
+    "trainerSkills": "Strength Training",
+    "imag": "https://imagizer.imageshack.com/img923/2784/Wfk09M.jpg",
+    "from": "2023-01-15",
+    "to": "2023-03-15"
   },
   {
-    "_id": "6561964fae234f475963cfcb",
-    "trainer_name": "Alex Johnson",
-    "trainer_image": "https://imagizer.imageshack.com/img923/772/YhlJn4.jpg",
-    "trainer_experience": 9,
-    "trainer_short_details": "Committed to helping clients find balance and inner peace through yoga and meditation.",
-    "week":16,
-    "day": 4
+    "title": "Yoga for Relaxation",
+    "description": "Gentle yoga to improve flexibility, balance, and promote relaxation.",
+    "instructorName": "Sophie Chen",
+    "trainingTime": 4,
+    "coursePrice": 15,
+    "trainerSkills": "Yoga",
+    "imag": "https://imagizer.imageshack.com/img924/1550/4zlKZJ.jpg",
+    "from": "2023-02-01",
+    "to": "2023-04-30"
+  },
+  {
+    "title": "Circuit Training",
+    "description": "Full-body workout with a series of exercises to enhance strength and endurance.",
+    "instructorName": "Michael Turner",
+    "trainingTime": 3,
+    "coursePrice": 18,
+    "trainerSkills": "Circuit Training",
+    "imag": "https://imagizer.imageshack.com/img922/1960/xQrKNs.jpg",
+    "from": "2023-02-15",
+    "to": "2023-05-15"
+  },
+  {
+    "title": "Pilates Core Challenge",
+    "description": "Focus on core strength and stability through Pilates exercises.",
+    "instructorName": "Olivia Harper",
+    "trainingTime": 2,
+    "coursePrice": 22,
+    "trainerSkills": "Pilates",
+    "imag": "https://imagizer.imageshack.com/img923/2307/DxYifI.jpg",
+    "from": "2023-03-01",
+    "to": "2023-06-30"
+  },
+  {
+    "title": "Mindful Meditation",
+    "description": "Guided meditation sessions to promote mental well-being and mindfulness.",
+    "instructorName": "Aria Thompson",
+    "trainingTime": 1,
+    "coursePrice": 15,
+    "trainerSkills": "Mindfulness",
+    "imag": "https://imagizer.imageshack.com/img924/5732/DJb1de.jpg",
+    "from": "2023-04-01",
+    "to": "2023-06-30"
   }
 ]

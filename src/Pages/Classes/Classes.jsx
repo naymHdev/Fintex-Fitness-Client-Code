@@ -3,6 +3,8 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { trainerClasses } from "../../Api/Featured/Featured";
+import SectionTitle from "../../Components/SectionTitle";
+import Button from "../../Components/Button/Button";
 
 const Classes = () => {
   const [isClass, setIsClass] = useState([]);
@@ -41,15 +43,56 @@ const Classes = () => {
         </div>
       </section>
 
-      <section className="mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {
-            isClass?.map( item => (
-              <div key={item._id}>
-                <img src={item?.imag} alt="" />
-              </div>
-            ))
+      <div className="mt-20">
+        <SectionTitle
+          heading={"Today Our Trending Classes"}
+          subHeading={
+            "Explore diverse fitness classes, from high-intensity cardio to mindful meditation. Achieve your fitness goals with expert trainers in a welcoming environment. Join us for a transformative journey to wellness!"
           }
+        />
+      </div>
+      {/* 
+ title,
+      description,
+      instructorName,
+      trainingTime,
+      coursePrice,
+      trainerSkills,
+      images,
+      to,
+      from,
+      imag
+*/}
+      <section className="mt-20 w-8/12 mx-auto">
+        <div className="space-y-5">
+          {isClass?.map((item) => (
+            <div
+              key={item._id}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-md  border border-green-500 items-center"
+            >
+              <div>
+                <img className="rounded-l-md w-full h-64" src={item?.imag} alt="" />
+              </div>
+              <div className="space-y-2 px-5 py-5">
+                <h2 className="text-2xl font-bold text-white">{item.title}</h2>
+                <h3 className="">
+                  <span className="text-green-500 font-bold">Instructor: </span>
+                  {item.instructorName}
+                </h3>
+                <h3>
+                  <span className="text-green-500 font-bold">Skill: </span>
+                  {item.trainerSkills}
+                </h3>
+                <h2>
+                  <span className="text-green-500">${item.coursePrice}</span> per session
+                </h2>
+                <p className="text-sm">{item.description}</p>
+                <div className="flex justify-end">
+                  <Button label={"Book Now"} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>

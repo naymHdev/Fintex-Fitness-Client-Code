@@ -136,7 +136,7 @@ const AddNewClasses = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="overflow-hidden">
             <DateRange
               editableDateInputs={true}
               onChange={(ranges) => setState([ranges.selection])}
