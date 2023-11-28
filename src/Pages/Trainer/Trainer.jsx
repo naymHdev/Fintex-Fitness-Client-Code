@@ -5,13 +5,9 @@ import TrainerCart from "./TrainerCart";
 import { useEffect, useState } from "react";
 import { isTrainers } from "../../Api/Featured/Featured";
 import { Helmet } from "react-helmet";
-// import UseRole from "../../Hooks/Roles/UseRole";
 
 const Trainer = () => {
   const [trainer, setTrainer] = useState([]);
-
-  // const role = UseRole();
-  // role === "trainer" && 
 
   useEffect(() => {
     isTrainers()
@@ -21,7 +17,10 @@ const Trainer = () => {
 
   return (
     <div className="font-josefin">
-      <Helmet> <title>Fintex-Fitness || Trainer</title></Helmet>
+      <Helmet>
+        {" "}
+        <title>Fintex-Fitness || Trainer</title>
+      </Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/8956/f2SlIF.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
@@ -46,11 +45,17 @@ const Trainer = () => {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
+      <div  className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
+        {
+          trainer?.map( info => info?.role === 'trainer' ? <TrainerCart key={info._id} info={info} /> : '')
+        }
+      </div>
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
         {trainer.map((info) => (
           <TrainerCart key={info._id} info={info} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

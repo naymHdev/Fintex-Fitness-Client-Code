@@ -44,14 +44,13 @@ export const forumsData = async (postForum) => {
   return data;
 };
 
-
 // Be A Trainer Routes Post && gate
 export const isTrainers = async () => {
-  const { data } = await axiosSecure.get("/trainers");
+  const { data } = await axiosSecure.get("/trainers/trainer");
   return data;
 };
 export const deleteTrainers = async (trainerId) => {
-  const {data} = await axiosSecure.delete(`/trainers/${trainerId}`);
+  const { data } = await axiosSecure.delete(`/trainers/${trainerId}`);
   return data;
 };
 

@@ -34,8 +34,8 @@ const AllTrainers = () => {
               </tr>
             </thead>
             <tbody className="">
-              {trainers?.map((subs, index) => (
-                <tr className="space-y-4" key={subs.index}>
+              {trainers?.map((subs, index) => subs?.role === 'trainer' ? (
+                <tr className="space-y-4" key={subs._id}>
                   <th>{index + 1}</th>
                   <div className="avatar">
                     <div className="mask mask-squircle w-14 h-14">
@@ -46,7 +46,7 @@ const AllTrainers = () => {
                   <td>Experience <span className="text-green-500 font-bold">{subs.trainer_experience}+</span> Years</td>
                   <td>{subs.email}</td>
                 </tr>
-              ))}
+              ) : '' )}
             </tbody>
           </table>
         </div>
