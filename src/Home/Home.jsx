@@ -6,18 +6,19 @@ import Featured from "./Featured/Featured";
 import Newsletter from "./Newsletter/Newsletter";
 import Slider from "./Slider/Slider";
 import Testimonials from "./Testimonials";
+import LatestArticals from "./Articals/LatestArticals";
 
 const Home = () => {
     return (
         <div className="font-josefin">
             <Helmet> <title>Fintex-Fitness || Home</title></Helmet>
             <Slider />
-            {/* <Banner /> */}
             <Featured />
             <About />
             <Testimonials />
             <Coaches />
             <Newsletter />
+            <LatestArticals />
         </div>
     );
 };
