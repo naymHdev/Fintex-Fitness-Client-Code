@@ -19,8 +19,8 @@ const AllSubscriber = () => {
         <div className="">
           <table className="table">
             {/* head */}
-            <thead>
-              <tr className="text-2xl font-bold text-green-500">
+            <thead className="border-2 border-white bg-green-500">
+            <tr className="text-2xl font-bold text-white">
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>

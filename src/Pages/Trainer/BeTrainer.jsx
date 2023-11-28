@@ -7,11 +7,26 @@ import { useState } from "react";
 import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import Multiselect from "multiselect-react-dropdown";
 
 const BeTrainer = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [upload, setUpload] = useState("Upload Image");
+
+  const [skill, setSkill] = useState([]);
+  // console.log(skill);
+
+  const fitnessTrainerSkills = [
+    {skills: 'Knowledge of Exercise Physiology'},
+    {skills: 'Communication Skills'},
+    {skills: 'Motivational Skills'},
+    {skills: 'Adaptability and Flexibility'},
+    {skills: 'Nutritional Knowledge'},
+    {skills: 'Empathy and Interpersonal Skills'}
+  ];
+  const [options] = useState(fitnessTrainerSkills);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +41,7 @@ const BeTrainer = () => {
     const trainer_short_details = form.trainer_short_details.value;
     const images = form.image.files[0];
     const image_url = await imageUpload(images);
+    const skills = skill
     const trainerInfo = {
       trainer_name,
       email,
@@ -34,12 +50,12 @@ const BeTrainer = () => {
       trainer_short_details,
       week,
       trainer_experience,
-      trainer_image: image_url?.data?.display_url,
+      trainer_image: image_url?.data?.display_url, skills
     };
-    console.log(trainerInfo);
+    console.table(trainerInfo);
 
     try {
-      const data = await beTrainer(trainerInfo);
+      const data = await beTrainer(trainerInfo, skill);
       console.log(data);
       toast.success("Applied Success!");
     } catch (error) {
@@ -60,7 +76,9 @@ const BeTrainer = () => {
 
   return (
     <div className="font-josefin">
-      <Helmet> <title>Fintex-Fitness || Be Trainer</title></Helmet>
+      <Helmet>
+        <title>Fintex-Fitness || Be Trainer</title>
+      </Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/2298/hESvhl.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
@@ -156,17 +174,10 @@ const BeTrainer = () => {
           </div>
 
           {/* skills */}
-          {/* <div>
+          <div>
             <label className="text-white font-bold label">Skills</label>
-            <pre>{JSON.stringify(selected)}</pre>
-            <MultiSelect
-              options={options}
-              value={selected}
-              onChange={setSelected}
-              labelledBy="Select Your Skills"
-            />
-            <button onClick={handlePostData}>Post to MongoDB</button>
-          </div> */}
+            <Multiselect options={options} displayValue="skills" showCheckbox onSelect={(skills) => setSkill(skills)}  />
+          </div>
 
           <div className="w-full">
             <label className="text-white font-bold label">
