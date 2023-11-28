@@ -39,6 +39,12 @@ export const fitnessForums = async () => {
   return data;
 };
 
+export const forumsData = async (postForum) => {
+  const { data } = await axiosSecure.post("/forums", postForum);
+  return data;
+};
+
+
 // Be A Trainer Routes Post && gate
 export const isTrainers = async () => {
   const { data } = await axiosSecure.get("/trainers");

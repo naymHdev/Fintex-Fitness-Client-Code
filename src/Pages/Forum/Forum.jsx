@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import { fitnessForums } from "../../Api/Featured/Featured";
 import ForumCart from "./ForumCart";
+import SectionTitle from "../../Components/SectionTitle";
 
 const Forum = () => {
 
@@ -45,7 +46,17 @@ const Forum = () => {
           <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="mt-12 w-9/12">
+      <SectionTitle
+        heading={
+          "Unleash Your Best Self: Join the Ultimate Fitness Community for Expert Tips and Motivation!"
+        }
+        subHeading={
+          "Elevate Your Fitness Journey with Invaluable Insights, Support, and Encouragement. Connect with Like-Minded Enthusiasts and Achieve Your Goals Together. Embrace a Healthier Lifestyle with Our Vibrant Community!"
+        }
+      />
+      </div>
+      <section className="grid grid-cols-1 w-8/12 mx-auto mt-10 gap-8">
         {forums?.map((forum) => (
           <ForumCart key={forum._id} forum={forum} />
         ))}
