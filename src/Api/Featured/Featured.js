@@ -50,6 +50,10 @@ export const isTrainers = async () => {
   const { data } = await axiosSecure.get("/trainers");
   return data;
 };
+export const deleteTrainers = async (trainerId) => {
+  const {data} = await axiosSecure.delete(`/trainers/${trainerId}`);
+  return data;
+};
 
 export const beTrainer = async (dataInfo) => {
   const { data } = await axiosSecure.post("/trainers", dataInfo);

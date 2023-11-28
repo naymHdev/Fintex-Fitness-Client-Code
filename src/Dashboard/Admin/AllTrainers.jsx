@@ -20,11 +20,11 @@ const AllTrainers = () => {
       <SectionTitle heading={"Manages All Trainers"} subHeading={"Manage all subscribers"} />
       <Button label={'Pay Now'} />
       </div>
-      <section className="mt-16 border-t-2 border-b-2 border-green-400 md:py-8 md:px-12">
+      <section className="mt-8 border-t-2 border-b-2 border-green-400 md:py-8 md:px-12">
         <div className="">
           <table className="table">
             {/* head */}
-            <thead className=" bg-green-500 border-2">
+            <thead className="border-2 border-white bg-green-500">
               <tr className="text-2xl font-bold text-white">
                 <th>#</th>
                 <th>Image</th>
@@ -33,9 +33,9 @@ const AllTrainers = () => {
                 <th>Email</th>
               </tr>
             </thead>
-            <tbody className="border-2  border-green-500">
+            <tbody className="">
               {trainers?.map((subs, index) => (
-                <tr key={subs.index}>
+                <tr className="space-y-4" key={subs.index}>
                   <th>{index + 1}</th>
                   <div className="avatar">
                     <div className="mask mask-squircle w-14 h-14">

@@ -5,7 +5,8 @@ import { Fragment } from "react";
 import Button from "../../Components/Button/Button";
 
 const StatusModal = ({ closeModal, isOpen, trainerInfo }) => {
-//   console.log(trainerInfo.trainer);
+  //   console.log(trainerInfo.trainer);
+
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -40,6 +41,7 @@ const StatusModal = ({ closeModal, isOpen, trainerInfo }) => {
                 >
                   Review Info Before Reserve
                 </Dialog.Title>
+
                 <div className="mt-2">
                   {/* <p className="text-sm text-gray-500">Room: {trainerInfo.title}</p> */}
                 </div>
