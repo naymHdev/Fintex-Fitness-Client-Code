@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import toast, { Toaster } from "react-hot-toast";
@@ -27,7 +27,7 @@ const MenuDropdown = () => {
       <div className="flex flex-row items-center gap-3">
         <div className="hidden md:block">
           <button
-            className="disabled:cursor-not-allowed cursor-pointe py-3 px-4 text-sm font-semibold 
+            className="disabled:cursor-not-allowed cursor-pointe md:py-3 md:px-4 text-sm font-semibold 
             transition"
           >
             {user ? user.displayName : "User Name"}
@@ -59,47 +59,90 @@ const MenuDropdown = () => {
       {isOpen && (
         <div className="absolute rounded-xl shadow-md w-[40vw] bg-green-400 md:w-[10vw] overflow-hidden right-0 top-12 text-sm">
           <div className="flex flex-col cursor-pointer">
-            <Link
-              to="/"
-              className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-            >
-              Home
-            </Link>
+          <div className="">
+                <ul className="grid items-center md:hidden  gap-4 mt-5 font-bold">
+                  <li>
+                    <NavLink
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    to="/">
+                      <h1 className="font-bold flex justify-center">Home</h1>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/gallery"
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    >
+                      <h1 className="font-bold flex justify-center">Gallery</h1>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/trainer"
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    >
+                      <h1 className="font-bold flex justify-center">Trainer</h1>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/classes"
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    >
+                      <h1 className="font-bold flex justify-center">Classes</h1>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/forum"
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    >
+                      <h1 className="font-bold flex justify-center">Forum</h1>
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             {user ? (
               <>
-                <Link
+                <NavLink
                   to="profile"
-                  className="block p-2 hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center hover:bg-neutral-100 transition font-semibold"
                 >
                   Profile
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="dashboard"
-                  className="block p-2 hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center hover:bg-neutral-100 transition font-semibold"
                 >
                   Dashboard
-                </Link>
+                </NavLink>
                 <h2
                   onClick={handleLogout}
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  className="py-2 flex justify-center hover:bg-neutral-100 transition font-semibold"
                 >
                   Log Out
                 </h2>
               </>
             ) : (
               <>
-                <Link
+                <NavLink
                   to="/login"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  className="py-2 flex justify-center hover:bg-neutral-100 transition font-semibold"
                 >
                   Login
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/register"
-                  className="px-4 py-3 hover:bg-neutral-100 transition font-semibold"
+                  className="py-2 flex justify-center hover:bg-neutral-100 transition font-semibold"
                 >
                   Registration
-                </Link>
+                </NavLink>
               </>
             )}
           </div>
