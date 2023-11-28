@@ -27,6 +27,7 @@ import Forum from "../Pages/Forum/Forum";
 import TrainerRoutes from "./TrainerRoutes";
 import ErrorDashboard from "../Dashboard/Components/ErrorDashboard";
 import Profile from "../Dashboard/Components/Profile/Profile";
+import { fitnessForums } from "../Api/Featured/Featured";
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,7 @@ export const router = createBrowserRouter([
       {
         path: "/forum",
         element: <Forum />,
+        loader: () => fitnessForums()
       },
       {
         path: "/profile",

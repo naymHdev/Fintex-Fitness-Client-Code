@@ -23,11 +23,11 @@ const Sidebar = () => {
 
   const [role] = UseRole();
 
-  const handleLogout =  () => {
+  const handleLogout = () => {
     logOut()
       .then(() => {
         toast.success("Logout Success");
-         clearCookie();
+        clearCookie();
         navigate("/");
       })
       .catch((err) => console.log(err));
@@ -53,7 +53,6 @@ const Sidebar = () => {
           <AiOutlineBars className="h-5 w-5" />
         </button>
       </div>
-      {/* Sidebar */}
       <div
         className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-green-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
@@ -68,22 +67,18 @@ const Sidebar = () => {
             <div className="flex items-center gap-4">
               <div className="avatar">
                 <div className="w-10 rounded-full">
-                  <img 
-                  src={user && user.photoURL ? user.photoURL : ""} />
+                  <img src={user && user.photoURL ? user.photoURL : ""} />
                 </div>
               </div>
               <div className="">
-                <h3 className="font-bold text-green-500">{user ? user.displayName : "User Name"}</h3>
+                <h3 className="font-bold text-green-500">
+                  {user ? user.displayName : "User Name"}
+                </h3>
                 <p className="text-sm">{role}</p>
               </div>
             </div>
           </div>
-
-          {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
-            {/* If a user is Trainer */}
-            {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
-
             {/* Member Menus */}
             <nav>{role === "member" && <MemberMenus />}</nav>
             {/* Trainer Menus */}
@@ -98,8 +93,10 @@ const Sidebar = () => {
 
           <MenuItem icon={FaHome} label="Home" address="/" />
           <MenuItem icon={FcSettings} label="Profile" address="/dashboard/profile" />
-          <button onClick={handleLogout}
-           className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform">
+          <button
+            onClick={handleLogout}
+            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
+          >
             <GrLogout className="w-5 h-5" />
 
             <span className="mx-4 font-medium">Logout</span>

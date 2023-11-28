@@ -8,17 +8,16 @@ const ForumCart = ({ forum }) => {
   const [disLike, setDisLike] = useState(0);
   const [isDisLike, setIsDisLike] = useState(false);
 
-  const { content, text, texts, photoURL, time, displayName, role  } = forum || {};
+  const { content, text, texts, photoURL, time, displayName, role } = forum || {};
 
   const handleLike = () => {
     setLike(like + (isLike ? +1 : 1));
     setIsLike(!isLike);
   };
-
   const handleDisLike = () => {
-    setDisLike(disLike + (isDisLike ? +1 : 1))
-    setIsDisLike(!isDisLike)
-  }
+    setDisLike(disLike + (isDisLike ? +1 : 1));
+    setIsDisLike(!isDisLike);
+  };
 
   return (
     <div>
@@ -30,10 +29,10 @@ const ForumCart = ({ forum }) => {
                 <img src={photoURL} />
               </div>
             </div>
-         <div>
-         <h3 className="text-white font-bold">{displayName}</h3>
-            <p>{role}</p>
-         </div>
+            <div>
+              <h3 className="text-white font-bold">{displayName}</h3>
+              <p>{role}</p>
+            </div>
           </div>
           <p className="text-sm">{time}</p>
           <p className="text-xl font-bold text-green-700">{texts}</p>
@@ -49,8 +48,10 @@ const ForumCart = ({ forum }) => {
               <SlLike className="text-green-600" />
               {like}
             </button>
-            <button onClick={handleDisLike}
-            className=" px-5 py-2 font-bold  flex items-center gap-4">
+            <button
+              onClick={handleDisLike}
+              className=" px-5 py-2 font-bold  flex items-center gap-4"
+            >
               <SlDislike className="text-green-600" />
               {disLike}
             </button>

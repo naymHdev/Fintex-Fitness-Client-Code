@@ -6,17 +6,26 @@ import { useEffect, useState } from "react";
 import { fitnessForums } from "../../Api/Featured/Featured";
 import ForumCart from "./ForumCart";
 import SectionTitle from "../../Components/SectionTitle";
+import Button from "../../Components/Button/Button";
 
 const Forum = () => {
-
   const [forums, setForums] = useState([]);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [totalPages, setTotalPages] = useState(1);
+
+  const itemParPage = 5;
 
   useEffect(() => {
     fitnessForums()
-    .then( data => setForums(data))
-    .catch( error => console.log(error))
-  }, [])
+      .then((data) => setForums(data))
+      .catch((error) => console.log(error));
+  }, []);
 
+  const numberOfPage = Math.ceil(20 / itemParPage);
+  // setTotalPages(numberOfPage)
+  // setCurrentPage(forums.currentPage);
+
+  const pages = [...Array(numberOfPage).keys()];
 
   return (
     <div className="font-josefin">
@@ -47,19 +56,30 @@ const Forum = () => {
         </div>
       </section>
       <div className="mt-12 w-9/12">
-      <SectionTitle
-        heading={
-          "Unleash Your Best Self: Join the Ultimate Fitness Community for Expert Tips and Motivation!"
-        }
-        subHeading={
-          "Elevate Your Fitness Journey with Invaluable Insights, Support, and Encouragement. Connect with Like-Minded Enthusiasts and Achieve Your Goals Together. Embrace a Healthier Lifestyle with Our Vibrant Community!"
-        }
-      />
+        <SectionTitle
+          heading={
+            "Unleash Your Best Self: Join the Ultimate Fitness Community for Expert Tips and Motivation!"
+          }
+          subHeading={
+            "Elevate Your Fitness Journey with Invaluable Insights, Support, and Encouragement. Connect with Like-Minded Enthusiasts and Achieve Your Goals Together. Embrace a Healthier Lifestyle with Our Vibrant Community!"
+          }
+        />
       </div>
       <section className="grid grid-cols-1 w-8/12 mx-auto mt-10 gap-8">
         {forums?.map((forum) => (
           <ForumCart key={forum._id} forum={forum} />
         ))}
+      </section>
+      <section>
+        <div className="flex justify-center mt-8">
+          <Button label={'Prev'} />
+          {pages?.map((page) => (
+            <button className="btn bg-green-500 text-white ml-5 mr-5" key={page}>
+              {page}
+            </button>
+          ))}
+          <Button label={'Next'} />
+        </div>
       </section>
     </div>
   );

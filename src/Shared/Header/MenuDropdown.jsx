@@ -112,7 +112,7 @@ const MenuDropdown = () => {
               <>
                 <NavLink
                   to="profile"
-                  className=" flex justify-center hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center mt-3 mb-2 hover:bg-neutral-100 transition font-semibold"
                 >
                   Profile
                 </NavLink>
