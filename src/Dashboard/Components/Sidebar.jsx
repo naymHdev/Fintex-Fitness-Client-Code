@@ -5,7 +5,6 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
 import LogoImg from "./logoImg";
 import MenuItem from "./MenuItem";
-// import ToggleBtn from "./ToggleBtn";
 import UseRole from "../../Hooks/Roles/UseRole";
 import TrainerMenus from "../Trainer/TrainerMenus";
 import MemberMenus from "../Members/MemberMenus";
@@ -16,7 +15,6 @@ import { clearCookie } from "../../Api/Auth/Auth";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-  // const [ setToggle] = useState(false);
   const [isActive, setActive] = useState(false);
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
@@ -79,11 +77,8 @@ const Sidebar = () => {
             </div>
           </div>
           <div className="flex flex-col justify-between flex-1 mt-6">
-            {/* Member Menus */}
             <nav>{role === "member" && <MemberMenus />}</nav>
-            {/* Trainer Menus */}
             <nav>{role === "trainer" && <TrainerMenus />}</nav>
-            {/* Admin Menus */}
             <nav>{role === "admin" && <AdminMenus />}</nav>
           </div>
         </div>
