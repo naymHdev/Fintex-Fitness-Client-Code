@@ -1,27 +1,27 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import toast from "react-hot-toast";
-import { isTrainers } from "../../Api/Featured/Featured";
-import { useQuery } from "@tanstack/react-query";
+// import { isTrainers } from "../../Api/Featured/Featured";
+// import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import axiosSecure from "../../Hooks/localAxios";
-import { useNavigate } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
+// import { useNavigate } from "react-router-dom";
+// import useAuth from "../../Hooks/useAuth";
 
 const Checkout = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
 
-  const navigate = useNavigate();
-  const { user } = useAuth();
+//   const navigate = useNavigate();
+//   const { user } = useAuth();
 
-  const { data: trainers = [], refetch } = useQuery({
-    queryKey: ["trainerPayment"],
-    queryFn: async () => {
-      const res = await isTrainers();
-      return res;
-    },
-  });
+//   const { data: trainers = [], refetch } = useQuery({
+//     queryKey: ["trainerPayment"],
+//     queryFn: async () => {
+//       const res = await isTrainers();
+//       return res;
+//     },
+//   });
 
   const totalPrice = 1590; 
 
@@ -59,42 +59,6 @@ const Checkout = () => {
       console.log("[PaymentMethod]", paymentMethod);
       toast.success("Payment Success!");
     }
-
-    // /// Confirmed Payment
-    // const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-    //   payment_method: {
-    //     card: card,
-    //     billing_details: {
-    //       name: user?.displayName || "anonymous",
-    //       email: user?.email || "anonymous",
-    //     },
-    //   },
-    // });
-
-    // if (confirmError) {
-    //   console.log("confirmError", confirmError);
-    // } else {
-    //   console.log("PaymentIntent", paymentIntent);
-    //   if (paymentIntent.status === "succeeded") {
-    //     // console.log("tran Id", paymentIntent.id);
-    //     toast.success(paymentIntent.id);
-
-    //     // Sent user payment data site to server
-    //     const payment = {
-    //       email: user?.email,
-    //       transactionId: paymentIntent.id,
-    //       price: totalPrice,
-    //       date: new Date(),
-    //       cartIds: trainers?.map((item) => item._id),
-    //       status: "pending",
-    //     };
-
-    //     const res = await axiosSecure?.post("/payments", payment);
-    //     refetch();
-    //     console.log(res.data);
-    //     navigate("/dashboard/allTrainers");
-    //   }
-    // }
   };
 
   return (
