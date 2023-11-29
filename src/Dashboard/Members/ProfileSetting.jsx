@@ -2,35 +2,37 @@
 import { Helmet } from "react-helmet";
 import SectionTitle from "../../Components/SectionTitle";
 import useAuth from "../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import axiosSecure from "../../Hooks/localAxios";
+import toast from "react-hot-toast";
 
 const ProfileSetting = () => {
   const { user } = useAuth();
-  //   console.log(user);
+  const { _id} = user;
+  const { register, handleSubmit } = useForm();
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const displayName = form.displayName.value;
-    const email = form.email.value;
-    const photoURL = form.photoURL.value;
+  const onSubmit = async (data) => {
+    const displayName = data.displayName;
+    const email = data.email;
+    const photoURL = data.photoURL;
     const userInfo = { displayName, email, photoURL };
-    console.log(userInfo);
+    // console.log(userInfo);
 
-    // await updateUser(userInfo)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    const updateProfile = axiosSecure.patch(`/user/${_id}`, userInfo);
+    if (updateProfile.data.modifiedCount > 0) {
+      toast.success(`${data.name} Successfully Updated Your Menu`);
+    }
   };
 
   return (
     <div className="mt-20 font-josefin">
-      <Helmet> <title>Fintex-Fitness || Profile Settings</title></Helmet>
+      <Helmet>
+        {" "}
+        <title>Fintex-Fitness || Profile Settings</title>
+      </Helmet>
       <SectionTitle subHeading={"Do update now your user profile!"} heading={"User Profile"} />
       <form
-        onSubmit={handleUpdate}
+        onSubmit={handleSubmit(onSubmit)}
         className="border-green-400 border mt-8 w-6/12 mx-auto px-6 py-10 rounded-xl"
       >
         <div className="flex justify-center items-center">
@@ -49,7 +51,8 @@ const ProfileSetting = () => {
             <input
               type="text"
               name="displayName"
-              placeholder={user?.displayName}
+              defaultValue={user?.displayName}
+              {...register("displayName", { required: true })}
               className="input border-green-500 w-full max-w-xs"
             />
           </div>
@@ -58,7 +61,8 @@ const ProfileSetting = () => {
             <input
               type="text"
               name="email"
-              placeholder={user?.email}
+              defaultValue={user?.email}
+              {...register("email", { required: true })}
               className="input border-green-500 w-full max-w-xs"
             />
           </div>
@@ -67,7 +71,8 @@ const ProfileSetting = () => {
             <input
               type="url"
               name="photoURL"
-              placeholder={user?.photoURL}
+              defaultValue={user?.photoURL}
+              {...register("photoURL", { required: true })}
               className="input border-green-500 w-full max-w-xs"
             />
           </div>

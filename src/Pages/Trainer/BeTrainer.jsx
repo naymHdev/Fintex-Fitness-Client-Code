@@ -8,25 +8,25 @@ import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Multiselect from "multiselect-react-dropdown";
+import SectionTitle from "../../Components/SectionTitle";
 
 const BeTrainer = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
-  const [upload, setUpload] = useState("Upload Image");
+  const [upload, setUpload] = useState("Upload Your Image");
 
   const [skill, setSkill] = useState([]);
   // console.log(skill);
 
   const fitnessTrainerSkills = [
-    {skills: 'Knowledge of Exercise Physiology'},
-    {skills: 'Communication Skills'},
-    {skills: 'Motivational Skills'},
-    {skills: 'Adaptability and Flexibility'},
-    {skills: 'Nutritional Knowledge'},
-    {skills: 'Empathy and Interpersonal Skills'}
+    { skills: "Knowledge of Exercise Physiology" },
+    { skills: "Communication Skills" },
+    { skills: "Motivational Skills" },
+    { skills: "Adaptability and Flexibility" },
+    { skills: "Nutritional Knowledge" },
+    { skills: "Empathy and Interpersonal Skills" },
   ];
   const [options] = useState(fitnessTrainerSkills);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,22 +35,25 @@ const BeTrainer = () => {
     const trainer_name = form.trainer_name.value;
     const email = user.email;
     const age = form.age.value;
+    const salary = form.salary.value;
     const day = form.day.value;
     const week = form.week.value;
     const trainer_experience = form.trainer_experience.value;
     const trainer_short_details = form.trainer_short_details.value;
     const images = form.image.files[0];
     const image_url = await imageUpload(images);
-    const skills = skill
+    const skills = skill;
     const trainerInfo = {
       trainer_name,
       email,
+      salary,
       age,
       day,
       trainer_short_details,
       week,
       trainer_experience,
-      trainer_image: image_url?.data?.display_url, skills
+      trainer_image: image_url?.data?.display_url,
+      skills,
     };
     console.table(trainerInfo);
 
@@ -103,13 +106,15 @@ const BeTrainer = () => {
         </div>
       </section>
       <section className="w-8/12 mx-auto mt-20 border border-green-500 p-5 rounded-md">
-        <h2 className="text-2xl font-bold w-9/12 text-white">
-          Embark on a fulfilling journey with Be a Trainer! Join our community, ignite change, and
-          thrive together!
-        </h2>
+        <SectionTitle
+          heading={"Thank you for your applying!"}
+          subHeading={
+            "Embark on a fulfilling journey with be a Trainer! Join our community, ignite change, and thrive together!"
+          }
+        />
         <hr className="mt-5 mb-3" />
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex items-center gap-5">
+          <div className="md:flex grid items-center gap-5">
             <div className="w-full">
               <label className="text-white font-bold label">Name</label>
               <input
@@ -131,52 +136,72 @@ const BeTrainer = () => {
               />
             </div>
           </div>
-          <div>
-            <label className="text-white font-bold label">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder={user ? user.email : ""}
-              className="input border input-bordered w-full"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <label className="text-white font-bold label">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder={user ? user.email : ""}
+                className="input border input-bordered w-full"
+              />
+            </div>
+            <div className="w-full">
+              <label className="text-white font-bold label">Years of Experience</label>
+              <input
+                type="number"
+                name="trainer_experience"
+                required
+                placeholder="Type here your expertise years times"
+                className="input input-bordered w-full"
+              />
+            </div>
+            {/*  */}
           </div>
-          <div className="w-full">
-            <label className="text-white font-bold label">
-              Available time in a Weekly.(Hourly)
-            </label>
-            <input
-              type="number"
-              name="week"
-              required
-              placeholder="Type here your time"
-              className="input input-bordered w-full"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="w-full">
+              <label className="text-white font-bold label">
+                Available time in a Weekly.(Hourly)
+              </label>
+              <input
+                type="number"
+                name="week"
+                required
+                placeholder="Type here your time"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="w-full">
+              <label className="text-white font-bold label">Available time in a day.(Hourly)</label>
+              <input
+                type="number"
+                name="day"
+                required
+                placeholder="Type here your time"
+                className="input input-bordered w-full"
+              />
+            </div>
           </div>
-          <div className="w-full">
-            <label className="text-white font-bold label">Available time in a day.(Hourly)</label>
-            <input
-              type="number"
-              name="day"
-              required
-              placeholder="Type here your time"
-              className="input input-bordered w-full"
-            />
-          </div>
-          <div className="w-full">
-            <label className="text-white font-bold label">Years of Experience</label>
-            <input
-              type="number"
-              name="trainer_experience"
-              required
-              placeholder="Type here your expertise years times"
-              className="input input-bordered w-full"
-            />
-          </div>
-
-          {/* skills */}
-          <div>
-            <label className="text-white font-bold label">Skills</label>
-            <Multiselect options={options} displayValue="skills" showCheckbox onSelect={(skills) => setSkill(skills)}  />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <label className="text-white font-bold label">Skills</label>
+              <Multiselect
+                options={options}
+                displayValue="skills"
+                showCheckbox
+                onSelect={(skills) => setSkill(skills)}
+              />
+            </div>
+            <div className="w-full">
+              <label className="text-white font-bold label">Your expecting salary!</label>
+              <input
+                type="number"
+                name="salary"
+                required
+                placeholder="$$$$$"
+                className="input input-bordered w-full"
+              />
+            </div>
           </div>
 
           <div className="w-full">

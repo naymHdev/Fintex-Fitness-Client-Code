@@ -71,11 +71,15 @@ export const router = createBrowserRouter([
       {
         path: "/forum",
         element: <Forum />,
-        loader: () => fitnessForums()
+        loader: () => fitnessForums(),
       },
       {
         path: "/profile",
-        element: <PrivateRoute><Profile /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -95,7 +99,9 @@ export const router = createBrowserRouter([
         path: "manageSlots",
         element: (
           <PrivateRoute>
-            <ManageSlots />
+            <TrainerRoutes>
+              <ManageSlots />
+            </TrainerRoutes>
           </PrivateRoute>
         ),
       },
@@ -103,7 +109,9 @@ export const router = createBrowserRouter([
         path: "manageMember",
         element: (
           <PrivateRoute>
-            <ManageMember />
+            <TrainerRoutes>
+              <ManageMember />
+            </TrainerRoutes>
           </PrivateRoute>
         ),
       },
@@ -111,7 +119,9 @@ export const router = createBrowserRouter([
         path: "addNewForum",
         element: (
           <PrivateRoute>
-            <AddNewForum />
+            {/* <TrainerRoutes> */}
+              <AddNewForum />
+            {/* </TrainerRoutes> */}
           </PrivateRoute>
         ),
       },
@@ -188,9 +198,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'payment',
-        element: <Payment />
-      }
+        path: "payment",
+        element: <Payment />,
+      },
     ],
   },
 ]);

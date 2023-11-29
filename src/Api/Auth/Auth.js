@@ -6,7 +6,7 @@ import axiosSecure from "../../Hooks/localAxios";
 export const saveUser = async (user) => {
   const currentUser = {
     email: user.email,
-    role: "guest",
+    role: "member",
     status: "Verified",
   };
   const { data } = await axiosSecure.put(`/user/${user?.email}`, currentUser);

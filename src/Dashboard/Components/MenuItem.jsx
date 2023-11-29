@@ -9,7 +9,7 @@ const MenuItem = ({label, address, icon: Icon}) => {
         end
         className={({ isActive }) =>
           `flex items-center px-4 my-5 py-1  transition-colors duration-300 transform rounded-sm  hover:bg-gray-300   hover:text-gray-700 ${
-            isActive ? 'bg-gray-300  text-green-700' : 'text-green-600'
+            isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
           }`
         }
       >

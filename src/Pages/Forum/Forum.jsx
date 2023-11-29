@@ -1,30 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
 import ForumCart from "./ForumCart";
 import SectionTitle from "../../Components/SectionTitle";
-import { fitnessForums } from "../../Api/Featured/Featured";
-// import Button from "../../Components/Button/Button";
+import ReactPaginate from "react-paginate";
+import { useState } from "react";
+import './forum.css'
 
 const Forum = () => {
-  const [forums, setForums] = useState([]);
-  // const [totalPages, setTotalPages] = useState(1);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const itemParPage = 5;
+  const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
-    fitnessForums()
-      .then((data) => setForums(data))
-      .catch((error) => console.log(error));
-  }, []);
+  const count = useLoaderData();
 
-  // const numberOfPage = Math.ceil(20 / itemParPage);
-  // setTotalPages(numberOfPage)
-  // setCurrentPage(forums.currentPage);
-  // const pages = [...Array(numberOfPage).keys()];
+  const itemsPerPage = 4;
+  const indexOfLastItem = (currentPage + 1) * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const pages = count.slice(indexOfFirstItem, indexOfLastItem);
 
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
   return (
     <div className="font-josefin">
       <Helmet>
@@ -64,21 +60,25 @@ const Forum = () => {
         />
       </div>
       <section className="grid grid-cols-1 w-8/12 mx-auto mt-10 gap-8">
-        {forums?.map((forum) => (
+        {pages?.map((forum) => (
           <ForumCart key={forum._id} forum={forum} />
         ))}
       </section>
-      {/* <section>
-        <div className="flex justify-center mt-8">
-          <Button label={'Prev'} />
-          {forums?.map((page) => (
-            <button className="btn bg-green-500 text-white ml-5 mr-5" key={page}>
-              {page}
-            </button>
-          ))}
-          <Button label={'Next'} />
-        </div>
-      </section> */}
+      <div className="flex items-center justify-center">
+        <ReactPaginate
+          pageCount={Math.ceil(count.length / itemsPerPage)}
+          pageRangeDisplayed={5}
+          marginPagesDisplayed={2}
+          onPageChange={handlePageChange}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+          pageClassName={'px-2'}
+          breakClassName={'px-2'}
+          previousClassName={'px-2'}
+          nextClassName={'px-2'}
+          innerClass={'pagination'}
+        />
+      </div>
     </div>
   );
 };

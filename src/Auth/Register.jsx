@@ -20,9 +20,6 @@ const Register = () => {
     const email = form.email.value;
     const image = form.image.value;
     const password = form.password.value;
-    // const data = { name, email, image, password };
-    // console.log(data);
-
     try {
       const result = await userCreate(email, password);
       // Post user data in MongoDB

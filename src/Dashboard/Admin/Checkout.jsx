@@ -1,34 +1,35 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import toast from "react-hot-toast";
-// import { isTrainers } from "../../Api/Featured/Featured";
-// import { useQuery } from "@tanstack/react-query";
+import { isTrainers } from "../../Api/Featured/Featured";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import axiosSecure from "../../Hooks/localAxios";
-// import { useNavigate } from "react-router-dom";
-// import useAuth from "../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Checkout = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
 
-//   const navigate = useNavigate();
-//   const { user } = useAuth();
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
-//   const { data: trainers = [], refetch } = useQuery({
-//     queryKey: ["trainerPayment"],
-//     queryFn: async () => {
-//       const res = await isTrainers();
-//       return res;
-//     },
-//   });
-
-  const totalPrice = 1590; 
+  const { data: trainers = [], refetch } = useQuery({
+    queryKey: ["trainerPayment"],
+    queryFn: async () => {
+      const res = await isTrainers();
+      return res;
+    },
+  });
+  // console.log(trainers);
+  const totalSalary = parseInt(trainers?.reduce((total, item) => total + item?.salary, 0))
+  console.log(totalSalary);
 
   useEffect(() => {
-    if (totalPrice > 0) {
+    if (totalSalary > 0) {
       axiosSecure
-        .post("/create-payment-intent", { price: totalPrice })
+        .post("/create-payment-intent", { price: totalSalary })
         .then((res) => {
           setClientSecret(res.data.clientSecret);
         })
@@ -36,11 +37,10 @@ const Checkout = () => {
           console.log(error);
         });
     }
-  }, [totalPrice]);
+  }, [totalSalary]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!stripe || !elements) {
       return;
     }
@@ -59,6 +59,44 @@ const Checkout = () => {
       console.log("[PaymentMethod]", paymentMethod);
       toast.success("Payment Success!");
     }
+
+     /// Confirmed Payment
+     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          email: user?.email || "anonymous",
+          name: user?.displayName || "anonymous",
+        },
+      },
+    });
+
+    if (confirmError) {
+      console.log("confirmError", confirmError);
+    } else {
+      console.log("PaymentIntent======>", paymentIntent);
+      // if (paymentIntent.status === "succeeded") {
+      //   console.log("tran Id", paymentIntent);
+      //   toast.success(paymentIntent.id);
+
+    //     // Sent user payment data site to server
+    //     const payment = {
+    //       email: user?.email,
+    //       transactionId: paymentIntent.id,
+    //       price: totalSalary,
+    //       date: new Date(),
+    //       cartIds: cart?.map((item) => item._id),
+    //       menuItemIds: cart?.map((item) => item.menuId),
+    //       status: "pending",
+    //     };
+
+    //     const res = await axiosLock?.post("/payments", payment);
+    //     refetch();
+    //     console.log(res.data);
+    //     navigate("/dashboard/paymentHistory");
+    //   }
+    }
+
   };
 
   return (
