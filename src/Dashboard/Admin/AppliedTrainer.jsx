@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import axiosSecure from "../../Hooks/localAxios";
 
 export const AppliedTrainer = () => {
+
   const { refetch, data: applied = [] } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
@@ -17,7 +18,6 @@ export const AppliedTrainer = () => {
     },
   });
   // console.log(applied);
-
   const handleDelete = (item) => {
     console.log(item);
     Swal.fire({
@@ -32,7 +32,7 @@ export const AppliedTrainer = () => {
       if (result.isConfirmed) {
         const res = await axiosSecure.delete(`/trainers/${item._id}`);
         if (res.data.deletedCount > 0) {
-          toast.success(`${item.name} has been deleted`);
+          toast.success(`${item.trainer_name} has been deleted`);
           refetch();
         }
       }
@@ -40,11 +40,12 @@ export const AppliedTrainer = () => {
   };
 
   const handleUpdate = (subs) => {
-    axiosSecure.patch(`/trainers/trainer/${subs._id}`).then((res) => {
+    axiosSecure.patch(`/trainers/trainer/${subs._id}`)
+    .then((res) => {
       console.log(res);
       if (res.data.modifiedCount > 0) {
         refetch();
-        toast.success(`${subs.name} is an admin now`);
+        toast.success(`${subs.trainer_name} is an admin now`);
       }
     });
   };
@@ -83,7 +84,6 @@ export const AppliedTrainer = () => {
                     Years
                   </td>
                   <td>{subs.email}</td>
-
                   {subs.role === "trainer" ? (
                     "Trainer"
                   ) : (

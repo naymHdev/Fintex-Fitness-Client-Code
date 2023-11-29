@@ -12,7 +12,7 @@ const TrainerDetails = () => {
 
   useEffect(() => {
     isAxios
-      .get("/trainers")
+      .get("/trainers/trainer")
       .then((data) => {
         setDetails(data.data);
       })

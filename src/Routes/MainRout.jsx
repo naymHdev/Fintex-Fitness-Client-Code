@@ -28,6 +28,7 @@ import TrainerRoutes from "./TrainerRoutes";
 import ErrorDashboard from "../Dashboard/Components/ErrorDashboard";
 import Profile from "../Dashboard/Components/Profile/Profile";
 import { fitnessForums } from "../Api/Featured/Featured";
+import Payment from "../Dashboard/Admin/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -125,6 +126,8 @@ export const router = createBrowserRouter([
         ),
       },
       /// Member Routes
+      /// Member Routes
+      /// Member Routes
       {
         path: "activityLog",
         element: (
@@ -149,6 +152,8 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      ///// Admin Routes \\\\
+      ///// Admin Routes \\\\
       ///// Admin Routes \\\\
       {
         path: "allSubscriber",
@@ -182,6 +187,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: 'payment',
+        element: <Payment />
+      }
     ],
   },
 ]);

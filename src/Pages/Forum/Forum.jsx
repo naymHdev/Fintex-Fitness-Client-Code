@@ -3,17 +3,16 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
-import { fitnessForums } from "../../Api/Featured/Featured";
 import ForumCart from "./ForumCart";
 import SectionTitle from "../../Components/SectionTitle";
-import Button from "../../Components/Button/Button";
+import { fitnessForums } from "../../Api/Featured/Featured";
+// import Button from "../../Components/Button/Button";
 
 const Forum = () => {
   const [forums, setForums] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
   // const [totalPages, setTotalPages] = useState(1);
-
-  const itemParPage = 5;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const itemParPage = 5;
 
   useEffect(() => {
     fitnessForums()
@@ -21,11 +20,10 @@ const Forum = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const numberOfPage = Math.ceil(20 / itemParPage);
+  // const numberOfPage = Math.ceil(20 / itemParPage);
   // setTotalPages(numberOfPage)
   // setCurrentPage(forums.currentPage);
-
-  const pages = [...Array(numberOfPage).keys()];
+  // const pages = [...Array(numberOfPage).keys()];
 
   return (
     <div className="font-josefin">
@@ -70,17 +68,17 @@ const Forum = () => {
           <ForumCart key={forum._id} forum={forum} />
         ))}
       </section>
-      <section>
+      {/* <section>
         <div className="flex justify-center mt-8">
           <Button label={'Prev'} />
-          {pages?.map((page) => (
+          {forums?.map((page) => (
             <button className="btn bg-green-500 text-white ml-5 mr-5" key={page}>
               {page}
             </button>
           ))}
           <Button label={'Next'} />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

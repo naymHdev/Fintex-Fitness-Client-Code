@@ -18,7 +18,6 @@ const Trainer = () => {
   return (
     <div className="font-josefin">
       <Helmet>
-        {" "}
         <title>Fintex-Fitness || Trainer</title>
       </Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/8956/f2SlIF.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
@@ -47,15 +46,9 @@ const Trainer = () => {
 
       <div  className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
         {
-          trainer?.map( info => info?.role === 'trainer' ? <TrainerCart key={info._id} info={info} /> : '')
+          trainer?.map( info => info?.role === 'trainer' && info?.payment === 'pending' ? <TrainerCart key={info._id} info={info} /> : '')
         }
       </div>
-
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
-        {trainer.map((info) => (
-          <TrainerCart key={info._id} info={info} />
-        ))}
-      </div> */}
     </div>
   );
 };

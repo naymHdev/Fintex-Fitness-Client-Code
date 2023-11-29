@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { MdVerified } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
 import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 
 const TrainerDetailsCard = ({ detail }) => {
+  // console.log(detail?.skills);
   return (
     <div className="w-8/12 mx-auto mt-12">
       <section className="pb-20">
@@ -19,9 +21,17 @@ const TrainerDetailsCard = ({ detail }) => {
               Experience <span className="text-green-500">{detail?.trainer_experience}+</span> Years
             </h4>
             <p className="text-sm">{detail?.trainer_short_details}</p>
+            <div>
+              <label className="label text-white font-bold">All Skills :</label>
+              {detail?.skills?.map((skill) => (
+                <p key={skill} className="text-sm flex items-center"><span><TiTick className="text-blue-600" /></span>{skill.skills}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Be trainer part  */}
       <div className="space-y-5">
         <hr />
         <div className="flex justify-center">
