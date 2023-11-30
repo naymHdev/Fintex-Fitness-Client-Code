@@ -14,7 +14,7 @@ const LatestArticals = () => {
 
   return (
     <div>
-      <div className="mt-20 w-9/12">
+      <div className="mt-36 w-9/12">
         <SectionTitle
           heading={
             "Latest Articles!"

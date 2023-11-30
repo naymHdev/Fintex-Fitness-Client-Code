@@ -1,6 +1,4 @@
 import axiosSecure from "../../Hooks/localAxios";
-// import useAuth from "../../Hooks/useAuth";
-// const {user} = useAuth()
 
 //// Save User Data In Server\\\\
 export const saveUser = async (user) => {
@@ -10,9 +8,15 @@ export const saveUser = async (user) => {
     status: "Verified",
   };
   const { data } = await axiosSecure.put(`/user/${user?.email}`, currentUser);
-  console.log(data);
+  // console.log(data);
   return data;
 };
+
+export const getUser = () => async (_id) => {
+  const { data } = await axiosSecure.get(`/user/trainer${_id}`);
+  console.log(data);
+  return data;
+}
 
 /// Profile Section ////
 export const updateUser = async (email) => {

@@ -2,7 +2,7 @@ import Button from "../Components/Button/Button";
 
 const About = () => {
   return (
-    <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-8 mt-20">
+    <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-8 mt-32">
       <div className="space-y-3">
         <h3 className="text-white text-xl font-bold">About Us -----</h3>
         <h4 className="font-bold">

@@ -21,7 +21,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-20 rounded-xl">
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-44 rounded-xl">
       <form onSubmit={handleNews} className="bg-green-600 py-5 rounded-l-xl">
         <h1 className="text-center font-bold text-3xl text-white">
           Subscribe To Our <span className="text-red-500">Newsletters</span>

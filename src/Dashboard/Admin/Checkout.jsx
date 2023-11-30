@@ -23,8 +23,7 @@ const Checkout = () => {
     },
   });
   // console.log(trainers);
-  const totalSalary = parseInt(trainers?.reduce((total, item) => total + item?.salary, 0))
-  console.log(totalSalary);
+  const totalSalary = 5000;
 
   useEffect(() => {
     if (totalSalary > 0) {
@@ -60,8 +59,8 @@ const Checkout = () => {
       toast.success("Payment Success!");
     }
 
-     /// Confirmed Payment
-     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+    /// Confirmed Payment
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
         billing_details: {
@@ -79,24 +78,23 @@ const Checkout = () => {
       //   console.log("tran Id", paymentIntent);
       //   toast.success(paymentIntent.id);
 
-    //     // Sent user payment data site to server
-    //     const payment = {
-    //       email: user?.email,
-    //       transactionId: paymentIntent.id,
-    //       price: totalSalary,
-    //       date: new Date(),
-    //       cartIds: cart?.map((item) => item._id),
-    //       menuItemIds: cart?.map((item) => item.menuId),
-    //       status: "pending",
-    //     };
+      //     // Sent user payment data site to server
+      //     const payment = {
+      //       email: user?.email,
+      //       transactionId: paymentIntent.id,
+      //       price: totalSalary,
+      //       date: new Date(),
+      //       cartIds: cart?.map((item) => item._id),
+      //       menuItemIds: cart?.map((item) => item.menuId),
+      //       status: "pending",
+      //     };
 
-    //     const res = await axiosLock?.post("/payments", payment);
-    //     refetch();
-    //     console.log(res.data);
-    //     navigate("/dashboard/paymentHistory");
-    //   }
+      //     const res = await axiosLock?.post("/payments", payment);
+      //     refetch();
+      //     console.log(res.data);
+      //     navigate("/dashboard/paymentHistory");
+      //   }
     }
-
   };
 
   return (

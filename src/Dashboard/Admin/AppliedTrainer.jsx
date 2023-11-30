@@ -17,7 +17,7 @@ export const AppliedTrainer = () => {
       return res;
     },
   });
-  // console.log(applied);
+  console.log(applied);
   const handleDelete = (item) => {
     console.log(item);
     Swal.fire({
@@ -45,7 +45,7 @@ export const AppliedTrainer = () => {
       console.log(res);
       if (res.data.modifiedCount > 0) {
         refetch();
-        toast.success(`${subs.trainer_name} is an admin now`);
+        toast.success(`${subs.trainer_name} is an trainer now`);
       }
     });
   };

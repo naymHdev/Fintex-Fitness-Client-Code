@@ -35,8 +35,8 @@ const MenuDropdown = () => {
         </div>
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="p-4 md:py-1 md:px-2  flex flex-row items-center gap-3 
-           cursor-pointer hover:shadow-md transition"
+          className="md:p-4 md:py-1 md:px-2  flex flex-row items-center md:gap-3 
+           cursor-pointer transition"
         >
           <AiOutlineMenu />
           <div className="w-12 rounded-full">
@@ -57,17 +57,17 @@ const MenuDropdown = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute z-10 rounded-xl shadow-md w-[40vw] bg-green-400 md:w-[10vw] overflow-hidden right-0 top-12 text-sm">
+        <div className="absolute z-10 rounded-xl shadow-md w-[40vw] bg-green-400 md:w-[10vw] overflow-hidden right-0 top-12 md:top-16 text-sm">
           <div className="flex flex-col cursor-pointer">
           <div className="">
-                <ul className="grid items-center  gap-4 mt-5 font-bold">
+                <ul className=" items-center  gap-4 mt-5 font-bold">
                   <li>
                     <NavLink
                      className={({ isActive, isPending }) =>
                      isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
                    }
                     to="/">
-                      <h1 className="font-bold flex justify-center">Home</h1>
+                      <h1 className="font-bold flex md:hidden  justify-center">Home</h1>
                     </NavLink>
                   </li>
                   <li>
@@ -76,7 +76,7 @@ const MenuDropdown = () => {
                      isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
                    }
                     >
-                      <h1 className="font-bold flex justify-center">Gallery</h1>
+                      <h1 className="font-bold flex md:hidden justify-center">Gallery</h1>
                     </NavLink>
                   </li>
                   <li>
@@ -85,7 +85,7 @@ const MenuDropdown = () => {
                      isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
                    }
                     >
-                      <h1 className="font-bold flex justify-center">Trainer</h1>
+                      <h1 className="font-bold flex md:hidden justify-center">Trainer</h1>
                     </NavLink>
                   </li>
                   <li>
@@ -94,7 +94,7 @@ const MenuDropdown = () => {
                      isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
                    }
                     >
-                      <h1 className="font-bold flex justify-center">Classes</h1>
+                      <h1 className="font-bold flex md:hidden justify-center">Classes</h1>
                     </NavLink>
                   </li>
                   <li>
@@ -103,7 +103,7 @@ const MenuDropdown = () => {
                      isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
                    }
                     >
-                      <h1 className="font-bold flex justify-center">Forum</h1>
+                      <h1 className="font-bold flex md:hidden justify-center">Forum</h1>
                     </NavLink>
                   </li>
                 </ul>
@@ -112,7 +112,7 @@ const MenuDropdown = () => {
               <>
                 <NavLink
                   to="profile"
-                  className=" flex justify-center mt-3 mb-2 hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center md:mt-0 mt-3 mb-2 hover:bg-neutral-100 transition font-semibold"
                 >
                   Profile
                 </NavLink>
