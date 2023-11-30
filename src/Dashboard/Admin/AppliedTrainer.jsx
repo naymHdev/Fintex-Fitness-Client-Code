@@ -1,4 +1,3 @@
-import { isTrainers } from "../../Api/Featured/Featured";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { ImSpinner9 } from "react-icons/im";
 import { Helmet } from "react-helmet";
@@ -8,18 +7,17 @@ import toast from "react-hot-toast";
 import axiosSecure from "../../Hooks/localAxios";
 
 export const AppliedTrainer = () => {
-
-  const { refetch, data: applied = [] } = useQuery({
+  const { refetch, data: users = [] } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
-      const res = await isTrainers();
-      // console.log(res);
-      return res;
+      const res = await axiosSecure.get("/user");
+      return res.data;
     },
   });
-  console.log(applied);
-  const handleDelete = (item) => {
-    console.log(item);
+  // console.log(users);
+
+  const handleDelete = (user) => {
+    console.log(user);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,22 +28,21 @@ export const AppliedTrainer = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const res = await axiosSecure.delete(`/trainers/${item._id}`);
+        const res = await axiosSecure.delete(`/user/trainer/${user._id}`);
         if (res.data.deletedCount > 0) {
-          toast.success(`${item.trainer_name} has been deleted`);
+          toast.success(`${user.displayName} has been deleted`);
           refetch();
         }
       }
     });
   };
 
-  const handleUpdate = (subs) => {
-    axiosSecure.patch(`/trainers/trainer/${subs._id}`)
-    .then((res) => {
+  const handleUpdate = (user) => {
+    axiosSecure.patch(`/user/trainer/${user._id}`).then((res) => {
       console.log(res);
       if (res.data.modifiedCount > 0) {
         refetch();
-        toast.success(`${subs.trainer_name} is an trainer now`);
+        toast.success(`${user.name} is an admin now`);
       }
     });
   };
@@ -61,28 +58,16 @@ export const AppliedTrainer = () => {
             <thead className=" bg-green-500 border-2">
               <tr className="text-2xl font-bold text-white">
                 <th>#</th>
-                <th>Image</th>
                 <th>Name</th>
-                <th>Experience</th>
                 <th>Email</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody className="">
-              {applied?.map((subs, index) => (
+              {users?.map((subs, index) => (
                 <tr className="space-y-3" key={subs._id}>
                   <th>{index + 1}</th>
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-14 h-14">
-                      <img src={subs.trainer_image} alt="trainer avatar" />
-                    </div>
-                  </div>
-                  <td>{subs.trainer_name}</td>
-                  <td>
-                    Experience
-                    <span className="text-green-500 font-bold"> {subs.trainer_experience}+ </span>
-                    Years
-                  </td>
+                  <td>{subs.status}</td>
                   <td>{subs.email}</td>
                   {subs.role === "trainer" ? (
                     "Trainer"

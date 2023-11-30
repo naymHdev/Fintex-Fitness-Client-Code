@@ -12,12 +12,6 @@ export const saveUser = async (user) => {
   return data;
 };
 
-export const getUser = () => async (_id) => {
-  const { data } = await axiosSecure.get(`/user/trainer${_id}`);
-  console.log(data);
-  return data;
-}
-
 /// Profile Section ////
 export const updateUser = async (email) => {
   const { data } = await axiosSecure.patch(`/user/${email}`);
