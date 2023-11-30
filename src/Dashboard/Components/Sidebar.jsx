@@ -20,7 +20,6 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const [role] = UseRole();
-  // const role = 'trainer';
   console.log(role);
 
   const handleLogout = () => {

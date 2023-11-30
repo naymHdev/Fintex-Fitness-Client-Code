@@ -38,7 +38,8 @@ export const AppliedTrainer = () => {
   };
 
   const handleUpdate = (user) => {
-    axiosSecure.patch(`/user/trainer/${user._id}`).then((res) => {
+    axiosSecure.patch(`/user/trainer/${user._id}`)
+    .then((res) => {
       console.log(res);
       if (res.data.modifiedCount > 0) {
         refetch();
@@ -58,9 +59,9 @@ export const AppliedTrainer = () => {
             <thead className=" bg-green-500 border-2">
               <tr className="text-2xl font-bold text-white">
                 <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
                 <th>Status</th>
+                <th>Email</th>
+                <th>Approval</th>
               </tr>
             </thead>
             <tbody className="">

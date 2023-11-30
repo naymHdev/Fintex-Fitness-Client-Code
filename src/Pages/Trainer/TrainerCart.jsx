@@ -5,61 +5,132 @@ import { Link } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
 import { CiTimer } from "react-icons/ci";
 
-const TrainerCart = ({ info }) => {
-  const { trainer_name, trainer_image, trainer_experience, _id, week, day } = info || {};
+const TrainerCart = ({ info, trainer }) => {
+  const { role } = info || {};
+  // console.log(role, trainer);
+
+  // const { trainer_name, trainer_image, trainer_experience, _id, week, day } = info || {};
 
   return (
     <div>
-      <section className="border border-green-500 rounded-2xl">
-        <div>
-          <img className="rounded-t-2xl w-full h-64" src={trainer_image} alt="" />
-        </div>
-        <div className="p-4">
-          <div className="flex justify-between">
-            <div className="space-y-2">
-              <h3 className="text-white font-bold text-xl flex items-center gap-2">
-                {trainer_name} <MdVerified className="text-blue-600" />
-              </h3>
-              <h4>
-                Experience <span className="text-green-500">{trainer_experience}+</span> Years
-              </h4>
-              <h2 className="font-bold flex items-center gap-2">
-                Available Time <CiTimer className="text-xl text-green-400" />
-              </h2>
-              <div className="flex items-center gap-2">
-                <p className="text-sm border-r-2 pr-2">
-                  Weekly <span className="text-green-400 font-bold">{week}</span> Hour
-                </p>
-                <p className="text-sm">
-                  Daily <span className="text-green-400 font-bold">{day}</span> Hour
-                </p>
+      <section>
+        { role === 'trainer' ?
+        trainer?.map((item) => (
+          <section key={item._id} className="border mt-5 border-green-500 rounded-2xl">
+            <div>
+              <img className="rounded-t-2xl w-full h-64" src={item?.trainer_image} alt="" />
+            </div>
+            <div className="p-4">
+              <div className="flex justify-between">
+                <div className="space-y-2">
+                  <h3 className="text-white font-bold text-xl flex items-center gap-2">
+                    {item?.trainer_name} <MdVerified className="text-blue-600" />
+                  </h3>
+                  <h4>
+                    Experience <span className="text-green-500">{item?.trainer_experience}+</span>
+                    Years
+                  </h4>
+                  <h2 className="font-bold flex items-center gap-2">
+                    Available Time <CiTimer className="text-xl text-green-400" />
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm border-r-2 pr-2">
+                      Weekly <span className="text-green-400 font-bold">{item?.week}</span> Hour
+                    </p>
+                    <p className="text-sm">
+                      Daily <span className="text-green-400 font-bold">{item?.day}</span> Hour
+                    </p>
+                  </div>
+                </div>
+                <div className=" space-y-3 hover:cursor-pointer">
+                  <FaFacebook className="text-[#1877F2]" />
+                  <FaTwitter className="text-[#1DA1F2]" />
+                  <FaLinkedin className="text-[#0A66C2]" />
+                  <FaYoutube className="text-red-500" />
+                  <FaInstagram className="text-[#E1306C]" />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mt-5">
+                <div>
+                  <Link to={"/pricing"}>
+                    <Button label={"Available Slots"} />
+                  </Link>
+                </div>
+                <div>
+                  <Link to={`/trainerDetails/${item?._id}`}>
+                    <Button label={"Know more"} />
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className=" space-y-3 hover:cursor-pointer">
-              <FaFacebook className="text-[#1877F2]" />
-              <FaTwitter className="text-[#1DA1F2]" />
-              <FaLinkedin className="text-[#0A66C2]" />
-              <FaYoutube className="text-red-500" />
-              <FaInstagram className="text-[#E1306C]" />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between mt-5">
-            <div>
-              <Link to={"/pricing"}>
-                <Button label={"Available Slots"} />
-              </Link>
-            </div>
-            <div>
-              <Link to={`/trainerDetails/${_id}`}>
-                <Button label={"Know more"} />
-              </Link>
-            </div>
-          </div>
-        </div>
+          </section>
+        )) : ''}
       </section>
     </div>
   );
 };
 
 export default TrainerCart;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <section className="border border-green-500 rounded-2xl">
+  <div>
+    <img className="rounded-t-2xl w-full h-64" src={trainer_image} alt="" />
+  </div>
+  <div className="p-4">
+    <div className="flex justify-between">
+      <div className="space-y-2">
+        <h3 className="text-white font-bold text-xl flex items-center gap-2">
+          {trainer_name} <MdVerified className="text-blue-600" />
+        </h3>
+        <h4>
+          Experience <span className="text-green-500">{trainer_experience}+</span> Years
+        </h4>
+        <h2 className="font-bold flex items-center gap-2">
+          Available Time <CiTimer className="text-xl text-green-400" />
+        </h2>
+        <div className="flex items-center gap-2">
+          <p className="text-sm border-r-2 pr-2">
+            Weekly <span className="text-green-400 font-bold">{week}</span> Hour
+          </p>
+          <p className="text-sm">
+            Daily <span className="text-green-400 font-bold">{day}</span> Hour
+          </p>
+        </div>
+      </div>
+      <div className=" space-y-3 hover:cursor-pointer">
+        <FaFacebook className="text-[#1877F2]" />
+        <FaTwitter className="text-[#1DA1F2]" />
+        <FaLinkedin className="text-[#0A66C2]" />
+        <FaYoutube className="text-red-500" />
+        <FaInstagram className="text-[#E1306C]" />
+      </div>
+    </div>
+
+    <div className="flex items-center justify-between mt-5">
+      <div>
+        <Link to={"/pricing"}>
+          <Button label={"Available Slots"} />
+        </Link>
+      </div>
+      <div>
+        <Link to={`/trainerDetails/${_id}`}>
+          <Button label={"Know more"} />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section> */}

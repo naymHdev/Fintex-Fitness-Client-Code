@@ -5,15 +5,29 @@ import TrainerCart from "./TrainerCart";
 import { useEffect, useState } from "react";
 import { isTrainers } from "../../Api/Featured/Featured";
 import { Helmet } from "react-helmet";
+import axiosSecure from "../../Hooks/localAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const Trainer = () => {
   const [trainer, setTrainer] = useState([]);
+
+  const { data: users = [] } = useQuery({
+    queryKey: ["trainers"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/user");
+      return res.data;
+    },
+  });
+
+  // console.log(users);
+
 
   useEffect(() => {
     isTrainers()
       .then((data) => setTrainer(data))
       .catch((error) => console.log(error));
   }, []);
+
 
   return (
     <div className="font-josefin">
@@ -44,10 +58,11 @@ const Trainer = () => {
         </div>
       </section>
 
-      <div  className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
+      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
         {
-          trainer?.map( info => info?.role === 'trainer' && info?.payment === 'pending' ? <TrainerCart key={info._id} info={info} /> : '')
-        }
+        users?.map((info) =>
+          info?.role === "trainer" ? <TrainerCart key={info._id} info={info} trainer={trainer} /> : ""
+        )}
       </div>
     </div>
   );
