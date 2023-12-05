@@ -1,3 +1,5 @@
+## 🔗 Live Link [ Fitnex-Fitness]
+https://fintex-fitness.netlify.app
 
 # Fitnex Fitess
 
@@ -18,8 +20,6 @@
 
 - Engage with a supportive fitness community, share achievements, and participate in challenges. Connect with like-minded individuals, fostering motivation and accountability in your fitness pursuits.
 
-## 🔗 Live Link [ Fitnex-Fitness]
-https://fintex-fitness.netlify.app
 
 
 
