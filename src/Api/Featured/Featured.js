@@ -45,6 +45,11 @@ export const forumsData = async (postForum) => {
 };
 
 // Be A Trainer Routes Post && gate
+export const updateTrainer = async (id) => {
+  const { data } = await axiosSecure.patch(`trainers/trainer/${id}`);
+  return data;
+};
+
 export const isTrainers = async () => {
   const { data } = await axiosSecure.get("/trainers/trainer");
   return data;
@@ -56,5 +61,22 @@ export const deleteTrainers = async (trainerId) => {
 
 export const beTrainer = async (dataInfo) => {
   const { data } = await axiosSecure.post("/trainers", dataInfo);
+  return data;
+};
+
+//// Be trainer data post in user collection
+export const beTrainerPost = async (applyInfo) => {
+  const { data } = await axiosSecure.post("/user", applyInfo);
+  return data;
+};
+
+export const beTrainerGet = async () => {
+  const { data } = await axiosSecure.get("/user");
+  return data;
+};
+
+// Get User Roles
+export const userRoles = async () => {
+  const { data } = await axiosSecure.get("/user/trainer");
   return data;
 };

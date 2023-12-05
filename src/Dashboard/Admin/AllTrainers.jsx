@@ -33,8 +33,8 @@ const AllTrainers = () => {
             <thead className="border-2 border-white bg-green-500">
               <tr className="text-2xl font-bold text-white">
                 <th>#</th>
-                <th>UserId</th>
-                <th>Status</th>
+                <th>Name</th>
+                <th>Experience</th>
                 <th>Email</th>
                 <th>Payment</th>
               </tr>
@@ -44,8 +44,11 @@ const AllTrainers = () => {
                 user?.role === "trainer" ? (
                   <tr className="space-y-4" key={user._id}>
                     <th>{index + 1}</th>
-                    <td>{user._id}</td>
-                    <td>{user.status}</td>
+                    <td>{user.trainer_name}</td>
+                    <td>
+                      <span className="text-green-500 font-bold">{user.trainer_experience}</span> +
+                      Year
+                    </td>
                     <td>{user.email}</td>
                     <td className="text-yellow-300 font-bold">{user?.payment}</td>
                   </tr>

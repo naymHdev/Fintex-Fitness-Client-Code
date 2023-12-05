@@ -3,10 +3,10 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import TrainerCart from "./TrainerCart";
 import { useEffect, useState } from "react";
-import { isTrainers } from "../../Api/Featured/Featured";
 import { Helmet } from "react-helmet";
 import axiosSecure from "../../Hooks/localAxios";
 import { useQuery } from "@tanstack/react-query";
+import { userRoles } from "../../Api/Featured/Featured";
 
 const Trainer = () => {
   const [trainer, setTrainer] = useState([]);
@@ -21,13 +21,13 @@ const Trainer = () => {
 
   // console.log(users);
 
-
   useEffect(() => {
-    isTrainers()
+    userRoles()
       .then((data) => setTrainer(data))
       .catch((error) => console.log(error));
   }, []);
 
+  console.log(trainer);
 
   return (
     <div className="font-josefin">
@@ -59,9 +59,8 @@ const Trainer = () => {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
-        {
-        users?.map((info) =>
-          info?.role === "trainer" ? <TrainerCart key={info._id} info={info} trainer={trainer} /> : ""
+        {users.map((info) =>
+          info.role === "trainer" && info.age > 0 ?  <TrainerCart key={info._id} info={info} /> : ""
         )}
       </div>
     </div>

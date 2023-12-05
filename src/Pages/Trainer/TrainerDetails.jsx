@@ -1,29 +1,39 @@
-import { useEffect, useState } from "react";
-import LockAxios from "../../Hooks/LockAxios";
+// import { useEffect, useState } from "react";
+// import LockAxios from "../../Hooks/LockAxios";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import TrainerDetailsCard from "./TrainerDetailsCard";
 import { Helmet } from "react-helmet";
+import axiosSecure from "../../Hooks/localAxios";
+import { useQuery } from "@tanstack/react-query";
 
 const TrainerDetails = () => {
-  const [details, setDetails] = useState([]);
-  const isAxios = LockAxios();
+  // const [details, setDetails] = useState([]);
+  // const isAxios = LockAxios();
 
-  useEffect(() => {
-    isAxios
-      .get("/trainers/trainer")
-      .then((data) => {
-        setDetails(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [isAxios]);
+  // useEffect(() => {
+  //   isAxios
+  //     .get("/trainers/trainer")
+  //     .then((data) => {
+  //       setDetails(data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [isAxios]);
+
+  const { data: users = [] } = useQuery({
+    queryKey: ["trainers"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/user");
+      return res.data;
+    },
+  });
 
   const { id } = useParams();
 
-  const detail = details.find((item) => item._id === id);
+  const detail = users.find((item) => item._id === id);
 
   return (
     <div className="font-josefin">

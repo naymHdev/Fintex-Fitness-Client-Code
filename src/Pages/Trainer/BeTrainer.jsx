@@ -4,11 +4,12 @@ import { LuGalleryVertical } from "react-icons/lu";
 import useAuth from "../../Hooks/useAuth";
 import { imageUpload } from "../../Api/Utils/Utils";
 import { useState } from "react";
-import { beTrainer } from "../../Api/Featured/Featured";
+// import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Multiselect from "multiselect-react-dropdown";
 import SectionTitle from "../../Components/SectionTitle";
+import { beTrainerPost } from "../../Api/Featured/Featured";
 
 const BeTrainer = () => {
   const { user } = useAuth();
@@ -58,7 +59,7 @@ const BeTrainer = () => {
     console.table(trainerInfo);
 
     try {
-      const data = await beTrainer(trainerInfo, skill);
+      const data = await beTrainerPost(trainerInfo, skill);
       console.log(data);
       toast.success("Applied Success!");
     } catch (error) {
@@ -105,14 +106,16 @@ const BeTrainer = () => {
           <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <section className="w-8/12 mx-auto mt-20 border border-green-500 p-5 rounded-md">
+      <div className="mt-20">
         <SectionTitle
           heading={"Thank you for your applying!"}
           subHeading={
             "Embark on a fulfilling journey with be a Trainer! Join our community, ignite change, and thrive together!"
           }
         />
-        <hr className="mt-5 mb-3" />
+      </div>
+      <section className="w-9/12 mx-auto mt-20">
+        
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="md:flex grid items-center gap-5">
             <div className="w-full">

@@ -13,14 +13,36 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import { clearCookie } from "../../Api/Auth/Auth";
 import { useNavigate } from "react-router-dom";
+// import { useQuery } from "@tanstack/react-query";
+// import axiosSecure from "../../Hooks/localAxios";
+import useTrainer from "../../Hooks/useTrainer";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
   const { user, logOut } = useAuth();
+  // console.log(user);
   const navigate = useNavigate();
-
   const [role] = UseRole();
   console.log(role);
+  const [isTrainer] = useTrainer();
+  console.log(isTrainer);
+
+  // const { data: users = [] } = useQuery({
+  //   queryKey: ["trainers"],
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get("/user/roles");
+  //     return res.data;
+  //   },
+  // });
+  // console.log(users?.role);
+
+
+
+  // const find = Object.fromEntries(users.map(val => [val, val]));
+  // console.log(find?.role);
+  // const roles = users.map((use) => use.role);
+  // const obj = Object.assign({}, roles);
+  // console.log(obj[0]);
 
   const handleLogout = () => {
     logOut()
@@ -86,7 +108,6 @@ const Sidebar = () => {
 
         <div>
           <hr />
-
           <MenuItem icon={FaHome} label="Home" address="/" />
           <MenuItem icon={FcSettings} label="Profile" address="/dashboard/profile" />
           <button

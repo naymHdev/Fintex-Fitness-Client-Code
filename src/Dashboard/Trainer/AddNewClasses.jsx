@@ -72,7 +72,7 @@ const AddNewClasses = () => {
 
   return (
     <div className="w-10/12 mx-auto">
-      <form onSubmit={handleCreateClass} className="w-10/12 mx-auto mt-8">
+      <form onSubmit={handleCreateClass} className="w-10/12 mx-auto mt-8 border-2 md:p-8 rounded-xl border-green-500">
         <div className="flex flex-col items-center">
           <h1 className="text-3xl font-bold text-white"> Add New Fitness Class</h1>
           <p className="text-gray-500">
@@ -151,8 +151,8 @@ const AddNewClasses = () => {
           </div>
         </div>
 
-        <div className="mt-5 p-4 bg-white w-full  m-auto rounded-lg">
-          <div className="file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg">
+        <div className="mt-5 p-4 bg-white w-1/2 rounded-lg">
+          <div className="file_upload px-5 py-3 relative ">
             <div className="flex flex-col w-max mx-auto text-center">
               <label>
                 <input
@@ -164,7 +164,7 @@ const AddNewClasses = () => {
                   accept="image/*"
                   hidden
                 />
-                <div className="bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500">
+                <div className="bg-green-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-red-500">
                   {upload}
                 </div>
               </label>

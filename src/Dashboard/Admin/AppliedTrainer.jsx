@@ -1,12 +1,16 @@
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { ImSpinner9 } from "react-icons/im";
 import { Helmet } from "react-helmet";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import axiosSecure from "../../Hooks/localAxios";
+import AppliedTable from "./AppliedTable";
+// import useAuth from "../../Hooks/useAuth";
 
 export const AppliedTrainer = () => {
+
+  // const { user } = useAuth();
+  // console.log(user);
+
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
@@ -38,12 +42,13 @@ export const AppliedTrainer = () => {
   };
 
   const handleUpdate = (user) => {
-    axiosSecure.patch(`/user/trainer/${user._id}`)
-    .then((res) => {
-      console.log(res);
+    axiosSecure.patch(`/user/trainer/${user.email}`).then((res) => {
+      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
-        toast.success(`${user.name} is an admin now`);
+        toast.success(`User is an trainer now`);
+      } else {
+        toast.error("Trainer Applied Failed");
       }
     });
   };
@@ -57,31 +62,29 @@ export const AppliedTrainer = () => {
         <div className="">
           <table className="table">
             <thead className=" bg-green-500 border-2">
-              <tr className="text-2xl font-bold text-white">
+              <tr className="text-2xl font-bold text-white flex items-center justify-evenly">
                 <th>#</th>
-                <th>Status</th>
+                <th>Name</th>
+                <th>Experience</th>
                 <th>Email</th>
-                <th>Approval</th>
+                <th>Approved</th>
+                <th>Delete</th>
               </tr>
             </thead>
-            <tbody className="">
-              {users?.map((subs, index) => (
-                <tr className="space-y-3" key={subs._id}>
-                  <th>{index + 1}</th>
-                  <td>{subs.status}</td>
-                  <td>{subs.email}</td>
-                  {subs.role === "trainer" ? (
-                    "Trainer"
-                  ) : (
-                    <td onClick={() => handleUpdate(subs)} className="btn bg-white">
-                      <ImSpinner9 className=" text-xl animate-spin text-red-600" />
-                    </td>
-                  )}
-                  <td onClick={() => handleDelete(subs)} className="btn bg-white ml-5">
-                    <RiDeleteBin5Line className=" text-xl text-red-600" />
-                  </td>
-                </tr>
-              ))}
+            <tbody>
+              {users?.map((subs, index) =>
+                subs.age > 0 ? (
+                  <AppliedTable
+                    key={subs._id}
+                    subs={subs}
+                    index={index}
+                    handleUpdate={handleUpdate}
+                    handleDelete={handleDelete}
+                  />
+                ) : (
+                  ""
+                )
+              )}
             </tbody>
           </table>
         </div>

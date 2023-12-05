@@ -29,6 +29,8 @@ import ErrorDashboard from "../Dashboard/Components/ErrorDashboard";
 import Profile from "../Dashboard/Components/Profile/Profile";
 import { fitnessForums } from "../Api/Featured/Featured";
 import Payment from "../Dashboard/Admin/Payment";
+import AdminRoute from "./AdminRoute";
+import Dashboard from "../Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -51,9 +53,9 @@ export const router = createBrowserRouter([
       {
         path: "/beTrainer",
         element: (
-          <PrivateRoute>
-            <BeTrainer />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <BeTrainer />
+          // </PrivateRoute>
         ),
       },
       {
@@ -96,6 +98,14 @@ export const router = createBrowserRouter([
     children: [
       /////// Trainer Routes \\\\\
       {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "manageSlots",
         element: (
           <PrivateRoute>
@@ -120,7 +130,7 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             {/* <TrainerRoutes> */}
-              <AddNewForum />
+            <AddNewForum />
             {/* </TrainerRoutes> */}
           </PrivateRoute>
         ),
@@ -135,8 +145,6 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      /// Member Routes
-      /// Member Routes
       /// Member Routes
       {
         path: "activityLog",
@@ -163,13 +171,13 @@ export const router = createBrowserRouter([
         ),
       },
       ///// Admin Routes \\\\
-      ///// Admin Routes \\\\
-      ///// Admin Routes \\\\
       {
         path: "allSubscriber",
         element: (
           <PrivateRoute>
-            <AllSubscriber />
+            <AdminRoute>
+              <AllSubscriber />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -177,7 +185,9 @@ export const router = createBrowserRouter([
         path: "allTrainers",
         element: (
           <PrivateRoute>
-            <AllTrainers />
+            <AdminRoute>
+              <AllTrainers />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -185,7 +195,9 @@ export const router = createBrowserRouter([
         path: "appliedTrainer",
         element: (
           <PrivateRoute>
-            <AppliedTrainer />
+            <AdminRoute>
+              <AppliedTrainer />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -193,13 +205,21 @@ export const router = createBrowserRouter([
         path: "balance",
         element: (
           <PrivateRoute>
-            <Balance />
+            <AdminRoute>
+              <Balance />
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
       {
         path: "payment",
-        element: <Payment />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <Payment />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
     ],
   },

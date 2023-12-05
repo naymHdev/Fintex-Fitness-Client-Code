@@ -73,10 +73,10 @@ const Gallery = () => {
           hasMore={hasMore}
           loader={loading && <h4>Loading...</h4>}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 border-green-500 border-r-2 border-l-2">
+          <div className="grid grid-cols-1 md:grid-cols-3  border-green-500 border-r-2 border-l-2">
             {data.map((item, index) => (
               <div key={index} className="rounded-md">
-                <img className="w-full rounded-md h-64" src={item.trainer_image} alt="" />
+                <img className="w-full border-r-2 border-t-2 border-green-500w h-64" src={item.trainer_image} alt="" />
               </div>
             ))}
           </div>
