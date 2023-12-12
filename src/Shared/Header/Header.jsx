@@ -65,6 +65,15 @@ const Header = () => {
                       <h1 className="font-bold">Forum</h1>
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink to="/challenges"
+                     className={({ isActive, isPending }) =>
+                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
+                   }
+                    >
+                      <h1 className="font-bold">Challenges</h1>
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
             </div>

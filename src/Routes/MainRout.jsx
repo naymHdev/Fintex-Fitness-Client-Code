@@ -31,6 +31,7 @@ import { fitnessForums } from "../Api/Featured/Featured";
 import Payment from "../Dashboard/Admin/Payment";
 import AdminRoute from "./AdminRoute";
 import Dashboard from "../Dashboard/Dashboard";
+import Challenges from "../Pages/Challenges/Challenges";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +76,11 @@ export const router = createBrowserRouter([
         element: <Forum />,
         loader: () => fitnessForums(),
       },
+      {
+        path: "/challenges",
+        element: <Challenges />
+      }
+      ,
       {
         path: "/profile",
         element: (

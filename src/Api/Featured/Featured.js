@@ -80,3 +80,16 @@ export const userRoles = async () => {
   const { data } = await axiosSecure.get("/user/trainer");
   return data;
 };
+
+
+// Get User challenges
+export const getChallenges = async () => {
+  const { data } = await axiosSecure.get("/challenge");
+  return data;
+};
+
+/// Post challenges
+export const postChallenges = async (content) => {
+  const { data } = await axiosSecure.post("/challenge", content);
+  return data;
+};
