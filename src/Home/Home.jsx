@@ -7,6 +7,7 @@ import Newsletter from "./Newsletter/Newsletter";
 import Slider from "./Slider/Slider";
 import Testimonials from "./Testimonials";
 import LatestArticals from "./Articals/LatestArticals";
+import Bmi from "../Components/BMI/Bmi";
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <Coaches />
             <Newsletter />
             <LatestArticals />
+            <Bmi />
         </div>
     );
 };
