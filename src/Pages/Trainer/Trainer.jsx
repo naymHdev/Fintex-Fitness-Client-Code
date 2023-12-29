@@ -27,14 +27,14 @@ const Trainer = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(trainer);
+  // console.log(trainer);
 
   return (
     <div className="font-josefin">
       <Helmet>
         <title>Fintex-Fitness || Trainer</title>
       </Helmet>
-      <section className="pt-[200px] bg-opacity-20 flex items-center bg-[url('https://imagizer.imageshack.com/img923/4619/4TTbrc.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
+      <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/4619/4TTbrc.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
         </div>

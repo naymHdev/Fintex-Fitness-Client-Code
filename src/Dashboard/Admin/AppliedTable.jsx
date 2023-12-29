@@ -3,7 +3,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { ImSpinner9 } from "react-icons/im";
 
 const AppliedTable = ({ subs, index, handleUpdate, handleDelete }) => {
-  console.log(subs);
+  // console.log(subs);
 
   return (
     <div>

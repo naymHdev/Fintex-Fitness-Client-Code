@@ -56,11 +56,10 @@ const BeTrainer = () => {
       trainer_image: image_url?.data?.display_url,
       skills,
     };
-    console.table(trainerInfo);
+    // console.table(trainerInfo);
 
     try {
-      const data = await beTrainerPost(trainerInfo, skill);
-      console.log(data);
+      await beTrainerPost(trainerInfo, skill);
       toast.success("Applied Success!");
     } catch (error) {
       console.log(error);
@@ -115,7 +114,6 @@ const BeTrainer = () => {
         />
       </div>
       <section className="w-9/12 mx-auto mt-20">
-        
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="md:flex grid items-center gap-5">
             <div className="w-full">

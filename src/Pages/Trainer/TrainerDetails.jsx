@@ -1,5 +1,3 @@
-// import { useEffect, useState } from "react";
-// import LockAxios from "../../Hooks/LockAxios";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
@@ -9,19 +7,6 @@ import axiosSecure from "../../Hooks/localAxios";
 import { useQuery } from "@tanstack/react-query";
 
 const TrainerDetails = () => {
-  // const [details, setDetails] = useState([]);
-  // const isAxios = LockAxios();
-
-  // useEffect(() => {
-  //   isAxios
-  //     .get("/trainers/trainer")
-  //     .then((data) => {
-  //       setDetails(data.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [isAxios]);
 
   const { data: users = [] } = useQuery({
     queryKey: ["trainers"],
