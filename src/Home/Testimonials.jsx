@@ -13,7 +13,7 @@ const Testimonials = () => {
 //   console.log(feedback);
 
   return (
-    <div className="mt-32">
+    <div className="mt-12">
       <div>
         <SectionTitle
           heading={"What our customers says"}

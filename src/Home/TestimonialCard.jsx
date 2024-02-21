@@ -58,7 +58,7 @@ const TestimonialCard = ({ test }) => {
           className="bg-green-500 mask mask-star-2 mask-half-2"
         />
       </div>
-      <p className="text-sm">{user_feedback}</p>
+      <p className="text-sm text-slate-600">{user_feedback}</p>
       <div className="flex items-center gap-5 mt-5">
         <div>
           <div className="avatar">
@@ -68,8 +68,8 @@ const TestimonialCard = ({ test }) => {
           </div>
         </div>
         <div>
-          <h3 className="font-bold">{user_name}</h3>
-          <h4 className="text-sm">{status}</h4>
+          <h3 className="font-bold text-slate-900">{user_name}</h3>
+          <h4 className="text-sm text-green-800">{status}</h4>
         </div>
       </div>
     </div>

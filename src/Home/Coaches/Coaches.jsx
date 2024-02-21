@@ -16,7 +16,7 @@ const Coaches = () => {
             alt=""
           />
           <div className="text-center py-5">
-            <h3 className="font-bold text-white">Satlen Joe</h3>
+            <h3 className="font-bold text-slate-900">Satlen Joe</h3>
             <p>Fitness Coaches</p>
           </div>
         </div>
@@ -27,7 +27,7 @@ const Coaches = () => {
             alt=""
           />
           <div className="text-center py-5">
-            <h3 className="font-bold text-white">Henry Joe</h3>
+            <h3 className="font-bold text-slate-900">Henry Joe</h3>
             <p>Fitness Coaches</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Coaches = () => {
             alt=""
           />
           <div className="text-center py-5">
-            <h3 className="font-bold text-white">Merry Joe</h3>
+            <h3 className="font-bold text-slate-900">Merry Joe</h3>
             <p>Fitness Coaches</p>
           </div>
         </div>
@@ -49,7 +49,7 @@ const Coaches = () => {
             alt=""
           />
           <div className="text-center py-5">
-            <h3 className="font-bold text-white">Robert Joe</h3>
+            <h3 className="font-bold text-slate-900">Robert Joe</h3>
             <p>Fitness Coaches</p>
           </div>
         </div>

@@ -10,19 +10,24 @@ import LatestArticals from "./Articals/LatestArticals";
 import Bmi from "../Components/BMI/Bmi";
 
 const Home = () => {
-    return (
-        <div className="font-josefin">
-            <Helmet> <title>Fintex-Fitness || Home</title></Helmet>
-            <Slider />
-            <Featured />
-            <About />
-            <Testimonials />
-            <Coaches />
-            <Newsletter />
-            <LatestArticals />
-            <Bmi />
-        </div>
-    );
+  return (
+    <div className="font-josefin">
+      <Helmet>
+        <title>Fintex-Fitness || Home</title>
+      </Helmet>
+      <Slider />
+      <Featured />
+      <hr className="mt-5" />
+      <hr />
+      <hr className="mb-5 shadow-lg" />
+      <About />
+      <Testimonials />
+      <Coaches />
+      <Newsletter />
+      <LatestArticals />
+      <Bmi />
+    </div>
+  );
 };
 
 export default Home;
