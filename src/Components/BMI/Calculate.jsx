@@ -83,15 +83,20 @@ class App extends React.Component {
     let results = this.getBMIResults(bmi);
 
     return (
-      <div className="App container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">BMI Calculator</h1>
-        <p>Enter your weight and height below.</p>
+      <div className="App container mx-auto p-5">
+        <h1 className="text-3xl font-bold mb-4 text-slate-50">
+          BMI Calculator
+        </h1>
+        <p className=" text-slate-200">Enter your weight and height below.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           <div>
             <form>
               <div className="mb-4">
-                <label htmlFor="bmiWeight" className="block text-sm font-medium text-gray-600">
+                <label
+                  htmlFor="bmiWeight"
+                  className="block text-sm font-medium text-slate-100"
+                >
                   Weight
                 </label>
                 <div className="flex">
@@ -104,15 +109,18 @@ class App extends React.Component {
                     value={this.state.weight}
                     onChange={this.handleWeightChange}
                   />
-                  <span className="ml-2">lb</span>
+                  <span className="ml-2 text-slate-50">lb</span>
                 </div>
               </div>
 
               <div className="mb-4">
-                <label htmlFor="bmiHeight" className="block text-sm font-medium text-gray-600">
+                <label
+                  htmlFor="bmiHeight"
+                  className="block text-sm font-medium text-slate-100"
+                >
                   Height
                 </label>
-                <div className="flex">
+                <div className="flex items-center gap-2">
                   <input
                     className="form-input mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     id="bmiHeightFeet"
@@ -122,7 +130,7 @@ class App extends React.Component {
                     value={this.state.heightFeet}
                     onChange={this.handleHeightFeetChange}
                   />
-                  <span className="ml-2">ft</span>
+                  <span className="ml-2 text-slate-50">fit</span>
                   <input
                     className="form-input mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     id="bmiHeightInch"
@@ -132,14 +140,18 @@ class App extends React.Component {
                     value={this.state.heightInch}
                     onChange={this.handleHeightInchChange}
                   />
-                  <span className="ml-2">in</span>
+                  <span className="ml-2 text-slate-50">in</span>
                 </div>
               </div>
             </form>
           </div>
 
           <div>
-            <BmiDisplay bmi={bmi} label={results.label} alertClass={results.alertClass} />
+            <BmiDisplay
+              bmi={bmi}
+              label={results.label}
+              alertClass={results.alertClass}
+            />
           </div>
         </div>
       </div>
