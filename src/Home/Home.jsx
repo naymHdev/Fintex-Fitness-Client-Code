@@ -17,9 +17,6 @@ const Home = () => {
       </Helmet>
       <Slider />
       <Featured />
-      <hr className="mt-5" />
-      <hr />
-      <hr className="mb-5 shadow-lg" />
       <About />
       <Testimonials />
       <Coaches />
