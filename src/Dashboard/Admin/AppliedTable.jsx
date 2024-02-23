@@ -7,7 +7,7 @@ const AppliedTable = ({ subs, index, handleUpdate, handleDelete }) => {
 
   return (
     <div>
-      <tr className="space-y-3 flex justify-evenly items-center">
+      <tr className="space-y-3 flex justify-evenly items-center text-start">
         <th>{index + 1}</th>
         <td>{subs.trainer_name}</td>
         <td>

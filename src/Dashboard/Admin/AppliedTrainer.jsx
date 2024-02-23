@@ -4,13 +4,8 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import axiosSecure from "../../Hooks/localAxios";
 import AppliedTable from "./AppliedTable";
-// import useAuth from "../../Hooks/useAuth";
 
 export const AppliedTrainer = () => {
-
-  // const { user } = useAuth();
-  // console.log(user);
-
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {

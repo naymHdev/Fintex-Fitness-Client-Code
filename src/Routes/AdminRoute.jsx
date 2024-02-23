@@ -5,7 +5,7 @@ import UseRole from "../Hooks/Roles/UseRole";
 
 const AdminRoute = ({children}) => {
 
-    const [role, loading] = UseRole();
+    const {role, loading} = UseRole();
 
     if (loading) {
         return <progress className="progress w-full"></progress>;
