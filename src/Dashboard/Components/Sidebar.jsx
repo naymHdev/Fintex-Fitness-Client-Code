@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import { clearCookie } from "../../Api/Auth/Auth";
 import { useNavigate } from "react-router-dom";
 import useTrainer from "../../Hooks/useTrainer";
-import UseRole from "../../Hooks/Roles/useRole";
+import UseRole from "../../Hooks/Roles/UseRole";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);

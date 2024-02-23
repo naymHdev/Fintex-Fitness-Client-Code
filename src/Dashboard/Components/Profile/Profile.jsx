@@ -4,7 +4,7 @@ import UseRole from "../../../Hooks/Roles/UseRole";
 
 const Profile = () => {
   const { user } = useAuth();
-  const [role] = UseRole();
+  const {role} = UseRole();
   return (
     <div className="flex justify-center items-center h-screen font-josefin">
       <Helmet>

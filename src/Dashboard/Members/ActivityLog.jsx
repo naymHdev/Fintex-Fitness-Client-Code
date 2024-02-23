@@ -4,6 +4,9 @@ const ActivityLog = () => {
     return (
         <>
             <Helmet> <title>Fintex-Fitness || Activity Log</title></Helmet>
+            <section>
+                <p>Activity Log</p>
+            </section>
         </>
     );
 };

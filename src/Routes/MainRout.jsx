@@ -78,9 +78,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/challenges",
-        element: <Challenges />
-      }
-      ,
+        element: <Challenges />,
+      },
       {
         path: "/profile",
         element: (
@@ -107,7 +106,15 @@ export const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           <PrivateRoute>
-            <Dashboard />{" "}
+            <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute>
         ),
       },
