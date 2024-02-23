@@ -74,7 +74,7 @@ const Sidebar = () => {
               </div>
               <div className="">
                 <h3 className="font-bold text-green-500">
-                  {user ? user.displayName : "User Name"}
+                  {user ? user.displayName.slice(0, 10) : "User Name"}
                 </h3>
                 <p className="text-sm">{role}</p>
               </div>

@@ -12,11 +12,11 @@ const MenuDropdown = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleLogout =  () => {
+  const handleLogout = () => {
     logOut()
       .then(() => {
         toast.success("Logout Success");
-         clearCookie();
+        clearCookie();
         navigate("/");
       })
       .catch((err) => console.log(err));
@@ -30,7 +30,7 @@ const MenuDropdown = () => {
             className="disabled:cursor-not-allowed cursor-pointe md:py-3 md:px-4 text-sm font-semibold 
             transition"
           >
-            {user ? user.displayName : "User Name"}
+            {user ? user.displayName.slice(0, 8) : "User Name"}
           </button>
         </div>
         <div
@@ -59,72 +59,107 @@ const MenuDropdown = () => {
       {isOpen && (
         <div className="absolute z-10 rounded-xl shadow-md w-[40vw] bg-green-400 md:w-[10vw] overflow-hidden right-0 top-12 md:top-16 text-sm">
           <div className="flex flex-col cursor-pointer">
-          <div className="">
-                <ul className=" items-center  gap-4 mt-5 font-bold">
-                  <li>
-                    <NavLink
-                     className={({ isActive, isPending }) =>
-                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
-                   }
-                    to="/">
-                      <h1 className="font-bold flex md:hidden  justify-center">Home</h1>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/gallery"
-                     className={({ isActive, isPending }) =>
-                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
-                   }
-                    >
-                      <h1 className="font-bold flex md:hidden justify-center">Gallery</h1>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/trainer"
-                     className={({ isActive, isPending }) =>
-                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
-                   }
-                    >
-                      <h1 className="font-bold flex md:hidden justify-center">Trainer</h1>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/classes"
-                     className={({ isActive, isPending }) =>
-                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
-                   }
-                    >
-                      <h1 className="font-bold flex md:hidden justify-center">Classes</h1>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/forum"
-                     className={({ isActive, isPending }) =>
-                     isPending ? "pending" : isActive ? "font-bold text-xl text-red-500" : ""
-                   }
-                    >
-                      <h1 className="font-bold flex md:hidden justify-center">Forum</h1>
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
+            <div className="">
+              <ul className=" items-center  gap-4 mt-5 font-bold">
+                <li>
+                  <NavLink
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "font-bold text-xl text-red-500"
+                        : ""
+                    }
+                    to="/"
+                  >
+                    <h1 className="font-bold flex md:hidden  justify-center">
+                      Home
+                    </h1>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/gallery"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "font-bold text-xl text-red-500"
+                        : ""
+                    }
+                  >
+                    <h1 className="font-bold flex md:hidden justify-center">
+                      Gallery
+                    </h1>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/trainer"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "font-bold text-xl text-red-500"
+                        : ""
+                    }
+                  >
+                    <h1 className="font-bold flex md:hidden justify-center">
+                      Trainer
+                    </h1>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/classes"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "font-bold text-xl text-red-500"
+                        : ""
+                    }
+                  >
+                    <h1 className="font-bold flex md:hidden justify-center">
+                      Classes
+                    </h1>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/forum"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "font-bold text-xl text-red-500"
+                        : ""
+                    }
+                  >
+                    <h1 className="font-bold flex md:hidden justify-center">
+                      Forum
+                    </h1>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
             {user ? (
               <>
                 <NavLink
                   to="profile"
-                  className=" flex justify-center md:mt-0 mt-3 mb-2 hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center md:mt-0 mt-3 mb-2 hover:bg-green-100 hover:text-green-900 transition font-semibold"
                 >
                   Profile
                 </NavLink>
                 <NavLink
                   to="dashboard"
-                  className=" flex justify-center hover:bg-neutral-100 transition font-semibold"
+                  className=" flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
                 >
                   Dashboard
                 </NavLink>
                 <h2
                   onClick={handleLogout}
-                  className="py-2 flex justify-center hover:bg-neutral-100 transition font-semibold"
+                  className="py-2 flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
                 >
                   Log Out
                 </h2>
@@ -133,7 +168,7 @@ const MenuDropdown = () => {
               <>
                 <NavLink
                   to="/login"
-                  className="py-2 flex justify-center hover:bg-neutral-100 transition font-semibold"
+                  className="py-2 flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
                 >
                   Login
                 </NavLink>

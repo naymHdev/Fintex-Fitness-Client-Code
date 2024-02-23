@@ -8,7 +8,7 @@ const Card = ({ item }) => {
 
   return (
     // <Link to={`/category/${_id}`}>
-    <div className="bg-white text-center rounded-xl  hover:border hover:shadow-md">
+    <div className="auth-icons bg-white text-center rounded-xl  hover:border hover:shadow-md">
       <div className="w-9/12 mx-auto">
         <img className="w-44 h-36" src={image} alt="" />
       </div>

@@ -9,7 +9,7 @@ const Coaches = () => {
       />
 
       <section className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10">
-        <div className="border border-green-400 rounded-t-2xl rounded-b-md">
+        <div className="border border-green-400 auth-icons rounded-t-2xl rounded-b-md">
           <img
             className="w-full rounded-t-2xl"
             src="https://imagizer.imageshack.com/img922/406/jSiDwB.jpg"
@@ -20,7 +20,7 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border border-green-400 rounded-t-2xl rounded-b-md">
+        <div className="border border-green-400 auth-icons rounded-t-2xl rounded-b-md">
           <img
             className="w-full rounded-t-2xl"
             src="https://imagizer.imageshack.com/img922/1456/wm1Odt.jpg"
@@ -31,7 +31,7 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border border-green-400 rounded-t-2xl rounded-b-md">
+        <div className="border border-green-400 auth-icons rounded-t-2xl rounded-b-md">
           <img
             className="w-full rounded-t-2xl"
             src="https://imagizer.imageshack.com/img922/9180/x8lE4z.jpg"
@@ -42,7 +42,7 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border border-green-400 rounded-t-2xl rounded-b-md">
+        <div className="border border-green-400 auth-icons rounded-t-2xl rounded-b-md">
           <img
             className="w-full rounded-t-2xl"
             src="https://imagizer.imageshack.com/img923/3286/jn0RRI.jpg"
