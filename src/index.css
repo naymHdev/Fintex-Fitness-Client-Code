@@ -3,3 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Trainer Card Icons Style */
+.trainer-icons {
+    transition: 0.5s;
+  }
+  .trainer-icons:hover {
+    transform: translateX(-20px);
+  }
