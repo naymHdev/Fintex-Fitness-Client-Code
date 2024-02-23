@@ -72,7 +72,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="block w-full p-3 text-center rounded-full bg-green-300"
+            className="block w-full p-3 text-center rounded-full hover:bg-green-500 bg-slate-500 text-slate-50 font-bold"
           >
             {loading ? (
               <ImSpinner10 className="animate-spin m-auto" />
@@ -92,14 +92,14 @@ const Login = () => {
           <button
             onClick={handleGoogleSignIn}
             aria-label="Log in with Google"
-            className="p-3 rounded-sm"
+            className="p-3 auth-icons rounded-sm"
           >
             <FcGoogle />
           </button>
-          <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
+          <button aria-label="Log in with Twitter" className="p-3 auth-icons rounded-sm">
             <FaSquareXTwitter />
           </button>
-          <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+          <button aria-label="Log in with GitHub" className="p-3 auth-icons rounded-sm">
             <FaSquareGithub />
           </button>
         </div>

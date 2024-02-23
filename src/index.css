@@ -12,3 +12,11 @@
   .trainer-icons:hover {
     transform: translateX(-20px);
   }
+
+/* auth route Icons Style */
+.auth-icons {
+    transition: 0.5s;
+  }
+  .auth-icons:hover {
+    transform: translateY(-20px);
+  }
