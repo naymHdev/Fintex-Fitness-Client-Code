@@ -39,8 +39,10 @@ const Login = () => {
 
   return (
     <div className="font-josefin">
-      <Helmet> <title>Fintex-Fitness || Login</title></Helmet>
-      <div className="w-5/12 mx-auto p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+      <Helmet>
+        <title>Fintex-Fitness || Login</title>
+      </Helmet>
+      <div className="w-5/12 mx-auto p-8 space-y-3 rounded-xl border shadow-lg md:mt-16">
         <h1 className="text-2xl font-bold text-center">Login Now</h1>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-1 text-sm">
@@ -62,7 +64,7 @@ const Login = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
             />
-            <div className="flex justify-end text-xs dark:text-gray-400">
+            <div className="flex justify-end text-xs underline text-red-500">
               <a rel="noopener noreferrer" href="#">
                 Forgot Password?
               </a>
@@ -70,14 +72,20 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400"
+            className="block w-full p-3 text-center rounded-full bg-green-300"
           >
-            {loading ? <ImSpinner10 className="animate-spin m-auto" /> : "Login"}
+            {loading ? (
+              <ImSpinner10 className="animate-spin m-auto" />
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
+          <p className="px-3 text-sm dark:text-gray-400">
+            Login with social accounts
+          </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
         <div className="flex justify-center text-3xl space-x-4">
@@ -98,7 +106,11 @@ const Login = () => {
         <p className="text-xs text-center sm:px-6 dark:text-gray-400">
           Don't have an account?
           <Link to="/register">
-            <span rel="noopener noreferrer" href="#" className="underline text-red-600">
+            <span
+              rel="noopener noreferrer"
+              href="#"
+              className="underline text-red-600"
+            >
               Register Now
             </span>
           </Link>
