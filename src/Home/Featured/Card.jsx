@@ -3,7 +3,6 @@
 // import { Link } from "react-router-dom";
 
 const Card = ({ item }) => {
-  console.log(item);
   const { image, title, description } = item || {};
 
   return (

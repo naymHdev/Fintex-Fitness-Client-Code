@@ -10,18 +10,18 @@ const Profile = () => {
       <Helmet>
         <title>Fintex-Fitness || Profile</title>
       </Helmet>
-      <div className="bg-green-100 shadow-lg rounded-2xl w-3/5">
+      <div className="bg-green-100 shadow-lg rounded-2xl w-full md:w-3/5">
         <img
           alt="profile"
           src="https://imagizer.imageshack.com/img924/4104/6bLYxA.jpg"
           className="w-full mb-4 rounded-t-lg h-36"
         />
-        <div className="flex flex-col items-center justify-center py-4 px-8 -mt-16">
+        <div className="flex flex-col items-center justify-center py-4 md:px-8 -mt-16">
           <a href="#" className="relative block">
             <img
               alt="profile"
               src={user.photoURL}
-              className="mx-auto object-cover rounded-full h-24 w-24  border-2 border-green-400 "
+              className="mx-auto object-cover rounded-full h-24   border-2 border-green-400 "
             />
           </a>
 
