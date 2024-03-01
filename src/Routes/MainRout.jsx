@@ -32,6 +32,7 @@ import Payment from "../Dashboard/Admin/Payment";
 import AdminRoute from "./AdminRoute";
 import Dashboard from "../Dashboard/Dashboard";
 import Challenges from "../Pages/Challenges/Challenges";
+import AllForum from "../Dashboard/Admin/AllForum";
 
 export const router = createBrowserRouter([
   {
@@ -230,6 +231,16 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             <AdminRoute>
               <Payment />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "allForum",
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AllForum />
             </AdminRoute>
           </PrivateRoute>
         ),
