@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -9,7 +10,7 @@ import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
-export default function MenuListComposition() {
+export default function MenuListComposition({ handleDelete, forum }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -82,7 +83,9 @@ export default function MenuListComposition() {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>Edit</MenuItem>
-                    <MenuItem onClick={handleClose}>Remove</MenuItem>
+                    <div onClick={() => handleDelete(forum)}>
+                      <MenuItem onClick={handleClose}>Remove</MenuItem>
+                    </div>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

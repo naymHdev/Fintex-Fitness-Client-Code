@@ -6,7 +6,7 @@ const useForum = () => {
     queryKey: ["allForum"],
     queryFn: async () => {
       const res = await axiosSecure.get("/forums");
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });

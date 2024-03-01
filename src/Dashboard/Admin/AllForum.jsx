@@ -1,17 +1,42 @@
 import { Helmet } from "react-helmet";
 import useForum from "../../Hooks/useForum";
 import MenuListComposition from "./MenuListComposition";
+import toast from "react-hot-toast";
+import axiosSecure from "../../Hooks/localAxios";
+import Swal from "sweetalert2";
 
 const AllForum = () => {
-  const [allForum] = useForum();
+  const [allForum, refetch] = useForum();
 
-  //const { content, text, texts, photoURL, time, displayName, role } = forum || {};
+  const handleDelete = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/forums/${id._id}`);
+        if (res.data.deletedCount > 0) {
+          toast.success("Deleted!");
+            refetch();
+        }
+      }
+    });
+  };
 
   return (
     <>
       <Helmet>
         <title>Fintex-Fitness || All Forum</title>
       </Helmet>
+      <div className="m-1">
+        <button className="btn">{allForum?.length}</button>
+      </div>
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 font-josefin">
         {allForum?.map((forum) => (
           <section
@@ -25,7 +50,10 @@ const AllForum = () => {
                 </div>
               </div>
               <div>
-                <MenuListComposition />
+                <MenuListComposition
+                  forum={forum}
+                  handleDelete={handleDelete}
+                />
               </div>
             </div>
             <div>
@@ -44,8 +72,14 @@ const AllForum = () => {
               <h4>{forum?.text}</h4>
             </div>
             <div className=" text-slate-50 flex items-center justify-evenly font-bold rounded-md bg-slate-600 p-1">
-                <div>Total Like: <span className=" text-green-500 underline">300</span></div>
-                <div>Total Dislike: <span className="underline text-red-500">300</span></div>
+              <div className=" ">
+                Total Like:{" "}
+                <span className=" text-green-500 underline">300</span>
+              </div>
+              <div>
+                Total Dislike:{" "}
+                <span className="underline text-red-500">300</span>
+              </div>
             </div>
           </section>
         ))}
