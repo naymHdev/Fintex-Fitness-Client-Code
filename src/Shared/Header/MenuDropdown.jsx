@@ -57,10 +57,10 @@ const MenuDropdown = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute z-10 rounded-md shadow-md bg-green-400 overflow-hidden right-0 mt-1 md:top-16 text-sm">
-          <div className="flex flex-col cursor-pointer">
+        <div className="absolute z-10 rounded-md shadow-md bg-green-400 overflow-hidden right-0 mt-1 md:top-[55px] top-[42px] text-sm">
+          <div className="flex flex-col cursor-pointer w-[250px]">
             <div className="">
-              <ul className=" items-center  gap-4 mt-5 font-bold">
+              <ul className=" items-center space-y-3 gap-4 mt-5 font-bold">
                 <li>
                   <NavLink
                     className={({ isActive, isPending }) =>
