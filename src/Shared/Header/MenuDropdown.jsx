@@ -57,7 +57,7 @@ const MenuDropdown = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute z-10 rounded-xl shadow-md w-[40vw] bg-green-400 md:w-[10vw] overflow-hidden right-0 top-12 md:top-16 text-sm">
+        <div className="absolute z-10 rounded-md shadow-md bg-green-400 overflow-hidden right-0 mt-1 md:top-16 text-sm">
           <div className="flex flex-col cursor-pointer">
             <div className="">
               <ul className=" items-center  gap-4 mt-5 font-bold">

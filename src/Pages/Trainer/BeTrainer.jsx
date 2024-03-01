@@ -42,6 +42,7 @@ const BeTrainer = () => {
     const trainer_experience = form.trainer_experience.value;
     const trainer_short_details = form.trainer_short_details.value;
     const images = form.image.files[0];
+    console.log(images);
     const image_url = await imageUpload(images);
     const skills = skill;
     const trainerInfo = {

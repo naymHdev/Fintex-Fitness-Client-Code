@@ -14,7 +14,7 @@ const TrainerDetailsCard = ({ detail }) => {
             <img className="h-64 w-full rounded-xl" src={detail?.trainer_image} alt="" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-white font-bold text-xl flex items-center gap-2">
+            <h3 className="font-bold text-xl flex items-center gap-2">
               {detail?.trainer_name} <MdVerified className="text-blue-600" />
             </h3>
             <h4>
@@ -22,7 +22,7 @@ const TrainerDetailsCard = ({ detail }) => {
             </h4>
             <p className="text-sm">{detail?.trainer_short_details}</p>
             <div>
-              <label className="label text-white font-bold">All Skills :</label>
+              <label className="label font-bold">All Skills :</label>
               {detail?.skills?.map((skill) => (
                 <p key={skill} className="text-sm flex items-center"><span><TiTick className="text-blue-600" /></span>{skill.skills}</p>
               ))}

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
 import TrainerCart from "./TrainerCart";
-import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axiosSecure from "../../Hooks/localAxios";
 import { useQuery } from "@tanstack/react-query";
-import { userRoles } from "../../Api/Featured/Featured";
+// import UseRole from "../../Hooks/Roles/useRole";
 
 const Trainer = () => {
-  const [trainer, setTrainer] = useState([]);
+
+  // const { role} = UseRole()
 
   const { data: users = [] } = useQuery({
     queryKey: ["trainers"],
@@ -18,16 +18,6 @@ const Trainer = () => {
       return res.data;
     },
   });
-
-  // console.log(users);
-
-  useEffect(() => {
-    userRoles()
-      .then((data) => setTrainer(data))
-      .catch((error) => console.log(error));
-  }, []);
-
-  // console.log(trainer);
 
   return (
     <div className="font-josefin">
