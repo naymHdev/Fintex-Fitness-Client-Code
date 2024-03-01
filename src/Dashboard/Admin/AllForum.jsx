@@ -1,11 +1,13 @@
-
+import useForum from "../../Hooks/useForum";
 
 const AllForum = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  const [allForum] = useForum();
+
+  return (
+    <div>
+      <p>{allForum?.length}</p>
+    </div>
+  );
 };
 
 export default AllForum;

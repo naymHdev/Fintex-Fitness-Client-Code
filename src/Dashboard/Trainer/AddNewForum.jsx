@@ -4,10 +4,12 @@ import { forumsData } from "../../Api/Featured/Featured";
 import Button from "../../Components/Button/Button";
 import SectionTitle from "../../Components/SectionTitle";
 import useAuth from "../../Hooks/useAuth";
+import useForum from "../../Hooks/useForum";
 
 const AddNewForum = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
+  const [, refetch] = useForum();
 
   const handleCreateClass = async (e) => {
     e.preventDefault();
@@ -20,10 +22,19 @@ const AddNewForum = () => {
     const photoURL = user.photoURL;
     const displayName = user.displayName;
     const time = user.metadata.lastSignInTime;
-    const classData = { content, texts, photoURL, role, text, displayName, time };
+    const classData = {
+      content,
+      texts,
+      photoURL,
+      role,
+      text,
+      displayName,
+      time,
+    };
 
     try {
       await forumsData(classData);
+      refetch();
       toast.success("Forum Data Added!");
     } catch (error) {
       console.log(error);
@@ -33,14 +44,18 @@ const AddNewForum = () => {
     }
   };
   if (loading) {
-    return <span className="loading loading-ring loading-lg flex h-screen"></span>;
+    return (
+      <span className="loading loading-ring loading-lg flex h-screen"></span>
+    );
   }
 
   return (
     <div className="w-10/12 mx-auto mt-8">
       <SectionTitle
         heading={"Add New Fitness Tips Forums"}
-        subHeading={"Fill out the form below to create a new fitness class card."}
+        subHeading={
+          "Fill out the form below to create a new fitness class card."
+        }
       />
       <hr className="mt-8" />
       <form onSubmit={handleCreateClass} className=" mx-auto mt-8">
@@ -63,11 +78,15 @@ const AddNewForum = () => {
           />
         </div>
 
-
         <div className="flex flex-col mt-8">
           <label className="mb-2 font-bold text-white">Role</label>
-          <select defaultValue='default' name="role" id="" className="px-4 py-2 border rounded-md">
-          <option value="default" disabled selected>
+          <select
+            defaultValue="default"
+            name="role"
+            id=""
+            className="px-4 py-2 border rounded-md"
+          >
+            <option value="default" disabled selected>
               Define your role
             </option>
             <option value="admin">Admin</option>
