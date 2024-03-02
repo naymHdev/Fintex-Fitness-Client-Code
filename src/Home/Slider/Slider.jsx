@@ -1,6 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-
 import img1 from "../../../public/assets/Slider/exercise-machines-gym-without-people.jpg";
 import img2 from "../../../public/assets/Slider/lady-with-long-brunette-hair-big-eyes-posing-modern-fitness-centre-near-mirror-short-sportswear.jpg";
 import img3 from "../../../public/assets/Slider/pretty-strong-young-woman-doing-exercises-squatting-with-barbell-dressed-up-fashion-sportswear-sportclub.jpg";

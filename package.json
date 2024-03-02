@@ -44,11 +44,10 @@
     "react-paginate": "^8.2.0",
     "react-parallax-component": "^1.0.6",
     "react-rating": "^2.0.5",
-    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.20.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.1",
-    "swiper": "^11.0.5",
+    "swiper": "^11.0.7",
     "yarn": "^1.22.21"
   },
   "devDependencies": {

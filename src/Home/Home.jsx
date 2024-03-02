@@ -4,10 +4,11 @@ import About from "./About";
 import Coaches from "./Coaches/Coaches";
 import Featured from "./Featured/Featured";
 import Newsletter from "./Newsletter/Newsletter";
-import Slider from "./Slider/Slider";
+// import Slider from "./Slider/Slider";
 import Testimonials from "./Testimonials";
 import LatestArticals from "./Articals/LatestArticals";
 import Bmi from "../Components/BMI/Bmi";
+import Banner from "./Slider/Banner";
 
 const Home = () => {
   return (
@@ -15,7 +16,8 @@ const Home = () => {
       <Helmet>
         <title>Fintex-Fitness || Home</title>
       </Helmet>
-      <Slider />
+      {/* <Slider /> */}
+      <Banner />
       <Featured />
       <About />
       <Testimonials />

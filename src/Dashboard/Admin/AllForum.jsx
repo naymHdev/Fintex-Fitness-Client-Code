@@ -71,13 +71,13 @@ const AllForum = () => {
               <p>{forum?.content}</p>
               <h4>{forum?.text}</h4>
             </div>
-            <div className=" text-slate-50 flex items-center justify-evenly font-bold rounded-md bg-slate-600 p-1">
-              <div className=" ">
-                Total Like:{" "}
+            <div className="text-slate-50 flex items-center justify-evenly font-bold rounded-md bg-slate-600 p-1">
+              <div className="mt-auto">
+                Total Like:
                 <span className=" text-green-500 underline">300</span>
               </div>
               <div>
-                Total Dislike:{" "}
+                Total Dislike:
                 <span className="underline text-red-500">300</span>
               </div>
             </div>
