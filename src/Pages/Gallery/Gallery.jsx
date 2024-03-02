@@ -69,7 +69,7 @@ const Gallery = () => {
       <section className="mt-8 rounded-md">
         <InfiniteScroll
           dataLength={data.length}
-          next={fetchData} // Use the fetchData function for the next callback
+          next={fetchData}
           hasMore={hasMore}
           loader={loading && <h4>Loading...</h4>}
         >
