@@ -85,13 +85,14 @@ class App extends React.Component {
     return (
       <div className="App container mx-auto p-5">
         <h1 className="text-3xl font-bold mb-4 text-slate-50">
-          BMI Calculator
+          CALCULATE YOUR BMI
         </h1>
         <p className=" text-slate-200">Enter your weight and height below.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           <div>
             <form>
+              {/* Weight */}
               <div className="mb-4">
                 <label
                   htmlFor="bmiWeight"
@@ -113,6 +114,7 @@ class App extends React.Component {
                 </div>
               </div>
 
+              {/* Height */}
               <div className="mb-4">
                 <label
                   htmlFor="bmiHeight"
