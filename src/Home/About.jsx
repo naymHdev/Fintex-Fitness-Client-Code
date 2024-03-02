@@ -4,13 +4,13 @@ import fitness from "../../public/fitness-about.json";
 
 const About = () => {
   return (
-    <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 items-center md:grid-cols-2 md:mt-8 mt-0 gap-8 rounded-sm bg-[#FEFFDE]">
       <div className=" md:order-last">
         <Lottie animationData={fitness} loop={true} />
       </div>
-      <div>
-        <h3 className=" text-slate-900 text-xl font-bold">About Us -----</h3>
-        <h4 className="font-bold text-slate-700 mt-5">
+      <div className="md:px-3 px-0 ">
+        <h3 className=" text-[#52734D] text-xl font-bold">About Us -----</h3>
+        <h4 className="font-bold text-slate-950 mt-5">
           Our fitness coaches can enable you to meet your wellness objectives.
           They can turn into your instructor, your helper, your mentor and your
           companion.

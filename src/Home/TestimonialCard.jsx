@@ -3,7 +3,7 @@ const TestimonialCard = ({ test }) => {
   const { user_feedback, user_image, user_name, status } = test || {};
 
   return (
-    <div className="border text-neutral-content p-3 rounded-lg border-green-400 auth-icons">
+    <div className="border hover:bg-[#DDFFBC] hover:shadow-[#52734D] hover:shadow-2xl text-neutral-content p-3 rounded-lg border-[#91C788] auth-icons">
       <div className="rating rating-sm mb-3 rating-half">
         <input type="radio" name="rating-10" className="rating-hidden" />
         <input

@@ -21,7 +21,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 mt-44 rounded-xl border bg-gray-200">
+    <div className="grid grid-cols-1 md:grid-cols-2 mt-44 rounded-sm  bg-[#DDFFBC]">
       <form onSubmit={handleNews} className="rounded-l-xl">
         <h1 className="text-center font-bold text-3xl text-slate-800 mt-10">
           Subscribe To Our <span className="text-red-500">Newsletters</span>
@@ -60,7 +60,7 @@ const Newsletter = () => {
           <hr />
           <button
             type="submit"
-            className="rounded-3xl py-3 px-4 border border-none bg-gray-400 hover:bg-green-600 text-white text-xl"
+            className="rounded-3xl py-3 px-4 border border-none hover:bg-[#52734D] bg-[#FEFFDE] text-[#52734D] hover:text-white text-xl"
           >
             Subscribe
           </button>
