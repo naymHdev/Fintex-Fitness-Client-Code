@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="grid font-josefin grid-cols-1 md:grid-cols-2 mt-20 gap-44 p-12 bg-green-500 opacity-65 text-slate-100">
+    <div className="grid font-josefin grid-cols-1 md:grid-cols-2 mt-20 gap-44 p-12 bg-[#52734D] opacity-65 text-slate-100">
       <div className="">
         <Link to="/">
           <div className="flex items-center md:gap-4">

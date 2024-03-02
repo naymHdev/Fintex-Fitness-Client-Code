@@ -29,7 +29,7 @@ const Banner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div>
+            <div className="h-[80vh]">
               <img className=" bg-cover w-full" src={img2} />
               <div className="md:-mt-[500px] md:p-0 w-full -mt-44 p-1 text-start md:w-1/2 md:mx-16 text-slate-700 md:space-y-2 md:pb-8">
                 <p className="uppercase text-sm text-slate-900">
@@ -51,7 +51,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             {" "}
-            <div>
+            <div className="h-[80vh]">
               <img className=" bg-cover w-full" src={img4} />
               <div className="md:-mt-[500px] md:p-0 -mt-44 p-1 text-start md:w-1/2 w-full md:mx-16 md:mb-8 text-slate-800 md:space-y-2">
                 <p className="uppercase text-sm text-slate-50">
@@ -74,7 +74,7 @@ const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             {" "}
-            <div>
+            <div className="h-[80vh]">
               <img className=" bg-cover w-full" src={img3} />
               <div className=" w-full -mt-44 md:p-0 p-1 md:-mt-[500px] text-start md:w-1/2 md:mx-16 text-slate-800 md:space-y-2">
                 <p className="uppercase text-sm">Fitnex GYM CENTER</p>
@@ -94,7 +94,7 @@ const Banner = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div>
+            <div className="h-[80vh]">
               <img className=" bg-cover w-full" src={img1} />
               <div className=" w-full -mt-44 md:p-0 p-1 md:-mt-[500px] text-start md:w-1/2 md:mx-16 text-slate-800 md:space-y-2">
                 <p className="uppercase text-sm text-slate-50">

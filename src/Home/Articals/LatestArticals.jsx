@@ -26,7 +26,7 @@ const LatestArticals = () => {
       </div>
 
       <section className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-8">
-        {articel?.slice(13, 16).map((itm) => (
+        {articel?.slice(0, 3).map((itm) => (
           <ArticelCart key={itm._id} itm={itm} />
         ))}
       </section>

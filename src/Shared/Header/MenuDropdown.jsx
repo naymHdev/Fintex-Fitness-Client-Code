@@ -67,7 +67,7 @@ const MenuDropdown = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "font-bold text-xl text-red-500"
+                        ? "font-bold text-xl text-[#52734D]"
                         : ""
                     }
                     to="/"
@@ -84,7 +84,7 @@ const MenuDropdown = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "font-bold text-xl text-red-500"
+                        ? "font-bold text-xl text-[#52734D]"
                         : ""
                     }
                   >
@@ -100,7 +100,7 @@ const MenuDropdown = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "font-bold text-xl text-red-500"
+                        ? "font-bold text-xl text-[#52734D]"
                         : ""
                     }
                   >
@@ -116,7 +116,7 @@ const MenuDropdown = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "font-bold text-xl text-red-500"
+                        ? "font-bold text-xl text-[#52734D]"
                         : ""
                     }
                   >
@@ -132,7 +132,7 @@ const MenuDropdown = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "font-bold text-xl text-red-500"
+                        ? "font-bold text-xl text-[#52734D]"
                         : ""
                     }
                   >
