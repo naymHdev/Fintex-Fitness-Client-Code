@@ -101,7 +101,7 @@ class App extends React.Component {
                 </label>
                 <div className="flex">
                   <input
-                    className="form-input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    className="form-input bg-[#FEFFDE] p-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     id="bmiWeight"
                     type="number"
                     min="1"
@@ -122,7 +122,7 @@ class App extends React.Component {
                 </label>
                 <div className="flex items-center gap-2">
                   <input
-                    className="form-input mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    className="form-input bg-[#FEFFDE] p-1 mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     id="bmiHeightFeet"
                     type="number"
                     min="1"
@@ -132,7 +132,7 @@ class App extends React.Component {
                   />
                   <span className="ml-2 text-slate-50">fit</span>
                   <input
-                    className="form-input mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                    className="form-input bg-[#FEFFDE] p-1 mt-1 block w-1/2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     id="bmiHeightInch"
                     type="number"
                     min="0"
