@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { LuGalleryVertical } from "react-icons/lu";
+import { ImSpinner2 } from "react-icons/im";
 import useAuth from "../../Hooks/useAuth";
 import { imageUpload } from "../../Api/Utils/Utils";
 import { useState } from "react";
-// import { beTrainer } from "../../Api/Featured/Featured";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Multiselect from "multiselect-react-dropdown";
 import SectionTitle from "../../Components/SectionTitle";
 import { beTrainerPost } from "../../Api/Featured/Featured";
+// import useTrainer from "../../Hooks/useTrainer";
 
 const BeTrainer = () => {
-  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+  // const [isTrainerLoading, refetch] = useTrainer();
   const [upload, setUpload] = useState("Upload Your Image");
 
   const [skill, setSkill] = useState([]);
@@ -62,6 +64,8 @@ const BeTrainer = () => {
     try {
       await beTrainerPost(trainerInfo, skill);
       toast.success("Applied Success!");
+      // refetch();
+      setLoading(true);
     } catch (error) {
       console.log(error);
       toast.error(error?.message);
@@ -74,18 +78,14 @@ const BeTrainer = () => {
     setUpload(image.name);
   };
 
-  if (loading) {
-    return <span className="loading loading-ring loading-lg flex h-screen"></span>;
-  }
-
   return (
     <div className="font-josefin">
       <Helmet>
-        <title>Fintex-Fitness || Be Trainer</title>
+        <title>Fintex-Fitness || Join be a Trainer</title>
       </Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/2298/hESvhl.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
+          <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:ml-20" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-center gap-2 text-black bg-opacity-40">
@@ -93,17 +93,18 @@ const BeTrainer = () => {
             <IoMdArrowDropright className="text-green-400 text-2xl " />
             <Link to="/beTrainer">Be a Trainer</Link>
           </div>
-          <h2 className="text-6xl font-bold text-white text-center">
-            Join Be a <span className="text-green-400">Trainer</span>
+          <h2 className="text-6xl font-bold text-slate-100 text-center">
+            Join Be a <span className="text-[#DDFFBC]">Trainer</span>
           </h2>
-          <p className="text-sm text-center text-white w-1/2 mx-auto">
-            Embark on a fulfilling journey with Be a Trainer! Shape the fitness landscape, share
-            your expertise, and inspire others to lead healthier lives. Join our community, ignite
-            change, and thrive together!
+          <p className="text-sm text-center text-slate-100 w-1/2 mx-auto">
+            Embark on a fulfilling journey with Be a Trainer! Shape the fitness
+            landscape, share your expertise, and inspire others to lead
+            healthier lives. Join our community, ignite change, and thrive
+            together!
           </p>
         </div>
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
+          <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:mr-20" />
         </div>
       </section>
       <div className="mt-20">
@@ -118,7 +119,7 @@ const BeTrainer = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="md:flex grid items-center gap-5">
             <div className="w-full">
-              <label className="text-white font-bold label">Name</label>
+              <label className="text-slate-700 font-bold label">Name</label>
               <input
                 type="text"
                 name="trainer_name"
@@ -128,7 +129,7 @@ const BeTrainer = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white font-bold label">Age</label>
+              <label className="text-slate-700 font-bold label">Age</label>
               <input
                 type="number"
                 name="age"
@@ -140,7 +141,7 @@ const BeTrainer = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <label className="text-white font-bold label">Email</label>
+              <label className="text-black font-bold label">Email</label>
               <input
                 type="email"
                 name="email"
@@ -149,7 +150,9 @@ const BeTrainer = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white font-bold label">Years of Experience</label>
+              <label className="text-black font-bold label">
+                Years of Experience
+              </label>
               <input
                 type="number"
                 name="trainer_experience"
@@ -162,7 +165,7 @@ const BeTrainer = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="w-full">
-              <label className="text-white font-bold label">
+              <label className="text-black font-bold label">
                 Available time in a Weekly.(Hourly)
               </label>
               <input
@@ -174,7 +177,9 @@ const BeTrainer = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white font-bold label">Available time in a day.(Hourly)</label>
+              <label className="text-black font-bold label">
+                Available time in a day.(Hourly)
+              </label>
               <input
                 type="number"
                 name="day"
@@ -186,7 +191,7 @@ const BeTrainer = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <label className="text-white font-bold label">Skills</label>
+              <label className="text-black font-bold label">Skills</label>
               <Multiselect
                 options={options}
                 displayValue="skills"
@@ -195,7 +200,9 @@ const BeTrainer = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white font-bold label">Your expecting salary!</label>
+              <label className="text-black font-bold label">
+                Your expecting salary!
+              </label>
               <input
                 type="number"
                 name="salary"
@@ -207,7 +214,7 @@ const BeTrainer = () => {
           </div>
 
           <div className="w-full">
-            <label className="text-white font-bold label">
+            <label className="text-black font-bold label">
               Explain why yoy best? for our team!
             </label>
             <textarea
@@ -220,7 +227,7 @@ const BeTrainer = () => {
               rows="10"
             ></textarea>
           </div>
-          <label className="text-white font-bold label">Upload Image</label>
+          <label className="text-slate-700 font-bold label">Upload Image</label>
           <div className=" rounded-lg text-start flex justify-start">
             <div className="file_upload  rounded-lg">
               <div className=" text-center">
@@ -234,7 +241,7 @@ const BeTrainer = () => {
                     accept="image/*"
                     hidden
                   />
-                  <div className="bg-green-500 text-white border px-10 py-3 border-gray-300 rounded font-semibold cursor-pointer  hover:bg-rose-500">
+                  <div className="bg-green-500 text-slate-700 border px-10 py-3 border-gray-300 rounded font-semibold cursor-pointer  hover:bg-rose-500">
                     {upload}
                   </div>
                 </label>
@@ -243,11 +250,16 @@ const BeTrainer = () => {
           </div>
 
           <div className="flex justify-center mt-8">
-            <input
-              className=" bg-green-500 font-bold  rounded-tl-3xl rounded-br-3xl px-8 py-3 text-white"
+            <button
               type="submit"
-              value="Do Apply"
-            />
+              className=" bg-[#DDFFBC] font-bold  rounded-tl-3xl rounded-br-3xl px-8 py-3 text-slate-600 hover:bg-green-500 hover:text-slate-50"
+            >
+              { loading ? (
+                <ImSpinner2 className=" animate-spin text-slate-700 text-3xl" />
+              ) : (
+                "Do Apply"
+              )}
+            </button>
           </div>
         </form>
       </section>

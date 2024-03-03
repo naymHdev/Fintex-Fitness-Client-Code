@@ -26,16 +26,16 @@ const Trainer = () => {
       </Helmet>
       <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img923/4619/4TTbrc.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
+          <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:ml-20" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-center gap-2 text-white bg-opacity-40">
             <Link to="/">Homepage</Link>
-            <IoMdArrowDropright className="text-green-400 text-2xl " />
+            <IoMdArrowDropright className="text-[#FEFFDE] text-2xl " />
             <Link to="/gallery">Trainer</Link>
           </div>
           <h2 className="text-6xl font-bold text-white text-center">
-            Our <span className="text-green-400">Trainer</span>
+            Our <span className="text-[#DDFFBC]">Trainer</span>
           </h2>
           <p className="text-sm text-center text-white w-1/2 mx-auto">
             Embark on your fitness journey with cutting-edge trackers. Explore our gallery

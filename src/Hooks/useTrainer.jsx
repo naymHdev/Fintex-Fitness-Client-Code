@@ -7,7 +7,7 @@ const useTrainer = () => {
 
     const { user, loading } = useAuth();
 
-    const { data: isTrainer, isPending: isTrainerLoading } = useQuery({
+    const { data: isTrainer, isPending: isTrainerLoading, refetch } = useQuery({
         queryKey: ["isTrainer"],
         enabled: !loading && !!user?.email,
         queryFn: async () => {
@@ -16,7 +16,7 @@ const useTrainer = () => {
           return res?.data?.trainer;
         },
       });
-      return [isTrainer, isTrainerLoading]
+      return [isTrainer, isTrainerLoading, refetch]
 };
 
 export default useTrainer;

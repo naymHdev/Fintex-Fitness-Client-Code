@@ -41,7 +41,7 @@ const Images = () => {
 
       <section className=" flex items-center pt-[200px] bg-[url('https://imagizer.imageshack.com/img922/7563/AMPrbh.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
+          <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:ml-20" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-center gap-2 text-white bg-opacity-40">
@@ -60,7 +60,7 @@ const Images = () => {
           </p>
         </div>
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
+          <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:mr-20" />
         </div>
       </section>
       <section className="mt-8 rounded-md">

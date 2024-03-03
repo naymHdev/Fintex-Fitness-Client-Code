@@ -16,8 +16,8 @@ const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
             transition
             px-4
             border-none
-            ${outline ? "bg-white" : "bg-[#91C788]"}
-            ${outline ? "text-black" : "text-[#FEFFDE]"}
+            ${outline ? "bg-white" : "bg-[#DDFFBC]"}
+            ${outline ? "text-black" : " text-slate-600"}
             ${small ? "text-sm" : "text-md"}
             ${small ? "py-1" : "py-3"}
             ${small ? "font-light" : "font-semibold"}
