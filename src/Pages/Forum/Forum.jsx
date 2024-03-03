@@ -26,9 +26,9 @@ const Forum = () => {
       <Helmet>
         <title>Fintex-Fitness || Forum</title>
       </Helmet>
-      <section className="pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img924/999/zwQvNA.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
+      <section className="md:pt-[200px] flex items-center bg-[url('https://imagizer.imageshack.com/img924/999/zwQvNA.jpg')] bg-cover rounded-b-md py-5 px-1 md:py-16 bg-opacity-30">
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
+          <LuGalleryVertical className="md:text-6xl text-xl text-green-400 md:ml-20" />
         </div>
         <div className="space-y-2">
           <div className="flex items-center justify-center gap-2 text-white bg-opacity-40">
@@ -36,20 +36,20 @@ const Forum = () => {
             <IoMdArrowDropright className="text-green-400 text-2xl " />
             <Link to="/forum">Forum</Link>
           </div>
-          <h2 className="text-6xl font-bold text-white text-center">
+          <h2 className=" text-xl md:text-6xl font-bold text-white text-center">
             Our <span className="text-green-400">Forums</span>
           </h2>
-          <p className="text-sm text-center text-white w-1/2 mx-auto">
+          <p className="text-sm text-center text-white md:w-1/2 mx-auto">
             Discover a vibrant community on our fitness forum—share triumphs, seek advice, and
             cultivate motivation. Join discussions spanning workouts, nutrition, and well-being.
             Your journey to a healthier, happier you starts here!
           </p>
         </div>
         <div>
-          <LuGalleryVertical className="text-6xl text-green-400 md:mr-20" />
+          <LuGalleryVertical className=" text-xl md:text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <div className="mt-12 w-9/12">
+      <div className="mt-12 w-full md:w-9/12">
         <SectionTitle
           heading={
             "Unleash Your Best Self: Join the Ultimate Fitness Community for Expert Tips and Motivation!"
@@ -59,7 +59,7 @@ const Forum = () => {
           }
         />
       </div>
-      <section className="grid grid-cols-1 w-8/12 mx-auto mt-10 gap-8">
+      <section className="grid grid-cols-1 w-full md:w-8/12 mx-auto mt-10 gap-8">
         {pages?.map((forum) => (
           <ForumCart key={forum._id} forum={forum} />
         ))}
