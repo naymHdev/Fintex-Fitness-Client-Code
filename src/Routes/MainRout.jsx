@@ -6,7 +6,6 @@ import Register from "../Auth/Register";
 import Login from "../Auth/Login";
 import Trainer from "../Pages/Trainer/Trainer";
 import DashboardLayout from "../Layouts/DashboardLayout";
-import Gallery from "../Pages/Gallery/Gallery";
 import Classes from "../Pages/Classes/Classes";
 import TrainerDetails from "../Pages/Trainer/TrainerDetails";
 import BeTrainer from "../Pages/Trainer/BeTrainer";
@@ -33,6 +32,7 @@ import AdminRoute from "./AdminRoute";
 import Dashboard from "../Dashboard/Dashboard";
 import Challenges from "../Pages/Challenges/Challenges";
 import AllForum from "../Dashboard/Admin/AllForum";
+import Images from "../Pages/Images/Images";
 
 export const router = createBrowserRouter([
   {
@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/gallery",
-        element: <Gallery />,
+        element: <Images />
       },
       {
         path: "/classes",

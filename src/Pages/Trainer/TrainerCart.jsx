@@ -18,7 +18,7 @@ const TrainerCart = ({ info }) => {
   return (
     <div>
       <section>
-        <section className="border border-green-500 rounded-2xl">
+        <section className="border border-[#52734D] rounded-2xl">
           <div>
             <img
               className="rounded-t-2xl w-full h-64"

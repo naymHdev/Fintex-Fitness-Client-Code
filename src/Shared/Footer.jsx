@@ -82,8 +82,8 @@ const Footer = () => {
         </div>
       </div>
       <div className=" text-center bg-slate-800 text-white py-1 text-sm font-bold">
-        <p>
-          Copyright © 2024 - All right reserved by
+        <p className=" flex items-center gap-1 justify-center">
+          Copyright © 2024 - All right reserved by 
           <a
             className="underline text-red-600"
             target="_blank"
