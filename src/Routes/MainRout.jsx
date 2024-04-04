@@ -143,9 +143,7 @@ export const router = createBrowserRouter([
         path: "addNewForum",
         element: (
           <PrivateRoute>
-            {/* <TrainerRoutes> */}
             <AddNewForum />
-            {/* </TrainerRoutes> */}
           </PrivateRoute>
         ),
       },
