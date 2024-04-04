@@ -5,12 +5,8 @@ import TrainerCart from "./TrainerCart";
 import { Helmet } from "react-helmet";
 import axiosSecure from "../../Hooks/localAxios";
 import { useQuery } from "@tanstack/react-query";
-// import UseRole from "../../Hooks/Roles/useRole";
 
 const Trainer = () => {
-
-  // const { role} = UseRole()
-
   const { data: users = [] } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
@@ -38,9 +34,10 @@ const Trainer = () => {
             Our <span className="text-[#DDFFBC]">Trainer</span>
           </h2>
           <p className="text-sm text-center text-white w-1/2 mx-auto">
-            Embark on your fitness journey with cutting-edge trackers. Explore our gallery
-            showcasing sleek designs, advanced features, and real-time health insights. Elevate your
-            wellness experience with the latest in fitness technology.
+            Embark on your fitness journey with cutting-edge trackers. Explore
+            our gallery showcasing sleek designs, advanced features, and
+            real-time health insights. Elevate your wellness experience with the
+            latest in fitness technology.
           </p>
         </div>
         <div>
@@ -50,7 +47,11 @@ const Trainer = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
         {users.map((info) =>
-          info.role === "trainer" && info.age > 0 ?  <TrainerCart key={info._id} info={info} /> : ""
+          info.role === "trainer" && info.age > 0 ? (
+            <TrainerCart key={info._id} info={info} />
+          ) : (
+            ""
+          )
         )}
       </div>
     </div>
