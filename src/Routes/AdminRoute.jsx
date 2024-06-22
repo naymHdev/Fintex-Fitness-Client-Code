@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Navigate } from "react-router-dom";
-import UseRole from "../Hooks/Roles/UseRole";
+import UseRole from "../Hooks/Roles/useRole";
 
 
 const AdminRoute = ({children}) => {

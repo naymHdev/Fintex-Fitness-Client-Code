@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import useAuth from "../../../Hooks/useAuth";
-import UseRole from "../../../Hooks/Roles/UseRole";
+import UseRole from "../../../Hooks/Roles/useRole";
 
 const Profile = () => {
   const { user } = useAuth();

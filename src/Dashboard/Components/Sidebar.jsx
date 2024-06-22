@@ -3,7 +3,7 @@ import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AiOutlineBars } from "react-icons/ai";
 import { FaHome } from "react-icons/fa";
-import LogoImg from "./logoImg";
+import LogoImg from "./LogoImg";
 import MenuItem from "./MenuItem";
 import TrainerMenus from "../Trainer/TrainerMenus";
 import MemberMenus from "../Members/MemberMenus";
@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import { clearCookie } from "../../Api/Auth/Auth";
 import { useNavigate } from "react-router-dom";
 import useTrainer from "../../Hooks/useTrainer";
-import UseRole from "../../Hooks/Roles/UseRole";
+import UseRole from "../../Hooks/Roles/useRole";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
