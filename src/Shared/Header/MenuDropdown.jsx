@@ -57,7 +57,7 @@ const MenuDropdown = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute z-10 rounded-md shadow-md bg-green-400 overflow-hidden right-0 mt-1 md:top-[55px] top-[42px] text-sm">
+        <div className="absolute z-10 rounded-md shadow-md bg-primary-bg overflow-hidden right-0 mt-1 md:top-[55px] top-[42px] text-sm">
           <div className="flex flex-col cursor-pointer w-[250px]">
             <div className="">
               <ul className=" items-center space-y-3 gap-4 mt-5 font-bold">
@@ -147,19 +147,19 @@ const MenuDropdown = () => {
               <>
                 <NavLink
                   to="profile"
-                  className=" flex justify-center md:mt-0 mt-3 mb-2 hover:bg-green-100 hover:text-green-900 transition font-semibold"
+                  className=" flex justify-center md:mt-0 mt-3 mb-2 transition font-semibold"
                 >
                   Profile
                 </NavLink>
                 <NavLink
                   to="dashboard"
-                  className=" flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
+                  className=" flex justify-center transition font-semibold"
                 >
                   Dashboard
                 </NavLink>
                 <h2
                   onClick={handleLogout}
-                  className="py-2 flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
+                  className="py-2 flex justify-center transition font-semibold"
                 >
                   Log Out
                 </h2>
@@ -168,7 +168,7 @@ const MenuDropdown = () => {
               <>
                 <NavLink
                   to="/login"
-                  className="py-2 flex justify-center hover:bg-green-100 hover:text-green-900 transition font-semibold"
+                  className="py-2 flex justify-center transition font-semibold"
                 >
                   Login
                 </NavLink>

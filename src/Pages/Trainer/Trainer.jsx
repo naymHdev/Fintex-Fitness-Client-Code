@@ -45,7 +45,7 @@ const Trainer = () => {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
+      <div className="responsive-padding grid grid-cols-1 md:grid-cols-3 mt-10 gap-9">
         {users.map((info) =>
           info.role === "trainer" && info.age > 0 ? (
             <TrainerCart key={info._id} info={info} />

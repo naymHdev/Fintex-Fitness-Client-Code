@@ -25,8 +25,8 @@ const ForumCart = ({ forum }) => {
 
   return (
     <div>
-      <div className="space-y-2 shadow-xl shadow-green-100 px-2 py-3">
-        <div className=" border rounded-md p-2 shadow-sm">
+      <div className="space-y-2 bg-primary-bg px-2 py-3 rounded-md shadow-md">
+        <div className="">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
               <div className="avatar">
@@ -35,14 +35,14 @@ const ForumCart = ({ forum }) => {
                 </div>
               </div>
               <div>
-                <h3 className="text-white font-bold">{displayName}</h3>
+                <h3 className=" text-primary-text font-bold">{displayName}</h3>
                 <p>{role}</p>
               </div>
             </div>
             <p className="text-sm">{time}</p>
-            <p className="text-xl font-bold text-green-700">{texts}</p>
+            <p className="text-xl font-bold text-primary-text">{texts}</p>
           </div>
-          <p>{content}</p>
+          <p className=" text-secondary-text">{content}</p>
           <h4>{text}</h4>
         </div>
         <div className="items-center px-5 gap-3 py-1">

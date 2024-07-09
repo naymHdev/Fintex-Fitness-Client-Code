@@ -107,7 +107,7 @@ const BeTrainer = () => {
           <LuGalleryVertical className="text-6xl text-[#FEFFDE] md:mr-20" />
         </div>
       </section>
-      <div className="mt-20">
+      <div className="mt-20 responsive-padding">
         <SectionTitle
           heading={"Thank you for your applying!"}
           subHeading={
