@@ -2,16 +2,18 @@ import SectionTitle from "../../Components/SectionTitle";
 
 const Coaches = () => {
   return (
-    <div  className="mt-36">
+    <div className="mt-36 responsive-padding">
       <SectionTitle
         heading={"Our coaches"}
-        subHeading={"Expert coaches with diverse skillsand supportive coaches leading the way."}
+        subHeading={
+          "Expert coaches with diverse skillsand supportive coaches leading the way."
+        }
       />
 
       <section className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-10">
-        <div className="border bg-[#DDFFBC] hover:shadow-2xl hover:shadow-[#52734D] border-[#52734D] auth-icons rounded-t-2xl rounded-b-md">
+        <div className="auth-icons  text-primary-text">
           <img
-            className="w-full rounded-t-2xl"
+            className="w-full rounded-2xl"
             src="https://imagizer.imageshack.com/img922/406/jSiDwB.jpg"
             alt=""
           />
@@ -20,9 +22,9 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border bg-[#DDFFBC] hover:shadow-2xl hover:shadow-[#52734D] border-[#52734D] auth-icons rounded-t-2xl rounded-b-md">
+        <div className="auth-icons  text-primary-text">
           <img
-            className="w-full rounded-t-2xl"
+            className="w-full rounded-2xl"
             src="https://imagizer.imageshack.com/img922/1456/wm1Odt.jpg"
             alt=""
           />
@@ -31,9 +33,9 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border bg-[#DDFFBC] hover:shadow-2xl hover:shadow-[#52734D] border-[#52734D] auth-icons rounded-t-2xl rounded-b-md">
+        <div className="auth-icons  text-primary-text">
           <img
-            className="w-full rounded-t-2xl"
+            className="w-full rounded-2xl"
             src="https://imagizer.imageshack.com/img922/9180/x8lE4z.jpg"
             alt=""
           />
@@ -42,9 +44,9 @@ const Coaches = () => {
             <p>Fitness Coaches</p>
           </div>
         </div>
-        <div className="border bg-[#DDFFBC] hover:shadow-2xl hover:shadow-[#52734D] border-[#52734D] auth-icons rounded-t-2xl rounded-b-md">
+        <div className="auth-icons  text-primary-text">
           <img
-            className="w-full rounded-t-2xl"
+            className="w-full rounded-2xl"
             src="https://imagizer.imageshack.com/img923/3286/jn0RRI.jpg"
             alt=""
           />

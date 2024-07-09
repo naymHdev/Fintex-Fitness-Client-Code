@@ -13,8 +13,8 @@ const LatestArticals = () => {
   }, []);
 
   return (
-    <div>
-      <div className="mt-36 w-9/12">
+    <div className=" responsive-padding">
+      <div className="mt-36">
         <SectionTitle
           heading={
             "Latest Articles!"
@@ -25,7 +25,7 @@ const LatestArticals = () => {
         />
       </div>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 mt-10 gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-3 mt-16 gap-8">
         {articel?.slice(0, 3).map((itm) => (
           <ArticelCart key={itm._id} itm={itm} />
         ))}

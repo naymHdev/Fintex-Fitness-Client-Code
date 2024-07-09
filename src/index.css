@@ -4,23 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Trainer Card Icons Style */
 .trainer-icons {
-    transition: 0.5s;
-  }
-  .trainer-icons:hover {
-    transform: translateX(-20px);
-  }
+  transition: 0.5s;
+}
+.trainer-icons:hover {
+  transform: translateX(-20px);
+}
 
 /* auth route Icons Style */
 .auth-icons {
-    transition: 0.5s;
-  }
-  .auth-icons:hover {
-    transform: translateY(-20px);
-  }
+  transition: 0.5s;
+}
+.auth-icons:hover {
+  transform: translateY(-20px);
+}
 
-  .div {
-    display: flex;
-  }
+.div {
+  display: flex;
+}

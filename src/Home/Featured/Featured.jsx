@@ -13,7 +13,7 @@ const Featured = () => {
   }, []);
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 responsive-padding">
       <SectionTitle
         subHeading={
           "Real-time tracking for a holistic wellness experience. Transform with us!"

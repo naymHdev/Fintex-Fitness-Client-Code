@@ -10,14 +10,12 @@ const Testimonials = () => {
     testimonials().then((data) => setFeedback(data));
   }, []);
 
-//   console.log(feedback);
-
   return (
-    <div className="mt-12">
+    <div className="mt-12 responsive-padding">
       <div>
         <SectionTitle
           heading={"What our customers says"}
-            subHeading={"Thousands of people got benefit of our programs."}
+          subHeading={"Thousands of people got benefit of our programs."}
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-8">

@@ -13,7 +13,7 @@ import Button from "../../Components/Button/Button";
 const Banner = () => {
   return (
     <>
-      <section className="md:pt-[80px]">
+      <section>
         <Swiper
           spaceBetween={30}
           centeredSlides={true}

@@ -4,7 +4,7 @@ import fitness from "../../public/fitness-about.json";
 
 const About = () => {
   return (
-    <div className="grid grid-cols-1 items-center md:grid-cols-2 md:mt-8 mt-0 gap-8 rounded-sm bg-[#FEFFDE]">
+    <div className="grid grid-cols-1 responsive-padding items-center md:grid-cols-2 md:mt-8 mt-0 gap-8 rounded-sm ">
       <div className=" md:order-last">
         <Lottie animationData={fitness} loop={true} />
       </div>

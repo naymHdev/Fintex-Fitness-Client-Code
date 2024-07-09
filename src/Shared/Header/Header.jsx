@@ -4,8 +4,8 @@ import logo from "../../../public/assets/Logo/fitness.png";
 
 const Header = () => {
   return (
-    <div className="bg-[#FEFFDE]">
-      <div className="font-josefin mx-auto w-full md:w-11/12 text-slate-900 md:fixed md:z-10 bg-[#FEFFDE] shadow-sm shadow-[#52734D]">
+    <div className="bg-[#E9E4DE]">
+      <div className="font-josefin text-primary-text md:z-10">
         <div className="border-b-[1px]">
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             <div className="flex md:gap-56 items-center justify-between">

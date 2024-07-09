@@ -5,7 +5,7 @@ const ArticelCart = ({ itm }) => {
 
   return (
     <div>
-      <div className="space-y-8 shadow-xl p-3 rounded-md  shadow-[#91C788] h-96">
+      <div className="space-y-8 px-5 py-8 rounded-md h-[340px] bg-primary-bg">
         <div className="space-y-1">
           <div className="flex items-center gap-3">
             <div className="avatar">
@@ -23,8 +23,7 @@ const ArticelCart = ({ itm }) => {
             {texts?.slice(0, 80)}
           </p>
         </div>
-        <p>{content?.slice(0, 160)}</p>
-        <h4>{text?.slice(0, 70)}</h4>
+        <p>{content?.slice(0, 140)}</p>
       </div>
     </div>
   );

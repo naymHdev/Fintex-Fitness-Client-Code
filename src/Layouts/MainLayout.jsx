@@ -4,16 +4,10 @@ import Header from "../Shared/Header/Header";
 
 const MainLayout = () => {
   return (
-    <div>
-      <div className="w-11/12 mx-auto">
-        <Header />
-      </div>
-      <div className="w-11/12 mx-auto">
-        <Outlet />
-      </div>
-      <div>
-        <Footer />
-      </div>
+    <div className=" max-w-full mx-auto bg-[#F3F3F3]">
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };

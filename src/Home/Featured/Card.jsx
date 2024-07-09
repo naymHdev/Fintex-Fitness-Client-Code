@@ -12,8 +12,10 @@ const Card = ({ item }) => {
         <img className="w-44 h-36" src={image} alt="" />
       </div>
       <div className="p-4 pb-8">
-        <h2 className="text-black text-2xl font-medium">{title}</h2>
-        <p className="text-sm">{description}</p>
+        <h2 className=" text-primary-text black text-2xl font-medium">
+          {title}
+        </h2>
+        <p className=" text-secondary-text mt-2">{description}</p>
       </div>
     </div>
     // </Link>

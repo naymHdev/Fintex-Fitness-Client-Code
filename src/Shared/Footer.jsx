@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <div className="grid font-josefin grid-cols-1 md:grid-cols-2 mt-20 gap-44 p-12 bg-[#52734D] opacity-65 text-slate-100">
+      <div className="grid responsive-padding font-josefin grid-cols-1 md:grid-cols-2 mt-20 gap-44 bg-primary-bg">
         <div className="">
           <Link to="/">
             <div className="flex items-center md:gap-4">
@@ -81,18 +81,24 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className=" text-center bg-slate-800 text-white py-1 text-sm font-bold">
-        <p className=" flex items-center gap-1 justify-center">
-          Copyright © 2024 - All right reserved by 
-          <a
-            className="underline text-red-600"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://naymhossen1b.netlify.app"
-          >
-            Naym Hossen
-          </a>
-        </p>
+      <div className=" w-full border-b border-black"></div>
+      <div className=" bg-primary-bg py-8 responsive-padding">
+        <div className=" flex items-center gap-1 justify-between">
+          <p>
+            Copyright © 2024 - All right reserved by
+            <a
+              className="underline px-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://naymhossen1b.netlify.app"
+            >
+              Naym Hossen
+            </a>
+          </p>
+          <div className=" flex items-center gap-2 hover:cursor-pointer text-primary-text">
+            <p>Terms And Condition</p> | <p>Privacy Policy</p>
+          </div>
+        </div>
       </div>
     </>
   );
