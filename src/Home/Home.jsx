@@ -2,12 +2,10 @@
 import { Helmet } from "react-helmet";
 import Coaches from "./Coaches/Coaches";
 import Featured from "./Featured/Featured";
-import Newsletter from "./Newsletter/Newsletter";
 import Testimonials from "./Testimonials";
-import LatestArticals from "./Articals/LatestArticals";
-import Bmi from "../Components/BMI/Bmi";
 import Banner from "./Slider/Banner";
 import About from "./About";
+import Yoga from "./Yoga/Yoga";
 
 const Home = () => {
   return (
@@ -17,12 +15,10 @@ const Home = () => {
       </Helmet>
       <Banner />
       <About />
+      <Yoga />
       <Featured />
       <Testimonials />
       <Coaches />
-      {/* <Newsletter /> */}
-      {/* <LatestArticals /> */}
-      {/* <Bmi /> */}
     </div>
   );
 };

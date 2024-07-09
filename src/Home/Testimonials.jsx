@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
-import { testimonials } from "../Api/Featured/Featured";
+import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../Components/SectionTitle";
 import TestimonialCard from "./TestimonialCard";
+import axiosSecure from "../Hooks/localAxios";
 
 const Testimonials = () => {
-  const [feedback, setFeedback] = useState([]);
-
-  useEffect(() => {
-    testimonials().then((data) => setFeedback(data));
-  }, []);
+  const { data: allFeedback } = useQuery({
+    queryKey: ["allFeedback"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/testimonials");
+      // console.log(res.data);
+      return res.data;
+    },
+  });
 
   return (
     <div className="mt-12 responsive-padding">
@@ -19,7 +22,7 @@ const Testimonials = () => {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-8">
-        {feedback.map((test) => (
+        {allFeedback?.map((test) => (
           <TestimonialCard key={test._id} test={test} />
         ))}
       </div>

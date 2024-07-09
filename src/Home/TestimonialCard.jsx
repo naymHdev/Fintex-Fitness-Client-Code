@@ -20,7 +20,6 @@ const TestimonialCard = ({ test }) => {
           type="radio"
           name="rating-10"
           className=" bg-primary-bg mask mask-star-2 mask-half-1"
-          
         />
         <input
           type="radio"
