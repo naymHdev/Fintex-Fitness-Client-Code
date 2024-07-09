@@ -7,6 +7,7 @@ import Testimonials from "./Testimonials";
 import LatestArticals from "./Articals/LatestArticals";
 import Bmi from "../Components/BMI/Bmi";
 import Banner from "./Slider/Banner";
+import About from "./About";
 
 const Home = () => {
   return (
@@ -15,8 +16,8 @@ const Home = () => {
         <title>Fintex-Fitness || Home</title>
       </Helmet>
       <Banner />
+      <About />
       <Featured />
-      {/* <About /> */}
       <Testimonials />
       <Coaches />
       {/* <Newsletter /> */}

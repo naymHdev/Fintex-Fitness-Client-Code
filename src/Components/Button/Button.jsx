@@ -1,41 +1,15 @@
-/* eslint-disable react/prop-types */
-const Button = ({ label, onClick, disabled, outline, small, icon: Icon }) => {
+import React from "react";
+import { FaArrowRightLong } from "react-icons/fa6";
+
+const Button = ({ label }) => {
   return (
-    <button
-      type="submit"
-      disabled={disabled}
-      onClick={onClick}
-      className={`
-            relative
-            disabled:opacity-70
-            disabled:cursor-not-allowed
-            rounded-tl-3xl
-            rounded-br-3xl
-            hover:bg-[#FEFFDE]
-            hover:text-[#52734D]
-            transition
-            px-4
-            border-none
-            ${outline ? "bg-white" : "bg-[#DDFFBC]"}
-            ${outline ? "text-black" : " text-slate-600"}
-            ${small ? "text-sm" : "text-md"}
-            ${small ? "py-1" : "py-3"}
-            ${small ? "font-light" : "font-semibold"}
-            ${small ? "border-[1px]" : "border-2"}
-          `}
-    >
-      {Icon && (
-        <Icon
-          size={24}
-          className="
-                absolute
-                left-4
-                top-3
-              "
-        />
-      )}
-      {label}
-    </button>
+    <>
+      <div>
+        <button className=" text-primary-text flex items-center gap-3 border border-black px3 md:px-8  py-2 md:py-3 rounded-full">
+          {label} <FaArrowRightLong className=" text-xl" />
+        </button>
+      </div>
+    </>
   );
 };
 
