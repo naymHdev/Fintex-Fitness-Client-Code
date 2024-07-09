@@ -73,7 +73,7 @@ const Header = () => {
                       <h1 className="font-bold">Classes</h1>
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink
                       to="/forum"
                       className={({ isActive, isPending }) =>
@@ -86,7 +86,7 @@ const Header = () => {
                     >
                       <h1 className="font-bold">Forum</h1>
                     </NavLink>
-                  </li>
+                  </li> */}
                   {/* <li>
                     <NavLink to="/challenges"
                      className={({ isActive, isPending }) =>

@@ -20,7 +20,10 @@ const Classes = () => {
 
   return (
     <div className="font-josefin">
-      <Helmet> <title>Fintex-Fitness || Classes</title></Helmet>
+      <Helmet>
+        {" "}
+        <title>Fintex-Fitness || Classes</title>
+      </Helmet>
       <section className="pt-[200px] bg-neutral flex items-center bg-[url('https://imagizer.imageshack.com/img923/2360/dOa8PF.jpg')] bg-cover rounded-xl py-24 bg-opacity-30">
         <div>
           <LuGalleryVertical className="text-6xl text-green-400 md:ml-20" />
@@ -35,9 +38,10 @@ const Classes = () => {
             Our <span className="text-green-400">Classes</span>
           </h2>
           <p className="text-sm text-center text-white w-1/2 mx-auto">
-            Embark on your fitness journey with cutting-edge trackers. Explore our gallery
-            showcasing sleek designs, advanced features, and real-time health insights. Elevate your
-            wellness experience with the latest in fitness technology.
+            Embark on your fitness journey with cutting-edge trackers. Explore
+            our gallery showcasing sleek designs, advanced features, and
+            real-time health insights. Elevate your wellness experience with the
+            latest in fitness technology.
           </p>
         </div>
         <div>
@@ -45,7 +49,7 @@ const Classes = () => {
         </div>
       </section>
 
-      <div className="mt-20">
+      <div className="mt-20 responsive-padding">
         <SectionTitle
           heading={"Today Our Trending Classes"}
           subHeading={
@@ -58,27 +62,34 @@ const Classes = () => {
           {isClass?.map((item) => (
             <div
               key={item._id}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-md  border border-green-500 items-center"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-md border-none bg-primary-bg items-center"
             >
               <div>
-                <img className="rounded-l-md w-full h-64" src={item?.imag} alt="" />
+                <img
+                  className="rounded-l-md w-full h-64"
+                  src={item?.imag}
+                  alt=""
+                />
               </div>
               <div className="space-y-2 px-5 py-5">
-                <h2 className="text-2xl font-bold text-white">{item.title}</h2>
+                <h2 className="text-2xl font-bold text-primary-text">{item.title}</h2>
                 <h3 className="">
-                  <span className="text-green-500 font-bold">Instructor: </span>
+                  <span className=" font-bold">Instructor: </span>
                   {item.instructorName}
                 </h3>
                 <h3>
-                  <span className="text-green-500 font-bold">Skill: </span>
+                  <span className=" font-bold">Skill: </span>
                   {item.trainerSkills}
                 </h3>
                 <h2>
-                  <span className="text-green-500">${item.coursePrice}</span> per session
+                  <span className="">${item.coursePrice}</span>{" "}
+                  per session
                 </h2>
                 <p className="text-sm">{item.description}</p>
                 <div className="flex justify-end">
-                  <Link to='/trainer'><Button label={"Join Now"} /></Link>
+                  <Link to="/trainer">
+                    <Button label={"Join Now"} />
+                  </Link>
                 </div>
               </div>
             </div>

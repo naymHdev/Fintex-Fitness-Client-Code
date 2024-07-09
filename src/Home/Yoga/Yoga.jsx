@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const Yoga = () => {
   return (
     <>
-      <div className="responsive-padding relative grid grid-cols-1 lg:grid-cols-3 items-center gap-5 md:gap-10 mt-24">
+      <div className="responsive-padding grid grid-cols-1 lg:grid-cols-3 items-center gap-5 md:gap-10 mt-96 md:mt-0">
         <div>
           <img
             className=" rounded-t-full w-full h-auto"

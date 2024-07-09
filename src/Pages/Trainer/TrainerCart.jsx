@@ -6,7 +6,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import Button from "../../Components/Button/Button";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { MdVerified } from "react-icons/md";
 import { CiTimer } from "react-icons/ci";
@@ -64,12 +64,16 @@ const TrainerCart = ({ info }) => {
             <div className="flex items-center justify-between mt-5">
               <div>
                 <Link to={"/pricing"}>
-                  <Button label={"Available Slots"} />
+                  <button className=" text-primary-text flex items-center gap-3 border border-black px-3 md:px-8  py-2 md:py-3 rounded-full">
+                    Join Now <FaArrowRightLong className=" text-xl" />
+                  </button>
                 </Link>
               </div>
               <div>
                 <Link to={`/trainerDetails/${_id}`}>
-                  <Button label={"Know more"} />
+                  <button className=" text-primary-text flex items-center gap-3 border border-black px-3 md:px-5  py-2 md:py-3 rounded-full">
+                    Know More <FaArrowRightLong className=" text-xl" />
+                  </button>
                 </Link>
               </div>
             </div>

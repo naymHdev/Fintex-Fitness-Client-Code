@@ -49,7 +49,7 @@ const Forum = () => {
           <LuGalleryVertical className=" text-xl md:text-6xl text-green-400 md:mr-20" />
         </div>
       </section>
-      <div className="mt-12 w-full md:w-9/12">
+      <div className="mt-12 responsive-padding">
         <SectionTitle
           heading={
             "Unleash Your Best Self: Join the Ultimate Fitness Community for Expert Tips and Motivation!"
