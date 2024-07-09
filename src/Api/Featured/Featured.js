@@ -1,10 +1,5 @@
 import axiosSecure from "../../Hooks/localAxios";
 
-export const allFeatured = async () => {
-  const { data } = await axiosSecure.get("/featured");
-  return data;
-};
-
 // testimonials
 export const testimonials = async () => {
   const { data } = await axiosSecure.get("/testimonials");
@@ -80,7 +75,6 @@ export const userRoles = async () => {
   const { data } = await axiosSecure.get("/user/trainer");
   return data;
 };
-
 
 // Get User challenges
 export const getChallenges = async () => {

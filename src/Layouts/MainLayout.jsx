@@ -4,7 +4,7 @@ import Header from "../Shared/Header/Header";
 
 const MainLayout = () => {
   return (
-    <div className=" max-w-full mx-auto bg-[#F3F3F3]">
+    <div className=" max-w-7xl mx-auto bg-[#F3F3F3]">
       <Header />
       <Outlet />
       <Footer />
